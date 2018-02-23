@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html ng-app="personalReport">
+
+	<head>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		<meta charset="utf-8">
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta content="telephone=no" name="format-detection">
+		<!--uc浏览器强制竖屏-->
+		<meta name="screen-orientation" content="portrait">
+		<!--QQ浏览器强制竖屏-->
+		<meta name="x5-orientation" content="portrait">
+		<title>我的月报</title>
+		<link rel="stylesheet" type="text/css" href="http://wx.zzfco.com/wxweb/css/swiper.min.css" />
+		<link rel="stylesheet" type="text/css" href="http://wx.zzfco.com/wxweb/css/animate.min.css" />
+		<link rel="stylesheet" type="text/css" href="http://wx.zzfco.com/wxweb/css/mobileMain.css" />
+		<link rel="stylesheet" type="text/css" href="http://wx.zzfco.com/wxweb/css/personalData_total.css" />
+		<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://wx.zzfco.com/wxweb/js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://wx.zzfco.com/wxweb/js/angular.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://wx.zzfco.com/wxweb/js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://wx.zzfco.com/wxweb/js/circle-progress.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://wx.zzfco.com/wxweb/js/commonJS.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://wx.zzfco.com/wxweb/js/highcharts.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://wx.zzfco.com/wxweb/js/exporting.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://wx.zzfco.com/wxweb/js/jquery.roundabout.min.js"></script>
+		<script src="http://wx.zzfco.com/wxjs/js/share.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://wx.zzfco.com/wxweb/js/personalData_total.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<div class="container row swiper-container swiper-container-father" ng-controller="reportController">
+			<ul class="swiper-wrapper">
+				<li class="swiper-slide">
+					<div class="top">
+						<img src="http://wx.zzfco.com/wxweb/img/logo3.png" class="logo" />
+						<div>
+							<div ng-bind="khName"></div>
+							<div>编号：<span ng-bind="number"></span></div>
+							<div>资金账户：<span ng-bind="account"></span></div>
+							<div>开户时间：<span ng-bind="openTime"></span></div>
+						</div>
+						<div>
+							<div>
+								<img src="http://wx.zzfco.com/wxweb/img/common.png" class="icon" />
+								<img src="http://wx.zzfco.com/wxweb/img/rotate.png" class="icon_bg" />
+							</div>
+							<div>已交易<span ng-bind="sumDays"></span>天</div>
+							<div>更新时间:<span ng-bind="currentTime"></span></div>
+						</div>
+					</div>
+					<ul class="content">
+						<li>
+							初始入金: <span ng-bind-html="initialEntry|to_trusted"></span>
+						</li>
+						<li>
+							<div ng-class="{positive:isPositive,negative:isNegative}" ng-bind-html="monthStart_balance|to_trusted"></div>
+							<div ng-class="{positive:isPositive,negative:isNegative}" ng-bind-html="monthEnd_balance|to_trusted"></div>
+						</li>
+						<li>
+							<div>月初权益</div>
+							<div>月末权益</div>
+						</li>
+						<li>
+							<span>累计收益率</span><span id="info">每日资金信息以监控中心数据为准</span>
+							<div class="qxt"></div>
+						</li>
+						<li>
+							<ul class="charts">
+								<li>
+									<p>当月排名</p>
+									<p><span class="rank" ng-bind="rank"></span>名</p>
+									<div class="yh month_profitRatio">
+										<ul>
+											<li class="monthProfit"></li>
+											<li>当月收益率</li>
+										</ul>
+									</div>
+								</li>
+								<li>
+									<p>排名变化</p>
+									<p><img class="change_icon" /><span class="rank" ng-bind="rank_change"></span>名</p>
+									<div class="yh total_profitRatio">
+										<ul>
+											<li class="totalProfit"></li>
+											<li>年化收益率</li>
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</li>
+					</ul>
+					<div class="lookMore">
+						<a href="http://wx.zzfco.com/wxweb/personalData_more.html" class="more">查看交易明细 &gt;</a>
+						<img src="http://wx.zzfco.com/wxweb/img/dropdown.png" style="width: 1.2rem;" />
+					</div>
+				</li>
+				<li class="swiper-slide bg2">
+					<div class="secondTitle">综合点评</div>
+					<div class="second_top">
+						<img src="http://wx.zzfco.com/wxweb/img/second_top_bg.png" />
+						<div class="mainBox">
+							<table>
+								<tr>
+									<td>交易合约</td>
+									<td>|</td>
+									<td ng-bind-html="maxTitle|to_trusted"></td>
+									<td>|</td>
+									<td>交易方向</td>
+								</tr>
+								<tr>
+									<td ng-bind-html="mainContract|to_trusted"></td>
+									<td></td>
+									<td ng-bind-html="maxDeficit|to_trusted"></td>
+									<td></td>
+									<td ng-bind-html="tradeDirection|to_trusted"></td>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<div class="totalComment" ng-bind-html="totalComment|to_trusted"></div>
+
+					<div class="lookMore">
+						<span>以上观点仅供参考，不作为投资依据</span>
+						<img src="http://wx.zzfco.com/wxweb/img/dropdown.png" style="width: 1.2rem;" />
+					</div>
+				</li>
+				<li class="swiper-slide bg2">
+					<div class="secondTitle">综合点评</div>
+					<!--<ul class="comments">
+						<li>-->
+							<div class="comment3" ng-bind-html="comment3|to_trusted"></div>
+						<!--</li>
+					</ul>-->
+					<div class="lookMore">
+						<span>以上观点仅供参考，不作为投资依据</span>
+						<img src="http://wx.zzfco.com/wxweb/img/dropdown.png" style="width: 1.2rem;" />
+					</div>
+				</li>
+				<li class="swiper-slide bg3">
+					<div class="thirdTitle">久赢分析师模拟交易情况</div>
+					<div class="roundabout_box">
+						<ul>
+							<li data-order="1" class="analyst1">
+								<div class='box_top'>
+									<div class='wave -one'></div>
+									<div class='wave -two'></div>
+									<div class="analystTitle">
+										<p>模拟分析师</p>
+										<p><span ng-bind-html="analyst1|to_trusted"></span></p>
+										<img src="http://wx.zzfco.com/wxweb/img/rotate.png" class="analyst_level_bg" />
+										<img src="http://wx.zzfco.com/wxweb/img/expert.png" class="analyst_level" />
+									</div>
+								</div>
+								<table class="analyst_details">
+									<tr>
+										<td>月初权益:</td>
+										<td ng-bind-html="analyst1_startBalance|to_trusted"></td>
+										<td>交易品种:</td>
+										<td ng-bind-html="analyst1_tradeType|to_trusted"></td>
+									</tr>
+									<tr>
+										<td>月末权益:</td>
+										<td ng-bind-html="analyst1_endBalance|to_trusted"></td>
+										<td>交易次数:</td>
+										<td ng-bind-html="analyst1_tradeNum|to_trusted"></td>
+									</tr>
+								</table>
+								<ul class="percent">
+									<li ng-bind-html="analyst1_yearProfitRatio|to_trusted"></li>
+									<li>年化收益率</li>
+									<li ng-bind-html="analyst1_winningRatio|to_trusted"></li>
+									<li>胜算率</li>
+								</ul>
+								<div class="chart_container">
+									<div class="analystMonthProfitRatio1">
+										<div class="chart_box">
+											<div class="chart_top analyst1_monthProfitRatio"></div>
+											<div class="chart_bottom">月收益率</div>
+										</div>
+									</div>
+									<div class="analystTotalProfitRatio1">
+										<div class="chart_box">
+											<div class="chart_top analyst1_totalProfitRatio"></div>
+											<div class="chart_bottom">总收益率</div>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li data-order="2" class="analyst2">
+								<div class='box_top'>
+									<div class='wave -one'></div>
+									<div class='wave -two'></div>
+									<div class="analystTitle">
+										<p>模拟分析师</p>
+										<p><span ng-bind-html="analyst2|to_trusted"></span></p>
+										<img src="http://wx.zzfco.com/wxweb/img/rotate.png" class="analyst_level_bg" />
+										<img src="http://wx.zzfco.com/wxweb/img/expert.png" class="analyst_level" />
+									</div>
+								</div>
+								<table class="analyst_details">
+									<tr>
+										<td>月初权益:</td>
+										<td ng-bind-html="analyst2_startBalance|to_trusted"></td>
+										<td>交易品种:</td>
+										<td ng-bind-html="analyst2_tradeType|to_trusted"></td>
+									</tr>
+									<tr>
+										<td>月末权益:</td>
+										<td ng-bind-html="analyst2_endBalance|to_trusted"></td>
+										<td>交易次数:</td>
+										<td ng-bind-html="analyst2_tradeNum|to_trusted"></td>
+									</tr>
+								</table>
+								<ul class="percent">
+									<li ng-bind-html="analyst2_yearProfitRatio|to_trusted"></li>
+									<li>年化收益率</li>
+									<li ng-bind-html="analyst2_winningRatio|to_trusted"></li>
+									<li>胜算率</li>
+								</ul>
+								<div class="chart_container">
+									<div class="analystMonthProfitRatio2">
+										<div class="chart_box">
+											<div class="chart_top analyst2_monthProfitRatio"></div>
+											<div class="chart_bottom">月收益率</div>
+										</div>
+									</div>
+									<div class="analystTotalProfitRatio2">
+										<div class="chart_box">
+											<div class="chart_top analyst2_totalProfitRatio"></div>
+											<div class="chart_bottom">总收益率</div>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li data-order="3" class="analyst3">
+								<div class='box_top'>
+									<div class='wave -one'></div>
+									<div class='wave -two'></div>
+									<div class="analystTitle">
+										<p>模拟分析师</p>
+										<p><span ng-bind-html="analyst3|to_trusted"></span></p>
+										<img src="http://wx.zzfco.com/wxweb/img/rotate.png" class="analyst_level_bg" />
+										<img src="http://wx.zzfco.com/wxweb/img/expert.png" class="analyst_level" />
+									</div>
+								</div>
+								<table class="analyst_details">
+									<tr>
+										<td>月初权益:</td>
+										<td ng-bind-html="analyst3_startBalance|to_trusted"></td>
+										<td>交易品种:</td>
+										<td ng-bind-html="analyst3_tradeType|to_trusted"></td>
+									</tr>
+									<tr>
+										<td>月末权益:</td>
+										<td ng-bind-html="analyst3_endBalance|to_trusted"></td>
+										<td>交易次数:</td>
+										<td ng-bind-html="analyst3_tradeNum|to_trusted"></td>
+									</tr>
+								</table>
+								<ul class="percent">
+									<li ng-bind-html="analyst3_yearProfitRatio|to_trusted"></li>
+									<li>年化收益率</li>
+									<li ng-bind-html="analyst3_winningRatio|to_trusted"></li>
+									<li>胜算率</li>
+								</ul>
+								<div class="chart_container">
+									<div class="analystMonthProfitRatio3">
+										<div class="chart_box">
+											<div class="chart_top analyst3_monthProfitRatio"></div>
+											<div class="chart_bottom">月收益率</div>
+										</div>
+									</div>
+									<div class="analystTotalProfitRatio3">
+										<div class="chart_box">
+											<div class="chart_top analyst3_totalProfitRatio"></div>
+											<div class="chart_bottom">总收益率</div>
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<ul class="showPage">
+						<li class="showPage_on"></li>
+						<li></li>
+						<li></li>
+					</ul>
+					<div class="lookMore">
+						<span>每日资金信息以监控中心数据为准</span>
+						<img src="http://wx.zzfco.com/wxweb/img/dropdown.png" style="width: 1.2rem;" />
+					</div>
+				</li>
+				<li class="swiper-slide bg4">
+					<div class="fourthTitle">久赢客户综合收益情况</div>
+					<div class="totalInfo">
+						<ul>
+							<li>
+								<div class="topLeft totoal_data" ng-bind-html="total_tradeType|to_trusted"></div>
+								<div class="bottomRight totoal_title">交易品种</div>
+							</li>
+							<li>
+								<div class="bottomLeft totoal_title">交易次数</div>
+								<div class="topRight totoal_data" ng-bind-html="total_tradeNum|to_trusted"></div>
+							</li>
+							<li>
+								<div class="bottomLeft totoal_data" ng-bind-html="total_startBalance|to_trusted"></div>
+								<div class="topRight totoal_title">月初权益</div>
+							</li>
+							<li>
+								<div class="topLeft totoal_title">月末权益</div>
+								<div class="bottomRight totoal_data" ng-bind-html="total_endBalance|to_trusted"></div>
+							</li>
+						</ul>
+					</div>
+					<ul class="total_percent">
+						<li ng-bind-html="total_monthProfitRatio|to_trusted"></li>
+						<li>月收益率</li>
+						<li ng-bind-html="total_totalProfitRatio|to_trusted"></li>
+						<li>总收益率</li>
+					</ul>
+					<div class="total_chart_container">
+						<div class="totalYearProfitRatio">
+							<div class="chart_box">
+								<div class="chart_top total_YearProfitRatio"></div>
+								<div class="chart_bottom">年化收益率</div>
+							</div>
+						</div>
+						<div class="totalWinningRatio">
+							<div class="chart_box">
+								<div class="chart_top total_WinningRatio"></div>
+								<div class="chart_bottom">胜算率</div>
+							</div>
+						</div>
+					</div>
+					<div class="lookMore">
+						<span>每日资金信息以监控中心数据为准</span>
+						<img src="http://wx.zzfco.com/wxweb/img/dropdown.png" style="width: 1.2rem;" />
+					</div>
+				</li>
+				<li class="swiper-slide bg5">
+					<div class="fifthTitle">久赢客户收益排名</div>
+					<img src="http://wx.zzfco.com/wxweb/img/TOP.jpg" class="trophy" />
+					<div class="rank_container">
+						<div class="rank_top">
+							<div class="rankTop3">
+								<p><img src="http://wx.zzfco.com/wxweb/img/third.png" /></p>
+								<p class="p1" ng-bind-html="top3_name|to_trusted"></p>
+								<p class="p2" ng-bind-html="toP3_monthProfitRatio|to_trusted"></p>
+								<p class="p3">月收益率</p>
+							</div>
+							<div class="rankTop1">
+								<p><img src="http://wx.zzfco.com/wxweb/img/first.png" /></p>
+								<p class="p1" ng-bind-html="top1_name|to_trusted"></p>
+								<p class="p2" ng-bind-html="toP1_monthProfitRatio|to_trusted"></p>
+								<p class="p3">月收益率</p>
+							</div>
+							<div class="rankTop2">
+								<p><img src="http://wx.zzfco.com/wxweb/img/second.png" /></p>
+								<p class="p1" ng-bind-html="top2_name|to_trusted"></p>
+								<p class="p2" ng-bind-html="toP2_monthProfitRatio|to_trusted"></p>
+								<p class="p3">月收益率</p>
+							</div>
+						</div>
+						<ul class="rank_bottom">
+
+						</ul>
+					</div>
+				</li>
+			</ul>
+		</div>
+
+	</body>
+
+</html>

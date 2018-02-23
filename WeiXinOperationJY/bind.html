@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		<meta charset="utf-8">
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta content="telephone=no" name="format-detection">
+		<!--uc浏览器强制竖屏-->
+		<meta name="screen-orientation" content="portrait">
+		<!--QQ浏览器强制竖屏-->
+		<meta name="x5-orientation" content="portrait">
+		<title>账户绑定</title>
+		<link rel="stylesheet" type="text/css" href="css/mobileMain.css" />
+		<link rel="stylesheet" type="text/css" href="css/bind.css" />
+		<script src="js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/commonJS.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/bind.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<div class="container">
+			<header>
+				<img src="img/logo.png" class="logo" />
+				<img src="img/bind.png" class="bind" />
+				<div class="title">
+					<p>账户绑定</p>
+					<p>绑定现有的 中州久赢 资金账户</p>
+				</div>
+			</header>
+			<section class="view1">
+				<p>
+					<span class="circle"></span>手机号
+				</p>
+				<p>
+					<input id="mobile" type="tel" placeholder="请输入11位手机号..." />
+				</p>
+				<p>
+					<span id="confirm"></span>
+					<input type="text" id="code" placeholder="请输入..." />
+				</p>
+				<p>
+					<button class="sendMessage">获取短信验证码</button>
+				</p>
+				<p>
+					<span class="circle"></span>手机验证码
+				</p>
+				<p>
+					<input id="messageCode" type="tel" placeholder="请输入手机验证码..." />
+				</p>
+				<p>
+					<span class="circle"></span>邀请人信息
+				</p>
+				<p>
+					<input id="invitor" type="text" placeholder="请输入邀请人手机号" />
+				</p>
+			</section>
+			<footer class="disclick">一键绑定</footer>
+		</div>
+	</body>
+
+</html>

@@ -1,0 +1,378 @@
+body{
+	background: #f7f7f7;
+	font-size: 1.3rem;
+}
+header{
+	width: 100%;
+	height: 3.3rem;
+	background:#ffffff;
+	position: absolute;
+	top: 0;
+}
+.nav{
+	height: calc(3.3rem - 4px);	
+	width: 100%;
+	margin: 0 auto;
+	display: flex;
+	display: -webkit-flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+}
+.nav li{
+	height: 100%;
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
+	color: #4c4c4c;
+	display: flex;
+	display: -webkit-flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+.select_on{
+	color: #ab8c5f !important;
+	border-bottom: 4px solid #ab8c5f;
+}
+.cc,.yk{
+	position: absolute;
+	top: 3.3rem;
+	left: 0;
+	width: 100%;
+	height: calc(100% - 9.7rem - 1px);
+}
+.yk{
+	display: none;
+}
+.info{
+	width: 100%;
+	position: absolute;
+	bottom: 4.4rem;
+	height: 2rem;
+	color: #c7c7c7;
+	background: #2e3132;
+	text-align: center;
+	line-height: 2rem;
+	font-size: 1.1rem;
+}
+/***持仓情况的***/
+.totalData{
+	width: 100%;
+	float: left;
+	height: calc(6rem - 2px);
+	border-top: 1px solid #D1D1D1;
+	border-bottom: 1px solid #D1D1D1;
+}
+.totalData>div{
+	height: 100%;
+	width: 50%;
+	float: left;
+	display: flex;
+	display: -webkit-flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+.totalData>div>div:last-of-type{
+	color: #808080;
+	display: flex;
+	display: -webkit-flex;
+    justify-content: center;
+    align-items: center;
+}
+.totalData>div>div:last-of-type img{
+	margin-right: 0.5rem;
+}
+
+.totalProfit{
+	color: #f25c33;
+}
+.navType1{
+	width: 100%;
+	height: 4rem;
+	background:#ffffff;
+	float: left;
+	display: none;
+}
+.navbar1{
+	width: 100%;
+	height: 100%;
+	display: flex;
+	display: -webkit-flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+}
+.navbar1 li{
+	color: #666666;
+}
+.navbar_on{
+	color: #333333 !important;
+}
+.up_arrow{
+	border: 0.5rem solid transparent;
+	border-bottom-color: #666666;
+	position: relative;
+	bottom: 1.25rem;
+	left: 0.5rem;
+	opacity: 0;
+}
+.down_arrow{
+	border: 0.5rem solid transparent;
+	border-top-color: #666666;
+	position: relative;
+	left: -0.5rem;
+	top: 1.25rem;
+	opacity: 1;
+}
+
+.noData{
+	height: 100%;
+	line-height: 10rem;
+	width: 100%;
+	text-align: center;
+	color: #999999;
+	display: none;
+	z-index: 10;
+	background: #F5F5F5;
+}
+.record{
+	margin-top: 0.5rem;
+	float: left;
+	width: 100%;
+	height: calc(100% - 10.5rem);
+	background: #FFFFFF;
+	overflow-y:scroll ;
+	-webkit-overflow-scrolling: touch;
+	z-index: 55;
+	display: none;
+}
+.record>ul{
+	width: 90% ;
+	margin: 0 auto;
+}
+.record>ul>li{
+	width: 100%;
+	height: 6rem;
+	border-bottom: 1px solid #ebebeb;
+	display: flex;
+	display: -webkit-flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 1.1rem;
+    text-align: center;
+}
+.record>ul>li>div{
+	height: 5rem;
+	width: calc((100% - 13rem) / 3);
+	display: flex;
+	display: -webkit-flex;
+	justify-content: space-around;
+	flex-direction: column;
+	align-items: center;
+}
+.record>ul>li>div>div{
+	display: -webkit-flex;
+	display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+}
+.record>ul>li>div img{
+	width: 1.5rem;
+}
+.record>ul>li>div:last-of-type{
+	width: 13rem;
+	border-left: solid #ebebeb;
+}
+.record>ul>li>div:first-of-type,.record>ul>li>div:last-of-type>div:last-of-type{
+	color: #999999 !important;
+}
+
+.yl{
+	color: #f25c33 !important;
+	font-family: "PF_bold";
+	font-size: 1.5rem;
+}
+.ks{
+	font-size: 1.5rem;
+	font-family: "PF_bold";
+	color: #03af7c !important;
+}
+/***每日盈亏的***/
+.preview,.details{
+	width: 100%;
+	height: calc(100% - 0.5rem);
+	position: absolute;
+	top: 0.5rem;
+	left: 0;
+}
+.details{
+	display: none;
+}
+.qxt{
+	width: 100%;
+	height: 27rem;
+	float: left;
+}
+.more{
+	width: 100%;
+	float: left;
+	height: 3.3rem;
+	background: #f7f7f7;
+	display: flex;
+	display: -webkit-flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	font-size: 1.4rem;
+}
+.more span{
+	color: #999999;
+}
+.more div{
+	background: #cb9f60;
+	color: #FFFFFF;
+	border-radius: 100px;
+	width: 5rem;
+	height: 2.2rem;
+	line-height: 2.2rem;
+	text-align: center;
+}
+.selectCondition{
+	width: 100%;
+	float: left;
+	height: calc(100% - 30.3rem);
+	background: #FFFFFF;
+	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
+}
+.selectCondition>ul{
+	width: calc(100% - 1rem);
+	padding-left: 1rem;
+}
+.selectCondition>ul>li{
+	width: 100%;
+	height: 4.5rem;
+	border-top: 1px solid #ebebeb;
+	display: flex;
+	display: -webkit-flex;
+	justify-content: space-around;
+	align-items: center;
+	flex-direction: row;
+	font-size: 1.5rem;
+}
+.selectCondition>ul>li>div{
+	display: flex;
+	display: -webkit-flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+}
+.selectCondition>ul>li>div .iconfont{
+	font-size: 3rem;
+    position: relative;
+    top: 0.5rem;
+}
+.selectCondition>ul>li>div:first-of-type{
+	color: #999999;
+}
+.selectCondition>ul>li>div:last-of-type{
+	color: #4c4c4c;
+}
+.selectCondition>ul>li>div:last-of-type img{
+	width: 13%;
+    position: relative;
+    top: -0.5rem;
+}
+.balance_up{
+	color: #f25c33 !important;
+}
+.balance_down{
+	color: #03af7c !important;
+}
+.navType2{
+	width: 100%;
+	height: 4rem;
+	background:#ffffff;
+	float: left;
+}
+.navbar2{
+	width: 90%;
+	height: 100%;
+    display: -webkit-flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+}
+.navbar2 li{
+	color: #666666;
+	width: calc(100% / 4);
+    text-align: center;
+}
+.profitRecord{
+	margin-top: 1rem;
+	width: 100%;
+	background: #FFFFFF;
+	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
+	height: calc(100% - 5rem);
+	float: left;
+}
+.profitRecord>ul{
+	width: 90% ;
+	margin: 0 auto;
+}
+.profitRecord>ul>li{
+	color: #333333;
+	width: 100%;
+	height: 5rem;
+	border-bottom: 1px solid #ebebeb;
+	display: flex;
+	display: -webkit-flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+.profitRecord>ul>li>div{
+	width: calc(100% / 4);
+	text-align: center;
+}
+.profitRecord>ul>li>div:first-of-type{
+	color: #999999 !important;
+}
+footer{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 4.4rem;
+	border-top: 1px solid #d4d4d4;
+	background: #FFFFFF;
+	font-size: 1.3rem;
+}
+
+footer ul{
+	width: 100%;
+	height: 100%;
+}
+footer ul li{
+	float: left;
+	width: calc(100% / 3);
+	height: 100%;
+}
+footer ul li  div{
+	width: 100%;
+	text-align: center;
+}
+footer ul li div:first-of-type{
+	font-size: 3rem;
+	position: relative;
+	top: 0.5rem;
+}
+footer ul li div:last-of-type{
+	position: relative;
+	top: -1rem;
+}
+.item_on{
+	color:#ab8c5f !important;
+}

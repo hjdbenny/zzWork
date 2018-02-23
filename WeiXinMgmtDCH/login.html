@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>久赢月报后台管理登录</title>
+		<link rel="stylesheet" href="css/login.css" />
+		<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+		<script src="js/login.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+			<!--登陆-->
+		<section>
+			<header>
+				<img src="img/logo2.png" />
+			</header>
+			<article>
+				<img id="closeIcon" src="img/closeIcon.png" />
+				<div id="title">
+					<span id="welcome">H5制作管理平台</span>
+				</div>
+				<form name="login" action="" method="post">
+					<ul>
+						<li>
+							<label>用户名：</label>
+							<input type="text" name="username" id="userName" />
+						</li>
+						<li>
+							<label>密码：</label>
+							<input type="password" name="password" required="required" id="password" />
+						</li>
+						<li>
+							<label>验证码：</label>
+							<input type="text" name="confirmword" required="required" id="code" />
+							<div id="confirm"></div>
+						</li>
+					</ul>
+					<a href="#" id="login" ng-click="logIn($event)">登陆</a>
+				</form>
+			</article>
+			<footer>
+				<span>jiuying.system&copy; </span>
+			</footer>
+		</section>
+	</body>
+
+</html>

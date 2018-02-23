@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>积分规则</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0,user-scale=0,user-scalable=no">
+		<!--uc浏览器强制竖屏-->
+		<meta name="screen-orientation" content="portrait">
+		<!--QQ浏览器强制竖屏-->
+		<meta name="x5-orientation" content="portrait">
+		<link rel="stylesheet" type="text/css" href="css/mobileMain.css" />
+		<link rel="stylesheet" type="text/css" href="css/pointsMain.css" />
+		<style>
+			section>img {
+				width: 100%;
+			}
+		</style>
+		<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://www.decaihui.com/wxjs/js/share.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/tzAuthorize.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/commonJS.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			$(function() {
+				$(window).scroll(function() {
+					if($(document).scrollTop() > $("header").height()) {
+						$("nav").css({
+							"top": "0",
+							"position": "fixed"
+						})
+					} else {
+						$("nav").css({
+							"top": "10rem",
+							"position": "absolute"
+						})
+					}
+				})
+			})
+		</script>
+	</head>
+
+	<body>
+		<div class="container">
+			<header>
+				<a href="###" class="rule">积分规则 <span class="iconfont">&#xe72d;</span></a>
+				<div class="top_box">
+					<div class="icon_bg">
+						<img src="img/expert.png" />
+						<img src="img/rotate.png" />
+					</div>
+					<div class="points_box">
+						<span>当前积分</span>
+						<span id="points">1200</span>
+					</div>
+				</div>
+			</header>
+			<nav>
+				<ul>
+					<li>
+						<a href="###" class="toMall"><span class="iconfont">&#xe60e;</span>积分商城</a>
+					</li>
+					<li>
+						<a href="###" class="toOrder"><span class="iconfont">&#xe60c;</span>积分订单</a>
+					</li>
+					<li>
+						<a href="###" class="toInvitation"><span class="iconfont">&#xe60d;</span>累计邀请</a>
+					</li>
+				</ul>
+			</nav>
+			<section>
+				<img src="img/pointRule.png" />
+			</section>
+		</div>
+	</body>
+
+</html>

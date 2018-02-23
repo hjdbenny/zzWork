@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>管理员权限</title>
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<link rel="stylesheet" type="text/css" href="css/jquery-ui.css" />
+		<link rel="stylesheet" type="text/css" href="css/adminPermissions.css" />
+		<script src="js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.pagination.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/commonJS.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/adminPermissions.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<div class="mangePanel">
+			<div class="top">
+				<img src="img/logo3.png" />
+				<span id="userName"></span>
+				<ul>
+					<li id="logout">退出</li>
+				</ul>
+			</div>
+			<div class="footer">
+				<div class="left">
+					<ul></ul>
+				</div>
+				<div class="right right2">
+					<div class="container">
+						<div class="top_notice"><img src="img/laba.png" />通过新建 分配子管理员账户。</div>
+						<div class="pl">
+							<div id="keywords">
+								<label>关键字</label>
+								<input type="text" placeholder="组名称" />
+							</div>
+							<div class="timeslot">
+								<span style="margin-left: 5px;">创建时间</span>
+								<input type="text" value="" id="from" placeholder="开始时间" />
+								<span>——</span>
+								<input type="text" value="" id="to" placeholder="结束时间" />
+								<label for="from" class="dropdown"><img src="img/downIcon.png"></label>
+							</div>
+							<div class="search">搜索</div>
+							<div class="newAdd"><span class="iconfont">&#xe607;</span> 新建管理账户</div>
+						</div>
+						<table>
+							<tr style="height: 48px;">
+								<th style="height: 48px;">账号</th>
+								<th>姓名</th>
+								<th>注册时间</th>
+								<th>操作</th>
+							</tr>
+						</table>
+						<div class="pagefoot">
+							<div class="pagefoot-right">总共<span id="count"></span>条数据</div>
+							<div class="M-box1"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--弹框-->
+		<div class="popup_bg">
+			<div class="popup">
+				<div class="popup-top">
+					<div class="pop-title">新建</div>
+					<div class="pop-close">
+						<img src="img/edit_close.png" />
+					</div>
+				</div>
+				<div class="popup-bottom">
+					<!--第一步-->
+					<section class="step1">
+						<div class="step-wrapper">
+							<img src="img/adminProgress1.png" />
+							<div class="basicInfo">
+								<div class="textInput">
+									<label for="account">账号</label>
+									<input id="account" type="text" maxlength="8" />
+									<div><span style="color: #b3b3b3;">0</span>/8</div>
+								</div>
+								<div class="textInput">
+									<label for="pwd">密码</label>
+									<input id="pwd" type="password" maxlength="6" />
+									<div><span style="color: #b3b3b3;">0</span>/6</div>
+								</div>
+								<div class="textInput">
+									<label for="accountName">姓名</label>
+									<input id="accountName" type="text" maxlength="8" />
+									<div><span style="color: #b3b3b3;">0</span>/8</div>
+								</div>
+								<div class="textInput">
+									<label for="remarks">备注</label>
+									<input id="remarks" type="text" />
+									<div style="opacity: 0;"><span style="color: #b3b3b3;">0</span>/8</div>
+								</div>
+							</div>
+							<div class="btnGroups">
+								<div class="clear">清空</div>
+								<div class="next">下一步</div>
+							</div>
+						</div>
+					</section>
+					<!--第二步-->
+					<section class="step2">
+						<div class="step-wrapper">
+							<img src="img/adminProgress2.png" />
+							<ul class="modFuns">
+								<li data-modfun="久赢月报">公众月报<img src="img/funActive.png"></li>
+								<li data-modfun="我的月报">个人月报<img src="img/funActive.png"></li>
+								<li data-modfun="微信回复消息">自动回复<img src="img/funActive.png"></li>
+								<li class="parentFun accoutParentFun">
+									<div class="parentFunName accoutFunName">用户管理</div><span class="iconfont">&#xe749;</span>
+									<img src="img/funActive.png">
+								</li>
+								<li data-modfun="普通用户权限控制">管理员权限<img src="img/funActive.png"></li>
+								<li data-modfun="每日观点">每日观点<img src="img/funActive.png"></li>
+								<li data-modfun="微信模板消息管理">模板消息管理<img src="img/funActive.png"></li>
+								<li data-modfun="票券管理">票券管理<img src="img/funActive.png"></li>
+								<li data-modfun="商品管理">商品管理<img src="img/funActive.png"></li>
+								<li data-modfun="交易管理">交易管理<img src="img/funActive.png"></li>
+								<li data-modfun="积分设置">积分设置<img src="img/funActive.png"></li>
+							</ul>
+							<ul class="childFuns accountChildFun">
+								<li data-modfun="用户管理_久赢账户管理">
+									<div class="circle1">
+										<div class="circle2"></div>
+									</div>
+									<div class="liName">久赢账户管理</div>
+								</li>
+								<li data-modfun="用户管理_微信粉丝管理">
+									<div class="circle1">
+										<div class="circle2"></div>
+									</div>
+									<div class="liName">微信粉丝管理</div>
+								</li>
+								<li data-modfun="用户管理_VIP权限管理">
+									<div class="circle1">
+										<div class="circle2"></div>
+									</div>
+									<div class="liName">VIP权限设置</div>
+								</li>
+							</ul>
+							<div class="btnGroups">
+								<div class="prev">上一步</div>
+								<div class="next">下一步</div>
+							</div>
+						</div>
+					</section>
+					<!--第三步-->
+					<section class="step3">
+						<div class="step-wrapper">
+							<img src="img/adminProgress3.png" />
+							<div class="optionSelect">
+								<div class="people">
+									<div class="search-box">
+										<input type="text" />
+										<div class="optionSearch"><span class="iconfont" style="color: #FFFFFF;">&#xe605;</span></div>
+									</div>	
+									<ul class="list"></ul>
+									<div class="pop-pagefoot">
+										<div class="M-box2"></div>
+									</div>
+								</div>
+								<div class="preview">
+									<ul class="preList"></ul>
+									<div class="preShow">已选择<span>0</span>人</div>
+								</div>
+							</div>
+							<div class="btnGroups">
+								<div class="prev">上一步</div>
+								<div class="save">提交</div>
+							</div>
+						</div>
+					</section>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>

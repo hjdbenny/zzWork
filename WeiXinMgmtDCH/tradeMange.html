@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>交易管理</title>
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<link rel="stylesheet" type="text/css" href="css/jquery-ui.css" />
+		<link rel="stylesheet" type="text/css" href="css/tradeMange.css" />
+		<script src="js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.pagination.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="js/ueditor.config.js"></script>
+		<script type="text/javascript" src="js/ueditor.all.min.js"></script>	
+		<script src="js/commonJS.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/tradeMange.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<div class="mangePanel">
+			<div class="top">
+				<img src="img/logo3.png" />
+				<span id="userName"></span>
+				<ul>
+					<li id="logout">退出</li>
+				</ul>
+			</div>
+			<div class="footer">
+				<div class="left">
+					<ul></ul>
+				</div>
+
+				<div class="right right2">
+					<div class="container">
+						<div class="top_notice"><img src="img/laba.png" />积分商城的交易管理 - 通过搜索设置商品填写发货快递单号。</div>
+						<div class="btns">
+							<ul>
+								<li class="btn-active" data-type="0">所有交易</li>
+								<li data-type="1">已发货</li>
+								<li data-type="2">未发货</li>
+							</ul>
+						</div>
+						<div class="pl">
+							<div class="keywords">
+								<span>关键字</span>
+								<input type="text" id="keywords" placeholder="商品名称" />
+							</div>
+							<div class="orderNum">
+								<span>订单号</span>
+								<input type="text" id="orderNum" />
+							</div>
+							<div class="buyerNum">
+								<span>买家编号</span>
+								<input type="text" id="buyerNum" />
+							</div>
+							<div id="startDate">
+								<label for="from">开始日期</label>
+								<input type="text" id="from" name="from" style="text-indent: 100px;">
+								<label for="from" class="dropdown"><img src="img/downIcon.png"></label>
+							</div>
+							<div id="endDate">
+								<label for="to">结束日期</label>
+								<input type="text" id="to" name="to" style="text-indent: 100px;">
+								<label for="to" class="dropdown"><img src="img/downIcon.png"></label>
+							</div>
+						</div>
+						<div class="search">搜索</div>
+						<table>
+							<tr>
+								<td>订单号</td>
+								<td></td>
+								<td>商品名称</td>
+								<td>买家编号</td>
+								<td>兑换时间</td>
+								<td>物流信息</td>
+								<td>操作</td>
+							</tr>
+						</table>
+						<div class="loading">
+							<div class="spinner">
+								<div class="spinner-container container1">
+									<div class="circle1"></div>
+									<div class="circle2"></div>
+									<div class="circle3"></div>
+									<div class="circle4"></div>
+								</div>
+								<div class="spinner-container container2">
+									<div class="circle1"></div>
+									<div class="circle2"></div>
+									<div class="circle3"></div>
+									<div class="circle4"></div>
+								</div>
+								<div class="spinner-container container3">
+									<div class="circle1"></div>
+									<div class="circle2"></div>
+									<div class="circle3"></div>
+									<div class="circle4"></div>
+								</div>
+							</div>
+						</div>
+						<div class="pagefoot">
+							<div class="pagefoot-right">总共<span id="count"></span>条数据</div>
+							<div class="M-box1"></div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<div class="edit_bg">
+			<div class="edit">
+				<div class="edit_top">
+					<div class="edit_title"></div>
+					<div class="edit_close"><img src="img/edit_close.png" /></div>
+				</div>
+				<div class="edit_bottom">
+					<div class="edit-container">
+						<div>发货信息</div>
+						<div class="address">
+							<div><img src="img/address.png" /></div>
+							<div>
+								<span>李小红 165052096473</span>
+								<span>江苏省南京市鼓楼区新城市广场2栋801</span>
+							</div>
+						</div>
+						<div class="logistics-company">
+							<div style="text-indent: 10px;">物流公司</div>
+							<div class="showCompany"></div>
+							<div class="dropdown"><img src="img/downIcon.png"></div>
+							<ul id="statusType">
+								<li>EMS</li>
+								<li>顺丰速运</li>
+								<li>申通快递</li>
+								<li>中通快递</li>
+								<li>天天快递</li>
+								<li>百世快递</li>
+								<li>圆通速递</li>
+								<li>韵达速递</li>
+							</ul>
+						</div>
+						<div class="courierNum">
+							<div>快递单号</div>
+							<input type="text" id="courierNum" />
+						</div>
+						<div class="btns-group">
+							<div class="cancel">取消</div>
+							<div class="confirm">确认</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>

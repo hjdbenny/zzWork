@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>管理员权限</title>
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<link rel="stylesheet" type="text/css" href="css/adminPermissions.css" />
+		<script src="js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.pagination.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/toggle.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/adminPermissions.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<div class="mangePanel">
+			<div class="top">
+				<img src="img/logo3.png" />
+				<span id="userName"></span>
+				<ul>
+					<li id="logout">退出</li>
+				</ul>
+			</div>
+			<div class="footer">
+				<div class="left">
+					<ul>
+						<li data-level="0">
+							<a href="modify.html">公众月报</a>
+						</li>
+						<li data-level="1">
+							<a href="modify_personal_module.html">个人月报</a>
+						</li>
+						<li data-level="2">
+							<a href="autoReceive.html">自动回复</a>
+						</li>
+						<li data-level="3">
+							<a href="accountMange.html">用户管理</a>
+						</li>
+						<li data-level="4">
+							<a href="adminPermissions.html" class="select_on">管理员权限</a>
+						</li>
+						<li data-level="5">
+							<a href="messageMange.html">模板消息管理</a>
+						</li>
+					</ul>
+				</div>
+				<div class="right right2">
+					<div class="container">
+						<div class="top_notice"><img src="img/laba.png" />通过新建 分配子管理员账户。</div>
+						<div class="pl">
+							<div>子管理员菜单</div>
+							<div class="newAdd"><span class="iconfont">&#xe607;</span> 新建</div>
+						</div>
+						<table>
+							<tr style="height: 48px;">
+								<th style="height: 48px;">账号</th>
+								<th>姓名</th>
+								<th>注册时间</th>
+								<th>操作</th>
+							</tr>
+						</table>
+						<div class="pagefoot">
+							<div class="pagefoot-right">总共<span id="count"></span>条数据</div>
+							<div class="M-box1"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="edit_bg">
+			<div class="edit">
+				<div class="edit_top">
+					<div class="edit_title">编辑管理员</div>
+					<div class="edit_close"><img src="img/edit_close.png" /></div>
+				</div>
+				<div class="edit_middle">
+					<ul class="basicInfo">
+						<li><label>账号：</label><input type="text" maxlength="8" id="account" />
+							<div><span class="num num1">0</span>/<span>8</span></div>
+						</li>
+						<li><label>密码：</label><input type="text" maxlength="6" id="password" />
+							<div><span class="num num2">0</span>/<span>6</span></div>
+						</li>
+						<li><label>姓名：</label><input type="text" maxlength="8" id="name" />
+							<div><span class="num num3">0</span>/<span>8</span></div>
+						</li>
+						<li><label>邮箱：</label><input type="text" id="email" style="width: 165px;" />
+							<div>
+						</li>
+					</ul>
+					<ul class="qxSet">
+						<li>
+							<div>权限设置</div>
+							<ul class="qxSelect"></ul>
+						</li>
+					</ul>
+					</div>
+					<div class="edit_bottom">
+						<div class="edit_save">保存</div>
+						<div class="edit_cancel">取消</div>
+					</div>
+				</div>
+			</div>
+			<script>
+				$(function() {
+					var mName = sessionStorage.getItem("account")
+					if(mName == "" || mName == null || mName == undefined) {
+						window.location.href = "login.html"
+					}
+					$("#userName").html("欢迎你 " + sessionStorage.getItem("name") + " !")
+					$("#logout").click(function() {
+						$.ajax({
+							type: "POST",
+							url: "http://wx.zzfco.com/wxmgmt/api/mgmtUser/loginOut.do",
+							async: true,
+							contentType: "application/json",
+							xhrFields: {
+								withCredentials: true
+							},
+							success: function(data) {
+								sessionStorage.clear()
+								window.location.href = "login.html"
+							}
+						})
+					})
+				})
+			</script>
+	</body>
+
+</html>

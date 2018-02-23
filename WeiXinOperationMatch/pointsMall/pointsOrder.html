@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>积分订单</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0,user-scale=0,user-scalable=no">
+		<!--uc浏览器强制竖屏-->
+		<meta name="screen-orientation" content="portrait">
+		<!--QQ浏览器强制竖屏-->
+		<meta name="x5-orientation" content="portrait">
+		<link rel="stylesheet" type="text/css" href="css/mobileMain.css" />
+		<link rel="stylesheet" type="text/css" href="css/mescroll.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/pointsMain.css" />
+		<link rel="stylesheet" type="text/css" href="css/pointOrder.css" />
+		<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://www.decaihui.com/wxjs/js/dchShare.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/autoFontSize.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/mescroll.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/tzAuthorize.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/pointsOrder.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<header>
+			<a href="###" class="rule">积分规则 <span class="iconfont">&#xe72d;</span></a>
+			<div class="top_box">
+				<div class="icon_bg">
+					<img src="img/expert.png" />
+					<img src="img/rotate.png" />
+				</div>
+				<div class="points_box">
+					<span>当前积分</span>
+					<span id="points"></span>
+				</div>
+			</div>
+		</header>
+		<nav>
+			<ul>
+				<li>
+					<a href="###" class="toMall"><span class="iconfont">&#xe60e;</span>积分商城</a>
+				</li>
+				<li>
+					<a href="###" class="toOrder"><span class="iconfont">&#xe60c;</span>积分订单</a>
+				</li>
+				<li>
+					<a href="###" class="toInvitation"><span class="iconfont">&#xe60d;</span>累计邀请</a>
+				</li>
+			</ul>
+		</nav>
+		<section id="orderNav">
+			<div class="orderNav">
+				<ul>
+					<li class="order_active" data-type="0">全部</li>
+					<li data-type="1">待发货</li>
+					<li data-type="2">已发货</li>
+				</ul>
+			</div>
+		</section>
+		<section id="orderContent">
+			<div id="mescroll" class="mescroll">
+				<ul id="dataList"></ul>
+			</div>
+		</section>
+		<section id="noData">
+			<div>
+				<div>暂无更多订单信息</div>
+			</div>
+		</section>
+	</body>
+
+</html>

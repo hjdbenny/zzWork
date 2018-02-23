@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<!-- 引入样式 -->
+		<link rel="stylesheet" href="https://unpkg.com/mint-ui/lib/style.css">
+	</head>
+
+	<body>
+		<div id="app">
+			<ul v-infinite-scroll="loadMore" infinite-scroll-disabled="loading" infinite-scroll-distance="10">
+				<li v-for="item in list">{{ item }}</li>
+			</ul>
+
+		</div>
+	</body>
+	<!-- 先引入 Vue -->
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	<!-- 引入组件库 -->
+	<script src="https://unpkg.com/mint-ui/lib/index.js"></script>
+	<script>
+		var infiniteScroll =  require('vue-infinite-scroll');
+Vue.use(infiniteScroll)
+		new Vue({
+			el: '#app',
+			loadMore() {
+				this.loading = true;
+				setTimeout(() => {
+					let last = this.list[this.list.length - 1];
+					for(let i = 1; i <= 10; i++) {
+						this.list.push(last + i);
+					}
+					this.loading = false;
+				}, 2500);
+			},
+			methods: {
+				
+			}
+		})
+	</script>
+
+</html>

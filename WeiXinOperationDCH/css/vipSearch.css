@@ -1,0 +1,348 @@
+body {
+	font-size: 1.2rem;
+}
+
+header {
+	width: 100%;
+	height: 5.25rem;
+	border-bottom: 1px solid #d1d1d1;
+	display: flex;
+	display: -webkit-flex;
+	align-items: center;
+	flex-direction: row
+}
+
+.search {
+	width: 80%;
+	height: 3.3rem;
+	border-radius: 4px;
+	background: #f1eff2;
+	margin: 0 auto;
+}
+
+.search span {
+	display: inline-block;
+	width: 4rem;
+	height: 100%;
+	text-align: center;
+	line-height: 3.3rem;
+}
+
+.search input {
+	width: calc(100% - 4rem);
+	height: 100%;
+	border: 0;
+	outline: none;
+	background: transparent;
+	font-size: 1.4rem;
+}
+
+nav{
+	float: left;
+	width: 100%;
+	height: 3.3rem;
+	border-bottom: 1px solid #d1d1d1;
+	display: flex;
+	display: -webkit-flex;
+	justify-content: space-around;
+	align-items: center;
+	font-size: 1.5rem;
+	z-index: 66;
+}
+.filter {
+	font-size: 1.6rem;
+	color: #979797;
+	padding-left: 2rem;
+    border-left: 1px solid #d1d1d1;
+}
+.up_arrow,.down_arrow{
+	width: 0;
+	height: 0;
+	border: 0.5rem solid transparent;
+	position: relative;
+}
+.up_arrow{
+	border-bottom-color: #969696;
+    top: calc(-3.3rem / 2 - 1px);
+    left: 0.55rem;
+}
+.down_arrow{
+	border-top-color: #969696;
+    top: calc(3.3rem / 2 + 1px);
+    right: 0.45rem;
+}
+#mescroll {
+	width: 100%;
+	height: calc(100% - 8.55rem - 2px);
+	overflow: auto;
+}
+
+#mescroll ul {
+	width: calc(100% - 2rem);
+	margin-left: 2rem;
+}
+
+#mescroll ul li {
+	width: 100%;
+	height: 7.5rem;
+	border-bottom: 1px solid #d1d1d1;
+	position: relative;
+	z-index: 55;
+}
+
+#mescroll ul li>div {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+}
+
+.info {
+	width: 20rem;
+	left: 0;
+	height: 5.5rem;
+}
+
+.info p {
+	color: #808080;
+}
+
+.info p span {
+	color: #333333;
+}
+
+.name {
+	font-size: 1.5rem
+}
+
+.btn {
+	width: 7rem;
+	height: 3.3rem;
+	line-height: 3.3rem;
+	text-align: center;
+	color: #b49566;
+	border: 1px solid #b49566;
+	border-radius: 5px;
+}
+
+.report {
+	right: 1rem;
+}
+
+.jy {
+	right: 9rem;
+}
+
+
+/*筛选框-选择营业部*/
+
+.container {
+	width: 100%;
+	position: absolute;
+	z-index: 55;
+	left: 0;
+	top: calc(8.55rem + 2px);
+	height: calc(100% - 8.55rem - 2px);
+	background: rgba(0, 0, 0, .8);
+	display: none;
+}
+
+.top {
+	width: 100%;
+	height: 3.3rem;
+	background: #f7f4f8;
+	display: flex;
+	display: -webkit-flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.top_box {
+	width: calc(100% - 2rem);
+	height: 1.8rem;
+	display: flex;
+	display: -webkit-flex;
+	align-items: center;
+	justify-content: space-between;
+	color: #4e4e4e;
+	font-size: 1.2rem;
+}
+
+#allSelect {
+	border-radius: 20px;
+	width: 4.25rem;
+	height: 100%;
+	background: #d9d9d9;
+	text-align: center;
+	line-height: 1.8rem;
+	cursor: pointer;
+}
+
+.middle {
+	width: calc(100% - 2rem);
+	padding: 1rem;
+	margin: 0 auto;
+	background: #FFFFFF;
+	height: auto;
+	float: left;
+}
+
+.department {
+	width: calc(100% + 0.5rem);
+	position: relative;
+	top: -0.25rem;
+	float: left;
+}
+
+.department li {
+	width: 8.4rem;
+	height: 3.75rem;
+	float: left;
+	margin-right: 0.5rem;
+	margin-top: 0.5rem;
+	border: 1px solid #d1d1d1;
+	font-size: 1.2rem;
+	color: #333333;
+	border-radius: 2px;
+	position: relative;
+	display: flex;
+	display: -webkit-flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+.department li span:last-of-type{
+	font-size: 1rem !important;
+}
+.department li img {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	width: 1.8rem;
+	height: 1.8rem;
+	display: none;
+}
+
+.bottom {
+	width: 100%;
+	float: left;
+	height: 4.8rem;
+	margin-top: -3px;
+}
+
+.bottom>div {
+	float: left;
+	width: 50%;
+	height: 100%;
+	line-height: 4.8rem;
+	font-size: 1.8rem;
+	text-align: center;
+}
+
+.cancel {
+	color: #4e4e4e;
+	background: #f5f5f5;
+}
+
+.confirm {
+	color: #FFFFFF;
+	background: #bfa273;
+}
+
+/*筛选框-选择累计收益率排序*/
+.selectTotalRatio {
+	width: 100%;
+	position: absolute;
+	z-index: 55;
+	left: 0;
+	top: calc(8.55rem + 2px);
+	height: calc(100% - 8.55rem - 2px);
+	background: rgba(0, 0, 0, .8);
+	display: none;
+	color: #979797;
+}
+.selectTotalRatio ul{
+	width: calc(100% - 2rem);
+    padding-left: 2rem;
+    float: left;
+    background: #FFFFFF;
+}
+.selectTotalRatio ul li{
+	height: 3.4rem;
+	line-height: 3.4rem;
+	width: 100%;
+	display: flex;
+	display: -webkit-flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.selectTotalRatio ul li:first-child span{
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+}
+.selectTotalRatio ul li img{
+	margin-right: 3rem;
+	display: none;
+}
+/*未查询到结果*/
+
+.error {
+	position: absolute;
+	top: calc(8.55rem + 2px);
+	height: calc(100% - 8.55rem - 2px);
+	width: 100%;
+	display: flex;
+	display: -webkit-flex;
+	justify-content: center;
+	align-items: center;
+	opacity: 0;
+}
+
+.error_content {
+	width: 20rem;
+	height: 20rem;
+	display: flex;
+	display: -webkit-flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.error_content img {
+	width: 8.4rem;
+	height: 8.7rem;
+}
+
+.error_content p {
+	font-size: 1.4rem;
+	color: #808080;
+}
+
+/*搜索框后面的小X*/
+/*重写边框样式*/
+
+/*重写后面的小×样式*/
+ input[type=search]::-webkit-search-cancel-button{
+    /*-webkit-appearance: none;//此处只是去掉默认的小×*/
+}
+/*经过上面三步的重写样式，基本达到了我们需要的效果的90%，但是还没达到100%。因为第三部对小×样式的重写只是把后面的小×给弄没了，如果需要小×，还必须多做一点
+继续重写小×样式*/
+input[type=search]::-webkit-search-cancel-button{
+    /*-webkit-appearance: none;*/
+    position: relative;
+    height: 20px;
+    width: 20px;
+    left: -20px;
+    border-radius: 50%;
+    background-color: #EBEBEB;
+}
+
+input[type=search]::-webkit-search-cancel-button:after{
+    position: absolute;
+    content: 'x';
+    left: 25%;
+    top: -12%;
+    font-size: 20px;
+    color: #fff;
+}

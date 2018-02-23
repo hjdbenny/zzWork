@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html ng-app="personalData">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0,user-scale=0,user-scalable=no">
+		<!--uc浏览器强制竖屏-->
+		<meta name="screen-orientation" content="portrait">
+		<!--QQ浏览器强制竖屏-->
+		<meta name="x5-orientation" content="portrait">
+		<title>我的月报-详细</title>
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/mobileMain.css" />
+		<link rel="stylesheet" type="text/css" href="css/personalData_detailed.css" />
+		<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/angular.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/autoFontSize.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/circle-progress.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://www.decaihui.com/wxjs/js/dchShare.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/personalData_detailed.js" type="text/javascript" charset="utf-8"></script>
+
+	</head>
+
+	<body ng-controller="detailedController">
+		<div class="container">
+			<div class="top">
+				<section>
+					<div class="outer"></div>
+					<div class="middle"></div>
+					<div class="progress blur"></div>
+					<div class="inner">
+						<div class="winningRatio">
+							<p class="win"><span ng-bind="winningRatio"></span>%</p>
+							<p class="win_title">胜算率</p>
+						</div>
+					</div>
+				</section>
+				<img id="direction" />
+				<div class="text info1">
+					<p>
+						<img src='img/more.png' /> <span class='count' ng-bind="moreCount"></span> 次交易
+					</p>
+					<p>
+						<img src='img/empty.png' /> <span class='count' ng-bind="emptyCount"></span> 次交易
+					</p>
+				</div>
+				<div class="text info2">
+					<p>
+						最大单笔<span style="color: #ffb3b7;">盈利</span>: &yen; <span ng-bind="max_profit"></span>
+					</p>
+					<p>
+						最大单笔<span style="color:#edffad;">亏损</span>: &yen; <span ng-bind="max_deficit"></span>
+					</p>
+				</div>
+			</div>
+			<div class="nav_container swiper-container">
+				<ul class="nav swiper-wrapper"></ul>
+			</div>
+			<ul class="details">
+				<li>
+					<div>
+						<p><img src="img/direction.png" /></p>
+						<p>交易方向</p>
+						<p class="mainDirection"></p>
+					</div>
+				</li>
+				<li>
+					<div>
+						<p><img src="img/tradeCount.png" /></p>
+						<p>交易次数</p>
+						<p class="tradeNumber"></p>
+					</div>
+				</li>
+				<li>
+					<div>
+						<p><img src="img/yk.png" /></p>
+						<p>总盈亏</p>
+						<p>&yen; <span class="profit"></span></p>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="info">每日资金信息以监控中心数据为准</div>
+	</body>
+
+</html>

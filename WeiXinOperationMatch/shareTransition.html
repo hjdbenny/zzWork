@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script>
+			//获取url中的参数, code
+			function getUrlParam(name) {
+				var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+				var r = window.location.search.substr(1).match(reg); //匹配目标参数
+				if(r != null) return unescape(r[2]);
+				return null; //返回参数值
+			}
+			if(getUrlParam("before")!=null||getUrlParam("before")!=undefined){
+				var shareUrl = `http://www.decaihui.com/wxdch/api/jf/invite/page/${getUrlParam("before")}/after.do`		
+				window.location.href = `https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx7806a150c562b73c&redirect_uri=${encodeURIComponent(shareUrl)}&response_type=code&scope=snsapi_base&state=123#wechat_redirect`		
+//				window.location.href=shareUrl
+			}else{
+				var shareUrl = getUrlParam("shareUrl")
+				window.location.href = `https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx7806a150c562b73c&redirect_uri=${encodeURIComponent(shareUrl)}&response_type=code&scope=snsapi_base&state=123#wechat_redirect`		
+			}	
+		</script>
+	</body>
+
+</html>

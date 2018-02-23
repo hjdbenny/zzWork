@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+		<!--uc浏览器强制竖屏-->
+		<meta name="screen-orientation" content="portrait">
+		<!--QQ浏览器强制竖屏-->
+		<meta name="x5-orientation" content="portrait">
+		<title>VIP专享</title>
+		<link rel="stylesheet" type="text/css" href="http://www.decaihui.com/wxdch/css/mobileMain.css" />
+		<link rel="stylesheet" type="text/css" href="http://www.decaihui.com/wxdch/css/vipExclusive.css" />
+		<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://www.decaihui.com/wxdch/js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://www.decaihui.com/wxdch/js/autoFontSize.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://www.decaihui.com/wxdch/js/highcharts.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://www.decaihui.com/wxdch/js/exporting.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://www.decaihui.com/wxjs/js/share.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://www.decaihui.com/wxdch/js/vipExclusive.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="container">
+			<div class="top">
+				<form target="frameFile" class="search">
+					<span class="iconfont">&#xe605;</span><input id="search" type="search" placeholder="目标用户查询" />
+					<iframe name='frameFile' style="display: none;"></iframe>
+				</form>
+			</div>
+			<div class="labelNav">
+				<ul>
+					<li class="labelNav_on" data-type = "kh">开户统计</li>
+					<li data-type = "yk">盈亏统计</li>
+					<li data-type = "pz">品种盈亏</li>
+				</ul>
+			</div>
+			<div class="charts">
+				<div id="khChart"></div>
+				<div id="ykChart"></div>
+				<div id="pzChart">
+					<ul></ul>
+				</div>
+				<div class="showBalance"><span class="iconfont">&#xe60b;</span>用户权限</div>
+			</div>
+			<div class="select">
+				<ul>
+					<li class="select_on">月</li>
+					<li>季</li>
+					<li>年</li>
+				</ul>
+			</div>
+			<div class="content kh_content">
+				<ul></ul>
+			</div>
+			<div class="content yk_content">
+				<ul></ul>
+			</div>
+			<div class="content pz_content">
+				<ul></ul>
+			</div>
+		</div>
+	</body>
+</html>

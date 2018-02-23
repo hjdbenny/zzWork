@@ -1,0 +1,354 @@
+body {
+	font-size: 1.4rem;
+	color: #4C4C4C;
+}
+
+.container {
+	width: 100vw;
+	height: 100vh;
+}
+
+.container>div {
+	float: left;
+	width: 100%;
+}
+
+.top {
+	height: 5.7rem;
+	border-bottom: 1px solid #d1d1d1;
+	display: flex;
+	display: -webkit-flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row
+}
+
+.search {
+	width: 80%;
+	height: 3.3rem;
+	border-radius: 4px;
+	background: #f1eff2;
+	margin: 0 auto;
+}
+
+.search span {
+	display: inline-block;
+	width: 4rem;
+	height: 100%;
+	text-align: center;
+	line-height: 3.3rem;
+}
+
+.search input {
+	width: calc(100% - 4rem);
+	height: 100%;
+	border: 0;
+	outline: none;
+	background: transparent;
+	font-size: 1.4rem;
+}
+
+.labelNav {
+	height: 4.2rem;
+}
+
+.labelNav ul {
+	width: 90%;
+	margin: 0 auto;
+	height: 100%;
+	border-bottom: 1px solid #d1d1d1;
+}
+
+.labelNav ul>li {
+	width: calc(100% / 3);
+	height: calc(4.2rem - 2px);
+	text-align: center;
+	line-height: calc(4.2rem - 2px);
+	float: left;
+}
+
+.labelNav_on {
+	color: #a47f47;
+	border-bottom: 2px solid #A47F47;
+}
+
+.charts {
+	width: 100%;
+	overflow-x: scroll;
+	height: 25.5rem;
+	-webkit-overflow-scrolling: touch;
+	position: relative;
+}
+
+#khChart,
+#ykChart,
+#pzChart {
+	height: 25.5rem;
+}
+
+#pzChart {
+	width: 100%;
+}
+
+#ykChart,
+#pzChart {
+	display: none;
+}
+
+.showBalance {
+	position: fixed;
+	width: 8.5rem;
+	height: 2.7rem;
+	border-radius: 27px;
+	border: 1px solid #ab8c5f;
+	color: #ab8c5f;
+	text-align: center;
+	line-height: 2.7rem;
+	top: 11rem;
+	right: 5.9rem;
+	font-size: 1.4rem;
+	display: none;
+	cursor: pointer;
+}
+
+.showBalance .iconfont {
+	font-size: 1rem;
+}
+
+.select {
+	height: 4.4rem;
+}
+
+.select ul {
+	width: 100%;
+	height: calc(4.4rem - 2px);
+	border-bottom: 1px solid #d9d9d9;
+	border-top: 1px solid #d9d9d9;
+}
+
+.select ul li {
+	width: calc(100% / 3);
+	float: left;
+	text-align: center;
+	line-height: calc(4.4rem - 2px);
+}
+
+.select_on {
+	color: #FFFFFF !important;
+	background: #ab8c5f !important;
+}
+
+.content {
+	height: calc(100% - 39.8rem - 1px);
+	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
+}
+
+.content ul {
+	width: calc(100% - 2rem);
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+
+.content ul li {
+	height: 4.4rem;
+	border-bottom: 1px solid #d9d9d9;
+	width: 100%;
+	display: flex;
+	display: -webkit-flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+.yk_content,
+.pz_content {
+	display: none;
+}
+
+
+/*开户数据*/
+
+.kh_content ul li>div {
+	width: calc(100% / 3);
+	height: 100%;
+	display: flex;
+	display: -webkit-flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+.kh_content ul li>div:first-of-type>div {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	display: -webkit-flex;
+	align-items: center;
+}
+
+.kh_content ul li>div:first-of-type>div:first-of-type {
+	justify-content: flex-end;
+	margin-right: 0.5rem;
+	flex-direction: row;
+	width: 50%;
+}
+
+
+/*盈亏数据*/
+
+.yk_content ul li>div {
+	width: calc(100% / 3);
+	height: 100%;
+	display: flex;
+	display: -webkit-flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+.yk_content ul li>div:first-of-type>div {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	display: -webkit-flex;
+	align-items: center;
+}
+
+.yk_content ul li>div:first-of-type>div:first-of-type {
+	justify-content: flex-end;
+	margin-right: 0.5rem;
+	flex-direction: row;
+	width: 50%;
+}
+
+
+/*品种盈亏*/
+
+#pzChart>ul {
+	width: 100%;
+	float: left;
+}
+
+#pzChart>ul>li {
+	position: relative;
+	width: 100%;
+	height: 3rem;
+	line-height: 3rem;
+	margin-bottom: 1rem;
+	z-index: 55;
+}
+
+#pzChart>ul>li:first-child {
+	margin-top: 1rem;
+}
+
+#pzChart>ul>li>.left-box {
+	width: calc(50% - 3rem + 2px);
+	height: calc(100% + 2px);
+	position: absolute;
+	left: 1%;
+	top: -1px;
+}
+
+#pzChart>ul>li>.left-box>div {
+	height: 100%;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 0%;
+	background: linear-gradient(#02d6a3,#02d687);
+	border-bottom-left-radius: 5rem;
+	border-top-left-radius: 5rem;
+}
+
+#pzChart>ul>li>.right-box {
+	width: calc(50% - 3rem + 2px);
+    height: calc(100% + 2px);
+    position: absolute;
+    right: 1%;
+    top: -1px;
+}
+#pzChart>ul>li>.right-box>div {
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 0%;
+	background:linear-gradient(#f58224,#f4572f);
+	border-bottom-right-radius: 5rem;
+	border-top-right-radius: 5rem;
+}
+
+#pzChart>ul>li>.middle-box {
+	width: 5rem;
+	height: 100%;
+	position: absolute;
+	right: 0;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	margin: auto;
+	text-align: center;
+	color: #636363;
+	border: 1px solid #CCCCCC;
+	border-radius: 10rem;
+	z-index: 2;
+	background: #fff;
+	text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.leftStatus{
+	border-left: 0 !important;
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+}
+.rightStatus{
+	border-right: 0 !important;
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+.profitData{
+	height: 100%;
+	position: absolute;
+	line-height: 3rem;
+	color: #FFFFFF;
+}
+.left-box .profitData{
+	left: 1rem;
+}
+.right-box .profitData{
+	right: 1rem;
+}
+.pz_content ul li>div {
+	width: calc(100% / 3);
+	height: 100%;
+	display: flex;
+	display: -webkit-flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+.pz_content ul li>div:first-of-type>div {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	display: -webkit-flex;
+	align-items: center;
+}
+
+.pz_content ul li>div:first-of-type>div:first-of-type {
+	justify-content: flex-end;
+	margin-right: 0.5rem;
+	flex-direction: row;
+	width: 50%;
+}
+/*颜色*/
+.numUp{
+	color: #f25c33 !important;
+}
+.numDown{
+	color: #03af7c !important;
+}

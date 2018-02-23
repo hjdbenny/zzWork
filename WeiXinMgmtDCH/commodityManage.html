@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>商品管理</title>
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<link rel="stylesheet" type="text/css" href="css/jquery-ui.css" />
+		<link rel="stylesheet" type="text/css" href="css/commodityManage.css" />
+		<script src="js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.pagination.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="js/ueditor.config.js"></script>
+		<script type="text/javascript" src="js/ueditor.all.min.js"></script>
+		<script src="js/commonJS.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/commodityManage.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<div class="mangePanel">
+			<div class="top">
+				<img src="img/logo3.png" />
+				<span id="userName"></span>
+				<ul>
+					<li id="logout">退出</li>
+				</ul>
+			</div>
+			<div class="footer">
+				<div class="left">
+					<ul></ul>
+				</div>
+				<div class="right right2">
+					<div class="container">
+						<div class="top_notice"><img src="img/laba.png" />积分商城的商品管理 - 通过搜索设置商品的上下架。</div>
+						<div class="pl">
+							<div class="keywords">
+								<span>关键字</span>
+								<input type="text" id="keywords" placeholder="商品名称" />
+							</div>
+							<div class="status">
+								<div class="showStuts" style="text-indent: 20px;">选择状态</div>
+								<div class="dropdown"><img src="img/downIcon.png"></div>
+								<ul id="statusType">
+									<li>全部</li>
+									<li>已上架</li>
+									<li>未上架</li>
+								</ul>
+							</div>
+							<div class="commodityType">
+								<div class="showType" style="text-indent: 20px;">选择类别</div>
+								<div class="dropdown"><img src="img/downIcon.png"></div>
+								<ul id="commodityType">
+									<li>全部</li>
+									<li>票券类</li>
+									<li>服务类</li>
+									<li>实物类</li>
+								</ul>
+							</div>
+							<div id="startDate">
+								<label for="from">开始日期</label>
+								<input type="text" id="from" name="from" style="text-indent: 80px;">
+								<label for="from" class="dropdown"><img src="img/downIcon.png"></label>
+							</div>
+							<div id="endDate">
+								<label for="to">结束日期</label>
+								<input type="text" id="to" name="to" style="text-indent: 80px;">
+								<label for="to" class="dropdown"><img src="img/downIcon.png"></label>
+							</div>
+							<div class="search">搜索</div>
+
+						</div>
+						<div class="opreation">
+							<div class="del">删除</div>
+							<div class="offTheShelf">下架</div>
+							<div class="onTheShelf">上架</div>
+							<div class="newAdd"><span class="iconfont" style="font-size: 12px;margin-right: 5px;">&#xe607;</span> 新建</div>
+							<ul id="newType">
+								<li data-type="2">票券</li>
+								<li data-type="3">服务</li>
+								<li data-type="1">实物</li>
+							</ul>
+						</div>
+						<table>
+							<tr style="height: 48px;">
+								<th style="height: 48px;" id="allAgree">
+									<div class='circle1'>
+										<div class='circle2'></div>
+									</div>
+									<label>全选</label>
+								</th>
+								<th>排列<br/>(双击修改)
+									<div class="arrow"><span class="iconfont up" style="margin-bottom: -5px;">&#xe600;</span><span class="iconfont down">&#xe611;</span></div>
+								</th>
+								<th></th>
+								<th>商品名称</th>
+								<th>积分价格</th>
+								<th>
+									<div style="position: relative;top: 25%;">兑换量</div>
+									<div class="arrow"><span class="iconfont up" style="margin-bottom: -5px;">&#xe600;</span><span class="iconfont down">&#xe611;</span></div>
+								</th>
+								<th>发布时间</th>
+								<th>状态</th>
+								<th>操作</th>
+							</tr>
+						</table>
+						<div class="loading">
+							<div class="spinner">
+								<div class="spinner-container container1">
+									<div class="circle1"></div>
+									<div class="circle2"></div>
+									<div class="circle3"></div>
+									<div class="circle4"></div>
+								</div>
+								<div class="spinner-container container2">
+									<div class="circle1"></div>
+									<div class="circle2"></div>
+									<div class="circle3"></div>
+									<div class="circle4"></div>
+								</div>
+								<div class="spinner-container container3">
+									<div class="circle1"></div>
+									<div class="circle2"></div>
+									<div class="circle3"></div>
+									<div class="circle4"></div>
+								</div>
+							</div>
+						</div>
+						<div class="pagefoot">
+							<div class="pagefoot-right">总共<span id="count"></span>条数据</div>
+							<div class="M-box1"></div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<div class="edit_bg">
+			<div class="edit">
+				<div class="edit_top">
+					<div class="edit_title"></div>
+					<div class="edit_close"><img src="img/edit_close.png" /></div>
+				</div>
+				<div class="edit_bottom">
+					<form id="uploadAutoPic" enctype="multipart/form-data" method="post">
+						<input type="text" name="id" id="commodityId" />
+						<input type="text" name="status" id="commodityStatus" />
+						<input type="text" name="type" id="comType" />
+
+						<div class="edit-container step1">
+							<div class="step1-top">
+								<img src="img/progress1.png" />
+							</div>
+							<div class="step1-middle">
+								<div class="commodityName"><label>商品名称</label><input type="text" maxlength="18" name="name" />
+									<div class="sum"><span id="count1">0</span>/18</div>
+								</div>
+								<div class="pointPrice"><label>积分价格</label><input type="text" name="point" /></div>
+								<div class="serviceTerm">
+									<div>
+										<label style="margin-left: 10px;">服务时间</label>
+										<div class="showTerm" style="color: #949494;">12个月</div>
+										<div class="dropdown"><img src="img/downIcon.png"></div>
+										<ul id="termList">
+											<li>1个月</li>
+											<li>2个月</li>
+											<li>3个月</li>
+											<li>4个月</li>
+											<li>5个月</li>
+											<li>6个月</li>
+											<li>7个月</li>
+											<li>8个月</li>
+											<li>9个月</li>
+											<li>10个月</li>
+											<li>11个月</li>
+											<li>12个月</li>
+										</ul>
+									</div>
+								</div>
+								<div class="commodityDescription"><label>商品描述</label><input type="text" maxlength="48" name="description" />
+									<div class="sum"><span id="count2">0</span>/48</div>
+								</div>
+								<div class="effectTime">
+									<div>
+										<label>购买后有效时间</label>
+										<div class="dateBox">
+											<input type="text" id="startTime" name="startTime" placeholder="开始时间">
+											<div class="dropdown"><img src="img/downIcon.png"></div>
+										</div>
+										<div class="dateBox2">
+											<input type="text" id="startHour" name="startHour" maxlength="2" class="isHour">
+											<div class="countBox">
+												<div><img src="img/downIcon.png"></div>
+												<div><img src="img/downIcon.png"></div>
+											</div>
+										</div>
+										<span>:</span>
+										<div class="dateBox2">
+											<input type="text" id="startMin" name="startMin" maxlength="2" class="isMin">
+											<div class="countBox">
+												<div><img src="img/downIcon.png"></div>
+												<div><img src="img/downIcon.png"></div>
+											</div>
+										</div>
+										<label>——</label>
+										<div class="dateBox">
+											<input type="text" id="endTime" name="endTime" placeholder="结束时间">
+											<div class="dropdown"><img src="img/downIcon.png"></div>
+										</div>
+										<div class="dateBox2">
+											<input type="text" id="endHour" name="endHour" maxlength="2" class="isHour">
+											<div class="countBox">
+												<div><img src="img/downIcon.png"></div>
+												<div><img src="img/downIcon.png"></div>
+											</div>
+										</div>
+										<span>:</span>
+										<div class="dateBox2">
+											<input type="text" id="endMin" name="endMin" maxlength="2" class="isMin">
+											<div class="countBox">
+												<div><img src="img/downIcon.png"></div>
+												<div><img src="img/downIcon.png"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div>上传图片</div>
+								<div class="uploadPic">
+									<div class="syPic">
+										<img src="img/addpic1.png" />
+										<input name="homePicture" class="picFile" type="file">
+										<div class="after-show">
+											<div>首页图</div>
+											<div class="reupload">重新上传</div>
+										</div>
+										<div class="tip">*仅支持JPG,<span>357*220px</span>,大小≤5M</div>
+									</div>
+									<div class="detailPic">
+										<img src="img/addpic2.png" />
+										<input name="detailPicture" class="picFile" type="file">
+										<div class="after-show">
+											<div>商品详情图</div>
+											<div class="reupload">重新上传</div>
+										</div>
+										<div class="tip">*仅支持JPG,<span>750*360px</span>,大小≤5M</div>
+									</div>
+									<div class="tumbPic">
+										<img src="img/addpic3.png" />
+										<input name="icon" class="picFile" type="file">
+										<div class="after-show">
+											<div>列表缩略图</div>
+											<div class="reupload">重新上传</div>
+										</div>
+										<div class="tip">*仅支持JPG,<span>750*360px</span>,大小≤5M</div>
+									</div>
+
+								</div>
+							</div>
+							<div class="step1-bottom">
+								<div class="cancel">取消</div>
+								<div class="next">下一步</div>
+							</div>
+						</div>
+
+						<div class="edit-container step2">
+							<div class="step2-top">
+								<img src="img/progress2.png" />
+							</div>
+							<div class="step2-middle">
+								<div>详情</div>
+								<div class="details-editor">
+									<script id="details-container" name="detail" type="text/plain">
+										这里写你的详情内容
+									</script>
+								</div>
+							</div>
+							<div class="step2-bottom">
+								<div class="prev">上一步</div>
+								<div class="saveAndOnShelf">上架</div>
+								<div class="save">保存</div>
+							</div>
+						</div>
+						<!--服务类的功能选择-->
+						<div class="edit-container step3">
+							<div class="step3-top">
+								<img src="img/progress-service2.png" />
+							</div>
+							<div class="step3-middle">
+								<ul class="optionList">
+									<li data-type="我的月报"><span>查看个人月报</span><img src="img/optionActive.png" /></li>
+									<li data-type="我的久赢"><span>查看我的久赢</span><img src="img/optionActive.png" /></li>
+									<li data-type="每日观点"><span>分析师每日观点</span><img src="img/optionActive.png" /></li>
+								</ul>
+							</div>
+							<div class="step3-bottom">
+								<div class="prev">上一步</div>
+								<div class="next">下一步</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>

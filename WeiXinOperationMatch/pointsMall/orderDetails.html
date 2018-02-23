@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>订单详细</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0,user-scale=0,user-scalable=no">
+		<!--uc浏览器强制竖屏-->
+		<meta name="screen-orientation" content="portrait">
+		<!--QQ浏览器强制竖屏-->
+		<meta name="x5-orientation" content="portrait">
+		<link rel="stylesheet" type="text/css" href="css/mobileMain.css" />
+		<link rel="stylesheet" type="text/css" href="css/mescroll.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/orderDetails.css" />
+		<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://www.decaihui.com/wxjs/js/dchShare.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/autoFontSize.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/mescroll.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/orderDetails.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<header>
+			<img src="" />
+			<div></div>
+		</header>
+		<section class="status">
+			<p></p>
+			<p></p>
+			<div class="orderStatus"></div>
+		</section>
+		<section class="logistics">
+			<div class="logistics-wapper">
+				<div>
+					<span>物流公司</span>
+					<span>物流单号</span>
+				</div>
+				<div>
+					<span id="wlcomany"></span>
+					<span id="orderNumber"></span>
+				</div>
+				<div class="copy" data-clipboard-target="#orderNumber">
+					<div><span class="iconfont">&#xe60f;</span>复制</div>
+				</div>
+			</div>
+		</section>
+		<section class="preparing">
+			<div class="preparing-wapper">
+				<img src="img/preparing.png" />
+				<a href="tel:400-123-123"><span class="iconfont" style="margin-right: 0.5rem;">&#xe610;</span><span>400-123-123</span></a>
+			</div>
+		</section>
+		<section class="details">
+			<div>详情</div>
+			<div class="detailsInfo">
+
+			</div>
+		</section>
+	</body>
+
+</html>

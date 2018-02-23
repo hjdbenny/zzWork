@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>历史积分</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0,user-scale=0,user-scalable=no">
+		<!--uc浏览器强制竖屏-->
+		<meta name="screen-orientation" content="portrait">
+		<!--QQ浏览器强制竖屏-->
+		<meta name="x5-orientation" content="portrait">
+		<link rel="stylesheet" type="text/css" href="css/mobileMain.css" />
+		<link rel="stylesheet" type="text/css" href="css/mescroll.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/points.css" />
+		<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://www.decaihui.com/wxjs/js/dchShare.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/autoFontSize.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/mescroll.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/tzAuthorize.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/points.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<header>
+			<a href="###" class="rule">积分规则 <span class="iconfont">&#xe72d;</span></a>
+			<div>当前积分</div>
+			<div id="currentPoint"></div>
+			<div>更新时间 <span id="updateTime"></span></div>
+		</header>
+		<nav>
+			<div class="orderNav">
+				<ul>
+					<li class="order_active" data-type = "0">全部</li>
+					<li data-type = "1">收入</li>
+					<li data-type = "2">支出</li>
+				</ul>
+			</div>
+		</nav>
+		<section id="orderContent">
+			<div id="mescroll" class="mescroll">
+				<ul id="dataList"></ul>
+			</div>
+		</section>
+		<section id="noData">
+			<div>
+				<span>暂无更多记录</span>
+				<span>邀请用户的积分奖励</span>
+			</div>
+		</section>
+	</body>
+
+</html>

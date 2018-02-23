@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>消息管理</title>
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<link rel="stylesheet" type="text/css" href="css/jquery-ui.css" />
+		<link rel="stylesheet" type="text/css" href="css/messageMange.css" />
+		<script src="js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.pagination.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/messageMange.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<div class="mangePanel">
+			<div class="top">
+				<img src="img/logo3.png" />
+				<span id="userName"></span>
+				<ul>
+					<li id="logout">退出</li>
+				</ul>
+			</div>
+			<div class="footer">
+				<div class="left">
+					<ul>
+						<li data-level="0">
+							<a href="modify.html">公众月报</a>
+						</li>
+						<li data-level="1">
+							<a href="modify_personal_module.html">个人月报</a>
+						</li>
+						<li data-level="2">
+							<a href="autoReceive.html">自动回复</a>
+						</li>
+						<li data-level="3">
+							<a href="accountMange.html">用户管理</a>
+						</li>
+						<li data-level="4">
+							<a href="adminPermissions.html">管理员权限</a>
+						</li>
+						<li data-level="5">
+							<a href="messageMange.html" class="select_on">模板消息管理</a>
+						</li>
+					</ul>
+				</div>
+
+				<div class="right right2">
+					<div class="container">
+						<div class="top_notice"><img src="img/laba.png" />通过搜索可以展示不同状态下的推送消息模块, 接收管理 可对用户进行分组。</div>
+						<ul class="listNav">
+							<li class="listNav-active">消息列表</li>
+							<li>分组管理</li>
+						</ul>
+						<section id="moduleEdit">
+							<div>
+								<div class="searchGroups">
+									<div id="keywords">
+										<label>关键字</label>
+										<input type="text" placeholder="报告摘要" />
+									</div>
+									<div class="timeslot">
+										<span style="margin-left: 5px;">发送时间</span>
+										<input type="text" value="" id="from" placeholder="开始时间" />
+										<span>——</span>
+										<input type="text" value="" id="to" placeholder="结束时间" />
+										<label for="from" class="dropdown"><img src="img/downIcon.png"></label>
+									</div>
+									<div class="status">
+										<div>
+											<div class="showStuts" style="text-indent: 20px;">选择状态</div>
+											<div class="dropdown"><img src="img/downIcon.png"></div>
+											<ul id="statusType">
+												<li>全部</li>
+												<li>已推送</li>
+												<li>待推送</li>
+											</ul>
+										</div>
+									</div>
+									<div class="search">搜索</div>
+									<div class="newMessage"><span class="iconfont" style="margin-right: 5px;">&#xe607;</span>新增消息</div>
+								</div>
+								<table id="messageTable" cellspacing="0">
+									<tr>
+										<td>报告摘要</td>
+										<td>接收组</td>
+										<td id="tsTime">
+											<span id="tsTitle">推送时间</span>
+											<div><span class="iconfont">&#xe600;</span><span class="iconfont order">&#xe611;</span></div>
+										</td>
+										<td>状态</td>
+										<td>操作</td>
+									</tr>
+								</table>
+								<div class="pagefoot">
+									<div class="pagefoot-right">总共<span class="countNum"></span>条数据</div>
+									<div class="M-box1"></div>
+								</div>
+								<div class="loading">
+									<div class="spinner">
+										<div class="spinner-container container1">
+											<div class="circle1"></div>
+											<div class="circle2"></div>
+											<div class="circle3"></div>
+											<div class="circle4"></div>
+										</div>
+										<div class="spinner-container container2">
+											<div class="circle1"></div>
+											<div class="circle2"></div>
+											<div class="circle3"></div>
+											<div class="circle4"></div>
+										</div>
+										<div class="spinner-container container3">
+											<div class="circle1"></div>
+											<div class="circle2"></div>
+											<div class="circle3"></div>
+											<div class="circle4"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</section>
+						<section id="userList">
+							<div>
+								<div class="searchGroups">
+									<div id="keywordsGroup">
+										<label>关键字</label>
+										<input type="text" placeholder="组名称" />
+									</div>
+									<div class="timeslot2">
+										<span style="margin-left: 5px;">创建时间</span>
+										<input type="text" value="" id="createFrom" placeholder="开始时间" />
+										<span>——</span>
+										<input type="text" value="" id="createTo" placeholder="结束时间" />
+										<label for="createFrom" class="dropdown"><img src="img/downIcon.png"></label>
+									</div>
+									<div class="searchGroup">搜索</div>
+									<div class="newGroup"><span class="iconfont" style="margin-right: 5px;">&#xe607;</span>新增组</div>
+								</div>
+								<table id="groupTable" cellspacing="0">
+									<tr>
+										<td>组名称</td>
+										<td>人数</td>
+										<td id="createTime">
+											<span id="createTitle">创建时间</span>
+											<div><span class="iconfont">&#xe600;</span><span class="iconfont order">&#xe611;</span></div>
+										</td>
+										<td>操作</td>
+									</tr>
+								</table>
+								<div class="pagefoot">
+									<div class="pagefoot-right">总共<span class="countNum"></span>条数据</div>
+									<div class="M-box1"></div>
+								</div>
+								<div class="loading">
+									<div class="spinner">
+										<div class="spinner-container container1">
+											<div class="circle1"></div>
+											<div class="circle2"></div>
+											<div class="circle3"></div>
+											<div class="circle4"></div>
+										</div>
+										<div class="spinner-container container2">
+											<div class="circle1"></div>
+											<div class="circle2"></div>
+											<div class="circle3"></div>
+											<div class="circle4"></div>
+										</div>
+										<div class="spinner-container container3">
+											<div class="circle1"></div>
+											<div class="circle2"></div>
+											<div class="circle3"></div>
+											<div class="circle4"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</section>
+					</div>
+				</div>
+			</div>
+			<div class="popup_bg">
+				<div class="popup">
+					<div class="popup-top">
+						<div class="pop-title">新建</div>
+						<div class="pop-close">
+							<img src="img/edit_close.png" />
+						</div>
+					</div>
+					<div class="popup-bottom">
+						<!--消息列表弹出框-->
+						<section class="messagePop">
+							<div class="mStep1">
+								<div class="step-wrapper">
+									<img src="img/mProgress1.png" />
+									<div class="messageContent">
+										<div>
+											<span>Ｘ先生（X女士），早上好！</span>
+											<input type="text" style="width: 750px;" placeholder="您的 X X 新鲜出炉啦！" maxlength="30" id="mtilte" />
+										</div>
+										<div><span class="textNum">0</span>/30</div>
+									</div>
+									<div class="messageContent">
+										<div>
+											<span>产品名称</span>
+											<input type="text" placeholder="请输入" maxlength="20" id="productName" />
+										</div>
+										<div><span class="textNum">0</span>/20</div>
+									</div>
+									<div class="messageContent">
+										<div>
+											<span>报告名称</span>
+											<input type="text" placeholder="请输入" maxlength="20" id="reportName" />
+										</div>
+										<div><span class="textNum">0</span>/20</div>
+									</div>
+									<div class="messageContent">
+										<div>
+											<span>报告摘要</span>
+											<input type="text" placeholder="请输入" maxlength="20" id="reportDesc" />
+										</div>
+										<div><span class="textNum">0</span>/20</div>
+									</div>
+									<div class="orderTime">
+										<div class="setSendDate">
+											<label for="sendDate" class="dropdown"><img src="img/timeIcon.png"></label>
+											<input type="text" value="" id="sendDate" placeholder="预约推送时间" />
+											<label for="sendDate" class="dropdown"><img src="img/downIcon.png"></label>
+										</div>
+										<div class="setSendHour">
+											<input type="text" id="sendHour" maxlength="2" class="isHour" value="00">
+											<div class="countBox">
+												<div><img src="img/downIcon.png"></div>
+												<div><img src="img/downIcon.png"></div>
+											</div>
+										</div>
+										<div style="border: 0;">:</div>
+										<div class="setSendMin">
+											<input type="text" id="sendMin" maxlength="2" class="isMin" value="00">
+											<div class="countBox">
+												<div><img src="img/downIcon.png"></div>
+												<div><img src="img/downIcon.png"></div>
+											</div>
+										</div>
+										<div style="border: 0;">(若未选择日期，即立即发送)</div>
+										<div style="border: 0;"><input type="checkbox" id="test" style="margin-right: 5px;cursor: pointer;"/><label for="test">内部测试发给附属人</label></div>
+									</div>
+									<div class="preview">
+										<div class="previewTitle">预览</div>
+										<div class="previewContent">
+											<div style="color: #ab8c5f;">Ｘ先生（X女士），早上好！<span id="pTitle"></span></div>
+											<!--<div style="color: #ab8c5f;">立即查看</div>-->
+											<div>产品名称:<span id="pProductName"></span></div>
+											<div>报告名称:<span id="pReportName"></span></div>
+											<div>发布时间:<span id="pSendTime" style="color:#949494;"></span></div>
+											<div>报告摘要:<span id="pReportDesc" style="color: #bd0000;"></span></div>
+										</div>
+									</div>
+									<div class="btnGroups">
+										<div class="cancel">取消</div>
+										<div class="mNext">下一步</div>
+									</div>
+								</div>
+							</div>
+							<div class="mStep2">
+								<div class="step-wrapper">
+									<img src="img/mProgress2.png" />
+									<ul class="selectNav">
+										<li class="select-active">选择组</li>
+									</ul>
+									<div class="optionSelect">
+										<div class="g-left">
+											<div class="sGroup">
+												<div class="search-box">
+													<input type="text" placeholder="搜索组名" />
+													<div class="gSearch iconfont">&#xe605;</div>
+												</div>
+												<div class="all">
+													<div class="circle1">
+														<div class="circle2"></div>
+													</div>
+													<div>全部</div>
+												</div>
+												<ul class="list"></ul>
+											</div>
+										</div>
+										<div class="g-right">
+											<ul class="preGroup"></ul>
+											<ul class="prePeople"></ul>
+										</div>
+									</div>
+									<div class="btnGroups">
+										<div class="mPrev">上一步</div>
+										<div class="mSave">提交</div>
+									</div>
+								</div>
+							</div>
+						</section>
+						<!--分组列表弹出框-->
+						<section class="groupPop">
+							<div class="step-wrapper">
+								<div class="messageContent">
+									<div>
+										<span>组名称</span>
+										<input type="text" style="width: 750px;" placeholder="请输入" maxlength="30" id="gtilte" />
+									</div>
+									<div><span class="textNum">0</span>/30</div>
+								</div>
+								<div class="optionSelect">
+									<div class="g-left">
+										<div class="gDepart">
+											<div class="search-box">
+												<input type="text" placeholder="搜索营业部" />
+												<div class="pSearch2 iconfont">&#xe605;</div>
+											</div>
+											<div class="all">
+												<div class="circle1">
+													<div class="circle2"></div>
+												</div>
+												<div>全部</div>
+											</div>
+											<ul class="list"></ul>
+										</div>
+										<div class="gPeople">
+											<div class="all">
+												<div class="circle1">
+													<div class="circle2"></div>
+												</div>
+												<div>全部</div>
+											</div>
+											<ul class="list"></ul>
+										</div>
+									</div>
+									<div class="g-right">
+										<ul class="preGroupPeople"></ul>
+									</div>
+								</div>
+								<div class="btnGroups">
+									<div class="cancel">取消</div>
+									<div class="gSave">提交</div>
+								</div>
+							</div>
+						</section>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			$(function() {
+				var mName = sessionStorage.getItem("account")
+				if(mName == "" || mName == null || mName == undefined) {
+					window.location.href = "login.html"
+				}
+				$("#userName").html("欢迎你 " + sessionStorage.getItem("name") + " !")
+				$("#logout").click(function() {
+					$.ajax({
+						type: "POST",
+						url: "http://wx.zzfco.com/wxmgmt/api/mgmtUser/loginOut.do",
+						async: true,
+						contentType: "application/json",
+						xhrFields: {
+							withCredentials: true
+						},
+						success: function(data) {
+							sessionStorage.clear()
+							window.location.href = "login.html"
+						}
+					})
+				})
+			})
+		</script>
+	</body>
+
+</html>

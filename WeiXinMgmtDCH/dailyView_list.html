@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>每日观点-分析师列表</title>
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<link rel="stylesheet" type="text/css" href="css/wysiwyg-editor.css" />
+		<link rel="stylesheet" href="http://www.jq22.com/jquery/font-awesome.4.6.0.css">
+		<link rel="stylesheet" type="text/css" href="css/dailyView_list.css" />
+		<script src="js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.pagination.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="js/ueditor.config.js"></script>
+		<script type="text/javascript" src="js/ueditor.all.min.js"></script>
+		<script src="js/commonJS.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/dailyView_list.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<div class="mangePanel">
+			<div class="top">
+				<img src="img/logo3.png" />
+				<span id="userName"></span>
+				<ul>
+					<li id="logout">退出</li>
+				</ul>
+			</div>
+			<div class="footer">
+				<div class="left">
+					<ul></ul>
+				</div>
+
+				<!--审核界面-->
+				<div class="right right2">
+					<div class="container">
+						<div class="top_notice"><img src="img/laba.png" /><span>分析师列表是发布当日内容。</span></div>
+						<div class="nav">
+							<a href="dailyView_list.html" class="navbar analystList navbar_on">分析师列表</a>
+							<a href="dailyView_history.html" class="navbar history">往期历史</a>
+							<div class="btn newAdd"><span class="iconfont">&#xe607;</span> 新建</div>
+							<div class="btn publish">发布</div>
+						</div>
+						<div class="content">
+							<div class="content_box">
+								<table class="content_left" cellspacing="0">
+									<tr>
+										<td>
+											<div class='circle1'>
+												<div class='circle2'></div>
+											</div><label>全选</label>
+										</td>
+										<td>名称</td>
+										<td>编辑状态</td>
+										<td>操作</td>
+									</tr>
+								</table>
+								<div class="content_right">
+									<div class="tips">
+										<img src="img/tip.png" /><span>操作小贴士</span>
+									</div>
+									<div class="writeTip">
+										<div id="test"></div>
+										<div class="fontCount"><span class="currentCount">0</span>/60</div>
+									</div>
+									<div class="tip_operation">
+										<div class="tipBtn tip_save">保存</div>
+										<div class="tipBtn tip_clear">清空</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="editStep">
+							<div class="edit_title">
+								<div>新建</div>
+								<div class="delLabel">删除</div>
+							</div>
+							<div class="firstStep_box">
+								<div class="firstStep">
+									<div class="card">
+										<div class='box_top'>
+											<div class='wave -one'></div>
+											<div class='wave -two'></div>
+											<div class="analystTitle">
+												<p>模拟分析师</p>
+												<p><input type="text" value="XXX" class="analystName" /></p>
+												<img src="http://www.decaihui.com/wxweb/img/rotate.png" class="analyst_level_bg" />
+												<img src="http://www.decaihui.com/wxweb/img/expert.png" class="analyst_level" />
+											</div>
+										</div>
+										<div class="box_bottom">
+											<p>模拟盘持仓情况：<img data-position="0" src="img/more.png" /> <img data-position="1" src="img/empty.png" /> <img data-position="2" src="img/flat.png" /></p>
+											<p>初始资金：<input type="text" value="￥xxx,xxx,xx" class="analyst_startBalance money zj">&nbsp;<span class="pzh">---</span>&nbsp;<input type="text" value="xxx/xx/xx" class="analyst_startDate date"></p>
+											<p>当前市值：<input type="text" value="￥xxx,xxx,xx" class="analyst_currentBalance money sz">&nbsp;<span class="pzh">---</span>&nbsp;<input type="text" value="xxx/xx/xx" class="analyst_currentDate date"></p>
+											<p class="analyst_profitRatio bg"><input type="text" value="xx.xx%" /></p>
+											<p>收益率</p>
+											<p class="analyst_yearProfitRatio bg"><input type="text" value="xx.xx%" /></p>
+											<p>预期年化</p>
+											<div class="plan">
+												<span class="plan_title">计划概况：</span><br>
+												<textarea class="analyst_plan" placeholder="请在此输入..." maxlength="60"></textarea>
+												<div class="fontCount"><span class="currentCount">0</span>/60</div>
+											</div>
+										</div>
+									</div>
+									<div class="firstStepGroup">
+										<!--<div class="stepBtn card_save">保存</div>-->
+										<div class="stepBtn next">下一步</div>
+									</div>
+								</div>
+							</div>
+							<div class="secondStep_box">
+								<div class="secondStep">
+									<div class="secondStep_top">
+										<ul class="labelUl">
+											<li class="createLabel"><input type="text" autofocus="autofocus" /></li>
+											<li class="newLabel iconfont">&#xe607;</li>
+										</ul>
+									</div>
+									<div class="secondStep_bottom">
+										<ul class="textareaUl">
+											<li class="defaultTextarea">
+												<textarea class="analystView" disabled="disabled" placeholder="请在此输入..."></textarea>
+												<textarea class="suggests" disabled="disabled" placeholder="请在此输入..."></textarea>
+											</li>
+										</ul>
+										<div class="fontCount"><span class="currentCount">0</span>/600</div>
+									</div>
+									<div class="secondStepGroup">
+										<div class="stepBtn prev">上一步</div>
+										<div class="stepBtn comment_save">保存</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</body>
+
+</html>

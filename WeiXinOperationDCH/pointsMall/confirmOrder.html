@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>确认订单</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0,user-scale=0,user-scalable=no">
+		<!--uc浏览器强制竖屏-->
+		<meta name="screen-orientation" content="portrait">
+		<!--QQ浏览器强制竖屏-->
+		<meta name="x5-orientation" content="portrait">
+		<link rel="stylesheet" type="text/css" href="css/mobileMain.css" />
+		<link rel="stylesheet" type="text/css" href="css/jquery-weui.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/confirm.css" />
+		<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://www.decaihui.com/wxjs/js/share.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/commonJS.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-weui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/city-picker.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/confirmOrder.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<div class="container">
+			<header>
+				<div class="top">
+					<span>订单号</span>
+					<span id="orderNum"></span>
+				</div>
+				<div class="middle">
+					<div class="middle-t">
+						<div id="createTime"></div>
+						<img src="" id="infoStatus" />
+					</div>
+					<div class="middle-m">
+						<div>
+							<img src="" id="commodityPic" />
+						</div>
+						<div>
+							<div id="commodityInfo"></div>
+							<div id="commodityPoints">积分兑：<span></span></div>
+						</div>
+					</div>
+					<div class="middle-b"></div>
+				</div>
+				<div class="bottom">
+					<div class="bottom-t">收件人信息</div>
+					<!--虚拟订单-票券类-->
+					<div class="ticket">
+						<div class="contact">
+							<div><img src="img/nameIcon.png" /></div>
+							<input type="text" id="recipient-virtual" value="" />
+							<div><img src="img/mobileIcon.png" /></div>
+							<input type="tel" id="tel-virtual" value="" />
+						</div>
+					</div>
+					<!--虚拟订单-服务类-->
+					<div class="service">
+						管家服务只可以本人使用，不可转给他人。点击兑换后立即生效，有效期一年。
+					</div>
+					<!--实物订单-->
+					<div class="physical">
+						<div class="contact">
+							<div><img src="img/nameIcon.png" /></div>
+							<input type="text" id="recipient-physical" value="" />
+							<div><img src="img/mobileIcon.png" /></div>
+							<input type="tel" id="tel-physical" value="" />
+						</div>
+						<div class="address">
+							<div><img src="img/addressIcon.png" /></div>
+							<div>
+								<input type='text' id='city-picker' placeholder='请选择省市区县' value="" />
+								<input type="text" placeholder="请输入详细地址" id="address-physical" />
+							</div>
+						</div>
+					</div>
+				</div>
+			</header>
+			<footer>
+				<div class="points">
+					<div>合计积分：<span id="exchangePoints">10万</span></div>
+					<div>可用：<span id="balance">30万积分</span></div>
+				</div>
+				<div class="submit">提交订单</div>
+				<div class="payFail">支付失败，您的积分额度不足</div>
+			</footer>
+		</div>
+	</body>
+
+</html>

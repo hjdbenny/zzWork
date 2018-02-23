@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		<meta charset="utf-8">
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta content="telephone=no" name="format-detection">
+		<!--uc浏览器强制竖屏-->
+		<meta name="screen-orientation" content="portrait">
+		<!--QQ浏览器强制竖屏-->
+		<meta name="x5-orientation" content="portrait">
+		<title>分析师每日观点</title>
+
+		<link rel="stylesheet" type="text/css" href="http://www.decaihui.com/wxweb/css/mobileMain.css" />
+		<link rel="stylesheet" type="text/css" href="http://www.decaihui.com/wxweb/css/jquery-ui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="http://www.decaihui.com/wxweb/css/swiper.min.css" />
+		<link rel="stylesheet" type="text/css" href="http://www.decaihui.com/wxweb/css/dailyView.css" />
+		<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://www.decaihui.com/wxweb/js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://www.decaihui.com/wxweb/js/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://www.decaihui.com/wxweb/js/commonJS.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://www.decaihui.com/wxjs/js/share.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://www.decaihui.com/wxweb/js/datePicker.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://www.decaihui.com/wxweb/js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://www.decaihui.com/wxweb/js/dailyView.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="top">
+				<ul class="nav">
+					<li class="on">每日观点</li>
+					<li>历史观点</li>
+				</ul>
+			</div>
+			<div id="wrapper1">
+				<div class="title"></div>
+				<div class="content swiper-container">
+					<ul class="swiper-wrapper"></ul>
+				</div>
+				<div class="tips">
+					<img src="http://www.decaihui.com/wxweb/img/tip.png" />
+					<div id="tip"></div>
+				</div>
+				<div class="wrapper_bottom">
+					数据仅供参考，不作为投资依据。
+				</div>
+			</div>
+			<div id="wrapper2">
+				<div class="wrapper_top">
+					<div id="selectDate"><span id="date"></span><span class="iconfont">&#xe749;</span></div>
+					<div id="datepicker"></div>
+				</div>
+				<div class="wrapper_bottom">
+					数据仅供参考，不作为投资依据。
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>

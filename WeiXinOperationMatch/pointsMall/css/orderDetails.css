@@ -1,0 +1,189 @@
+
+body{
+	background: #e7e7e7;
+	font-size: 1.4rem;
+}
+header{
+	width: 100%;
+	height: 18rem;
+	position: relative;
+	float: left;
+}
+header img{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+header div{
+	width: 100%;
+	height: 5rem;
+	background: rgba(0,0,0,.6);
+	line-height: 5rem;
+	text-indent: 2rem;
+	color: #FFFFFF;
+	font-size: 1.8rem;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	z-index: 2;
+}
+/*积分消费信息*/
+.status{
+	width: 100%;
+	float: left;
+	height: 5.7rem;
+	position: relative;
+	display: flex;
+	display: -webkit-flex;
+	flex-direction: column;
+	justify-content: center;
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
+	background: #FFFFFF;
+	margin-bottom: 0.5rem;
+}
+.status>p{
+	margin-left: 1.5rem;
+}
+.status>p:first-of-type{
+	font-size: 1.5rem;
+	color: #ab8c5f;
+}
+.status>p:last-of-type{
+	font-size: 1.2rem;
+	color: #666666;
+}
+.orderStatus{
+	position: absolute;
+	top: 0;
+	right: 1.5rem;
+	bottom: 0;
+	margin: auto;
+	width: 4rem;
+	height: 1.75rem;
+	text-align: center;
+	line-height: 1.75rem;
+	font-size: 1.2rem;
+}
+.hasSend{
+	color: #f25c33;
+}
+.noSend{
+	color: #00cc8f;
+}
+/*物流信息*/
+.logistics{
+	width: 100%;
+	height: 7.5rem;
+	float: left;
+	margin-bottom: 0.5rem;
+	border-radius: 20px;
+	background: #FFFFFF;
+	display: none;
+}
+.logistics-wapper{
+	display: flex;
+	display: -webkit-flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+}
+.logistics-wapper>div{
+	height: 100%;
+	display: flex;
+	display: -webkit-flex;
+	flex-direction: column;
+}
+.logistics-wapper>div:first-of-type{
+	width: 7.5rem;
+	justify-content: center;
+	align-items: center;
+	color: #949494;
+}
+.logistics-wapper>div:nth-of-type(2){
+	width: 13.5rem;
+	justify-content: center;
+	align-items: flex-start;
+	color: #333333;
+}
+.logistics-wapper>div:nth-of-type(2)>span:last-of-type{
+	font-size: 1.8rem;
+	font-family: "PF_bold";
+}
+.logistics-wapper>div:last-of-type{
+	width: 7rem;
+	justify-content: center;
+	align-items: center;
+	color: #FFFFFF;
+	background: #b7996a;
+	border-top-left-radius: 5rem;
+	border-bottom-left-radius: 5rem;
+	font-size: 1.5rem;
+}
+.logistics-wapper>div:last-of-type .iconfont{
+	margin-right: 0.2rem;
+}
+/*待发货中*/
+.preparing{
+	width: 100%;
+	height: 7.5rem;
+	float: left;
+	margin-bottom: 0.5rem;
+	border-radius: 20px;
+	background: #FFFFFF;
+	display: none;
+}
+.preparing-wapper{
+	display: flex;
+	display: -webkit-flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+}
+.preparing-wapper>img{
+	width: 8.25rem;
+	height: 5rem;
+}
+.preparing-wapper>a{
+	width: 14rem;
+	height: 3rem;
+	background: #c1a475;
+	color: #FFFFFF;
+	display: -webkit-inline-flex;
+	display: inline-flex;
+	flex-direction: row;
+	text-decoration: none;
+	justify-content: center;
+	align-items: center;
+	border-radius: 20rem;
+}
+/*详情*/
+.details{
+	width: 100%;
+	float: left;
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+	background: #FFFFFF;
+	display: flex;
+	display: -webkit-flex;
+	justify-content: flex-start;
+	align-items: center;
+	flex-direction: column;
+}
+.details>div:first-of-type{
+	width: calc(100% - 2rem);
+	float: left;
+	color: #949494;
+	margin-top: 1rem;
+}
+.details>div:last-of-type{
+	width: calc(100% - 3rem);
+	float: left;
+	padding-left: 1rem;
+}

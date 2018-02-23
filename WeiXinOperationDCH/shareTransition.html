@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		<meta charset="utf-8">
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta content="telephone=no" name="format-detection">
+		<!--uc浏览器强制竖屏-->
+		<meta name="screen-orientation" content="portrait">
+		<!--QQ浏览器强制竖屏-->
+		<meta name="x5-orientation" content="portrait">
+		<title></title>
+	</head>
+
+	<body>
+		<script src="js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			$(function() {
+				//获取url中的参数, code
+				function getUrlParam(name) {
+					var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+					var r = window.location.search.substr(1).match(reg); //匹配目标参数
+					if(r != null) return unescape(r[2]);
+					return null; //返回参数值
+				}
+				if(getUrlParam("before") != null || getUrlParam("before") != undefined) {
+					var shareUrl = `http://www.decaihui.com/wxweb/api/jf/invite/page/${getUrlParam("before")}/after.do`
+					window.location.href = `https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx7806a150c562b73c&redirect_uri=${encodeURIComponent(shareUrl)}&response_type=code&scope=snsapi_base&state=123#wechat_redirect`
+				} else {
+					var shareUrl = getUrlParam("shareUrl")
+					var obj = {
+						time: new Date().getTime(),
+						url: shareUrl
+					}
+					$.ajax({
+						type: "POST",
+						url: "http://www.decaihui.com/wxweb/api/share/createShare.do",
+						async: false,
+						data: JSON.stringify(obj),
+						contentType: "application/json",
+						xhrFields: {
+							withCredentials: true
+						},
+						success: function(data) {
+							window.location.href=`http://www.decaihui.com/wxweb/api/share/show/${data.data}.do`
+						}
+					});
+					//				window.location.href = `https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx7806a150c562b73c&redirect_uri=${encodeURIComponent(shareUrl)}&response_type=code&scope=snsapi_base&state=123#wechat_redirect`		
+				}
+			})
+		</script>
+	</body>
+
+</html>

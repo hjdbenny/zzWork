@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		<meta charset="utf-8">
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta content="telephone=no" name="format-detection">
+		<!--uc浏览器强制竖屏-->
+		<meta name="screen-orientation" content="portrait">
+		<!--QQ浏览器强制竖屏-->
+		<meta name="x5-orientation" content="portrait">
+		<title>久赢早讯</title>
+		<link rel="stylesheet" type="text/css" href="http://www.decaihui.com/wxweb/css/mobileMain.css" />
+		<link rel="stylesheet" type="text/css" href="css/morningNews.css" />
+
+	</head>
+
+	<body>
+		<div class="container" id="app">
+			<ul class="wrapper">
+				<li class="bg1">
+					<div class="today" v-html="today"></div>
+					<img src="img/zx_post.png" class="post" />
+					<div class="nameTitle" v-html="nameTitle"></div>
+					<div class="review" v-html="review"></div>
+					<img src="img/zx_tip.png" class="zx-tip"/>
+					<img src="img/zx_title1.png" class="title1"></img>
+					<table class="compareTable" cellspacing="0">
+						<tr>
+							<td></td>
+							<td colspan="2">-&nbsp;期货&nbsp;-</td>
+							<td colspan="2">-&nbsp;现货&nbsp;-</td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>品种</td>
+							<td>收盘价</td>
+							<td>涨跌幅</td>
+							<td>收盘价</td>
+							<td>涨跌幅</td>
+							<td>基差</td>
+							<td>变动</td>
+						</tr>
+						<tr v-for="item in compareArr">
+							<td>{{item.name}}</td>
+							<td>{{item.p1}}</td>
+							<td :class="[(item.r1>=0)?zhang:die]">{{item.r1}}%</td>
+							<td>{{item.p2}}</td>
+							<td :class="[(item.r2>=0)?zhang:die]">{{item.r2}}%</td>
+							<td>{{item.jc}}</td>
+							<td>{{item.change}}</td>
+						</tr>
+					</table>
+				</li>
+				<li class="bg2">
+					<img src="img/zx_title2.png" class="title2"></img>
+					<div class="bubble">
+						<ul>
+							<li v-for='item in suggestPzArr' :class="item.floatClass" :style="{width:liWidth}">
+								<div class="circle">
+									<span>{{item.name}}</span>
+									<span>{{item.instrumentCode}}</span>
+								</div>
+								<div class="circlebg" :class="item.cbgClass"></div>
+							</li>
+						</ul>
+						<div class="water bubbleAnimate1 w1"></div>
+						<div class="water bubbleAnimate2 w2"></div>
+						<div class="water bubbleAnimate1 w3"></div>
+						<div class="water bubbleAnimate2 w4"></div>
+					</div>
+					<div class="tip" style="color: #fff8eb;">底舱（长线单）建议比例&nbsp;<span v-html='tip' style="color: #ffffff;font-family: 'PF_bold';"></span></div>
+					<img src="img/zx_title3.png" class="title3"></img>
+					<div class="tip2">具体理由阐述</div>
+					<div class="proposal" v-html="proposal"></div>
+					<div class="suggestTable1">
+						<div class="curBalance" style="font-size: 1.5rem;">
+							<span style="color: #001b30;">当前权益&nbsp;</span><span v-html="curBalance" style="color: #ab8c5f;"></span>
+						</div>
+						<div style="color: #333333;">总可开手数</div>
+						<div class="volume">
+							<div v-for='item in suggestPzArr'>
+								<span style="color: #96784d;">{{item.volume}}手</span>
+								<span style="color: #1a1a1a;">{{item.name}}</span>
+							</div>
+						</div>
+						<div style="color: #96784d;">建议总仓位&nbsp;<span v-html="proposalRatio" style="color: #f25c33;"></span></div>
+					</div>
+					<div class="suggestTable2">
+						<div class="operationTitle">
+							<div>实际持仓</div>
+							<div>久赢系统建议持仓</div>
+						</div>
+						<ul class="operationTable">
+							<li v-for="item in viewArr">
+								<div>
+									<div class="o-left-bg">{{item.name}}</div>
+									<div class="o-middle-bg" style="width: 15%;"><span>净仓</span> {{item.netLongVolume}}</div>
+									<div class="o-middle-bg" style="width: 20%;"><span>比例</span> {{item.bili}}</div>
+									<div class="o-right-bg">底仓 <span>{{item.dc}}</span></div>
+									<div class="o-right-bg">调整 <span>{{item.adjustVolume}}手</span></div>
+									<div class="o-right-bg">方向 <img v-if="item.direction==1" src="img/more.png" /><img v-if="item.direction==2" src="img/empty.png" /></div>
+								</div>
+								<table cellspacing="0">
+									<tr>
+										<td>合约</td>
+										<td>手数</td>
+										<td>均价</td>
+										<td>建议价格</td>
+									</tr>
+									<tr v-for="(item2,index2) in item.position">
+										<td>{{item2.instrumenCode}}</td>
+										<td>{{item2.volume}}</td>
+										<td>{{item2.price}}</td>
+										<td v-if="index2==0">{{item2.proposalPrice}}</td>
+									</tr>
+								</table>
+							</li>
+						</ul>
+					</div>
+					<div class="weekKeyords">本周关键词:<span v-html="weekKeywords"></span></div>
+				</li>
+				<li class="bg3">
+					<img src="img/zx_title4.png" class="title4"></img>
+					<div class="rankBox">
+						<div>当前排名<span v-html="monthRank" style="margin-left: 0.5rem;"></span></div>
+						<div>排名变化<span v-html="rankChange" style="margin-left: 0.5rem;"></span></div>
+					</div>
+					<ul class="accountInfo">
+						<li>
+							<div>期初权益</div>
+							<div v-html="startBalance"></div>
+							<div>当前权益</div>
+							<div v-html="curBalance"></div>
+						</li>
+						<li>
+							<div>本月入金</div>
+							<div v-html="deposit"></div>
+							<div>本月出金</div>
+							<div v-html="withdraw"></div>
+						</li>
+						<li>
+							<div>本月收益</div>
+							<div v-html="profit"></div>
+							<div>本月收益率</div>
+							<div class="ratio">
+								<div class="ratiobox" :style="{width:profitWith}">
+									<div></div>
+									<div></div>
+								</div>
+								<div class="ratiotext" v-html="profitRatio"></div>
+							</div>
+						</li>
+						<li>
+							<div>交易次数</div>
+							<div v-html="tradeCount"></div>
+							<div>胜率</div>
+							<div class="ratio">
+								<div class="ratiobox" :style="{width:winWith}">
+									<div></div>
+									<div></div>
+								</div>
+								<div class="ratiotext" v-html="winRatio"></div>
+							</div>
+						</li>
+						<li>
+							<div>最大单笔盈利</div>
+							<div v-html="maxProfit"></div>
+							<div>最大单笔亏损</div>
+							<div v-html="maxLoss"></div>
+						</li>
+					</ul>
+					<div class="viewTitle">
+						<div class="viewday" v-html="viewday"></div>
+					</div>
+					<div class="nav">
+						<ul>
+							<li v-for="(item,index) in navArr" @click="selectOn(item,index)" :class="{selectOn:activeItem==item}">
+								{{item}}
+								<div class="bline" v-show="activeItem!=item"></div>
+							</li>
+						</ul>
+					</div>
+					<div class="viewReport">
+						<div v-html="pzDescription"></div>
+						<div v-html='pzProposal'></div>
+					</div>
+					<div class="news" id="news">
+						<a :href="item.href" @click="setScrollTop" v-for="item in news">{{item.title}}</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://www.decaihui.com/wxweb/js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://www.decaihui.com/wxweb/js/commonJS.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://www.decaihui.com/wxjs/js/share.js" type="text/javascript" charset="utf-8"></script>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vue" type="text/javascript" charset="utf-8"></script>
+		<script src="js/morningNews.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>

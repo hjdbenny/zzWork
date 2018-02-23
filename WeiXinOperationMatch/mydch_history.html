@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html ng-app="personalData">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+		<!--uc浏览器强制竖屏-->
+		<meta name="screen-orientation" content="portrait">
+		<!--QQ浏览器强制竖屏-->
+		<meta name="x5-orientation" content="portrait">
+		<title>我的德才汇</title>
+		<link rel="stylesheet" type="text/css" href="css/mobileMain.css" />
+		<link rel="stylesheet" type="text/css" href="css/mydch_history.css" />
+		<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/angular.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/autoFontSize.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/highcharts.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/exporting.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/toggle.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://www.decaihui.com/wxjs/js/dchShare.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/mydch_history.js" type="text/javascript" charset="utf-8"></script>
+
+	</head>
+
+	<body ng-controller="historyController">
+		<header>
+			<ul class="nav">
+				<li class="unclosed select_on" data-type="unclosed">未平仓</li>
+				<li class="closed" data-type="closed">已平仓</li>	
+				<li class="profit" data-type="profit"><span style="margin-right: 0.5rem;" class="iconfont">&#xe609;</span>每日盈亏</li>	
+			</ul>
+		</header>
+		<section class="cc">
+			<div class="totalData">
+				<div>
+					<div class='totalProfit'></div>
+					<div><img src="img/sumAllProfit.png" />总盈亏</div>
+				</div>
+				<div>
+					<div class='totalTax'></div>
+					<div><img src="img/sumAllTax.png" />总手续费</div>
+				</div>
+			</div>
+			<nav class="navType1">
+				<ul class="navbar1">
+					<li class="navbar_on orderByDate" data-type = "1">日期排序<span class="up_arrow"></span><span class="down_arrow"></span></li>
+					<li class="orderByContract" data-type = "2">合约排序<span class="up_arrow"></span><span class="down_arrow"></li>
+					<li class="orderByProfit" data-type = "3">盈亏排序<span class="up_arrow"></span><span class="down_arrow"></li>
+					<li class="orderByTax" data-type = "4">手续费排序<span class="up_arrow"></span><span class="down_arrow"></li>
+				</ul>
+			</nav>
+			<section class="record">
+				<ul class="history_content"></ul>
+			</section>
+			<div class="noData"></div>
+		</section>
+		<section class="yk">
+			<div class="preview">
+				<div class="qxt"></div>
+				<div class="more"><span>每个阶段的盈亏与累计收益率。</span><div class="moreBtn">更多</div></div>
+				<div class="selectCondition">
+					<ul></ul>
+				</div>
+			</div>
+			<div class=details>
+				<nav class="navType2">
+					<ul class="navbar2">
+						<li class="navbar_on orderByDate" data-type = "1">日期排序<span class="up_arrow"></span><span class="down_arrow"></span></li>
+						<li class="orderByBalance" data-type = "3">权益排序<span class="up_arrow"></span><span class="down_arrow"></li>
+						<li class="orderByProfit" data-type = "2">盈亏排序<span class="up_arrow"></span><span class="down_arrow"></li>
+						<li class="orderByDeposit" data-type = "4">入金排序<span class="up_arrow"></span><span class="down_arrow"></li>
+					</ul>
+				</nav>
+				<section class="profitRecord">
+					<ul class="profit_content"></ul>
+				</section>
+			</div>
+		</section>
+		<div class="info">每日资金信息以监控中心数据为准</div>
+		<footer>
+			<ul>
+				<li class="toHome">				
+					<div class="iconfont">&#xe602;</div>
+					<div>首页</div>				
+				</li>
+				<li class="toContract">				
+					<div class="iconfont">&#xe603;</div>
+					<div>合约</div>					
+				</li>
+				<li class="toHistory">
+					<div class="iconfont item_on">&#xe604;</div>
+					<div class="item_on">历史</div>		
+				</li>
+			</ul>
+		</footer>
+	</body>
+
+</html>

@@ -1,0 +1,78 @@
+body{
+	background: #e7e7e7;
+	font-size: 1.4rem;
+}
+header{
+	width: 100%;
+	height: calc(100% - 4.4rem);
+	overflow: scroll;
+}
+header>div{
+	float: left;
+	position: relative;
+}
+.top{
+	width: 100%;
+	height: 18rem;
+}
+.top img{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+.top div{
+	width: 100%;
+	height: 5rem;
+	background: rgba(0,0,0,.6);
+	line-height: 5rem;
+	text-indent: 2rem;
+	color: #FFFFFF;
+	font-size: 1.8rem;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	z-index: 2;
+}
+.info{
+	padding: 1rem;
+	width: calc(100% - 2rem);
+	background: #FFFFFF;
+	border-bottom-left-radius: 1rem;
+	border-bottom-right-radius: 1rem;
+}
+.info>p:last-of-type{
+	font-size: 1.3rem;
+	color: #999999;
+}
+#exchangePoints{
+	font-size: 1.5rem;
+	color: #ab8c5f;
+}
+.details{
+	padding: 1rem;
+	width: calc(100% - 2rem);
+	background: #FFFFFF;
+	border-top-left-radius: 1rem;
+	border-top-right-radius: 1rem;
+	margin-top: 1rem;
+	max-height: 99999px;
+}
+.details>div:first-of-type{
+	color: #999999;
+}
+#details{
+	padding: 0.5rem 1rem;
+    width: calc(100% - 2rem);
+}
+footer{
+	width: 100%;
+	height: 4.4rem;
+	background: linear-gradient(to bottom,#ceb385,#b49666);
+	line-height: 4.4rem;
+	text-align: center;
+	color: #FFFFFF;
+	cursor: pointer;
+	font-size: 1.8rem;
+}

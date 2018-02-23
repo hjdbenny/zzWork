@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html ng-app="bindInfo">
+
+	<head>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		<meta charset="utf-8">
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta content="telephone=no" name="format-detection">
+		<!--uc浏览器强制竖屏-->
+		<meta name="screen-orientation" content="portrait">
+		<!--QQ浏览器强制竖屏-->
+		<meta name="x5-orientation" content="portrait">
+		<title>账户绑定信息提示</title>
+		<link rel="stylesheet" type="text/css" href="css/mobileMain.css" />
+		<link rel="stylesheet" type="text/css" href="css/bindInfo.css" />
+		<script src="js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/angular.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/commonJS.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/bindInfo.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body ng-controller="bindInfoController">
+		<div class="container">
+			<header>
+				<img src="img/logo.png" class="logo" />
+				<img src="img/find.png" class="bind" />
+				<div class="title">
+					<p ng-bind="title_top"></p>
+					<p ng-bind="title_bottom"></p>
+				</div>
+			</header>
+			<section class="view1">
+				<div class="content">
+					<p>
+						<span class="circle"></span>您可以携带 <span style="font-family:'PF_bold';">二代身份证</span> 去中州期货各地网点办理开户手续。
+					</p>
+					<p style="text-align: center;">
+						<a href="tel:4006535377">全国客服电话：<span style="font-family:'PF_bold';">400 653 5377</span></a>
+					</p>
+					<p>
+						<span class="circle"></span><span style="font-family:'PF_bold';">IOS版本</span>
+					</p>
+					<p>
+						登录苹果商店，搜索“<span style="font-family:'PF_bold';">期货开户云</span>”，并下载完成安装。
+					</p>
+					<p>
+						<img src="img/app_icon.png" />
+					</p>
+					<p>
+						<span class="circle" style="opacity: 0;"></span><span style="font-family:'PF_bold';">Android版本</span>
+					</p>
+					<p>
+						提供二维码下载方式，开通账户
+					</p>
+					<p style="text-align: center;">
+						<img src="img/appCode.png" style="width:25%;" />
+					</p>
+					<p>
+						<img src="img/app_tip.png" />
+					</p>
+				</div>
+			</section>
+			<section class="view2">
+				<div class="content">
+					<p>
+						<span class="circle"></span>如有疑问，请致电客服：
+					</p>
+					<p style="text-align: center;">
+						<a href="tel:4006535377">全国客服电话：<span style="font-family:'PF_bold';">400 653 5377</span></a>
+					</p>
+				</div>
+			</section>
+			<section class="view3">
+				<div class="content">
+					<p>
+						<span class="circle"></span>点击返回/关闭，进行下一步操作。
+					</p>
+					<p>
+						<span class="circle"></span>如有疑问，请致电客服：
+					</p>
+					<p style="text-align: center;">
+						<a href="tel:4006535377">全国客服电话：<span style="font-family:'PF_bold';">400 653 5377</span></a>
+					</p>
+				</div>
+			</section>
+		</div>
+	</body>
+
+</html>

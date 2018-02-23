@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>个人月报编辑</title>
+		<link rel="stylesheet" type="text/css" href="css/wysiwyg-editor.css" />
+		<link rel="stylesheet" href="http://www.jq22.com/jquery/font-awesome.4.6.0.css">
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<link rel="stylesheet" type="text/css" href="css/modify_personal_edit.css" />
+		<script src="js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/wysiwyg.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/wysiwyg-editor.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/commonJS.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/modify_personal_edit.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<div class="mangePanel">
+			<div class="top">
+				<img src="img/logo3.png" />
+				<span id="userName"></span>
+				<ul>
+					<li id="logout">退出</li>
+					<li class="review">预览</li>
+				</ul>
+			</div>
+			<div class="footer">
+				<div class="left">
+					<ul></ul>
+				</div>
+				<!--编辑界面-->
+				<div class="right right1">
+					<ul class="tree">
+						<li>往期历史</li>
+					</ul>
+					<div class="container">
+						<div class="top_notice"><img src="img/laba.png" />编辑用户的个人月报时，系统为您提前导入了当月的数据信息,<span class="status1"></span>: 待编辑，<span class="status2"></span> : 待发布</div>
+						<div class="pl">
+							<a href="modify_personal_module.html">公共模板</a>
+							<a href="modify_personal_list.html" class="currentOn">当月月报</a>
+						</div>
+						<div class="title">编辑综合点评</div>
+						<div class="content">
+							<div class="modify">
+								<textarea id="test" placeholder="请输入..."></textarea>
+							</div>
+							<!--startprint-->
+							<div class="comment">
+								<div class="card">
+									<div class="secondTitle">综合点评</div>
+									<div class="second_top">
+										<img src="http://www.decaihui.com/wxweb/img/second_top_bg.png" />
+										<div class="mainBox">
+											<table>
+												<tr>
+													<td>交易合约</td>
+													<td>|</td>
+													<td class="maxTitle canEdit">最大单笔亏损</td>
+													<td>|</td>
+													<td>交易方向</td>
+												</tr>
+												<tr>
+													<td class="mainContract canEdit">XXXX</td>
+													<td></td>
+													<td class="maxDeficit canEdit">XXXX</td>
+													<td></td>
+													<td class="tradeDirection canEdit">X</td>
+												</tr>
+											</table>
+										</div>
+									</div>
+									<div class="totalComment canEdit">请输入...</div>
+									<img src="http://www.decaihui.com/wxweb/img/toDown.png" class="toDown" />
+									<ul class="comments">
+										<li>
+											<img src="http://www.decaihui.com/wxweb/img/secondIcon3.png" />
+											<div class="comment3 canEdit">请输入...</div>
+										</li>
+									</ul>
+								</div>
+								<!--endprint-->
+								<div class="btns">
+									<div class="save">保存</div>
+									<div class="publish">发布</div>
+								</div>
+							</div>
+
+							<div class="info">
+								<div class="info_title">信息</div>
+								<div class="name">xxx</div>
+								<div>模板名称</div>
+								<div id="moduleName"></div>
+								<div>备注</div>
+								<div><textarea class="description"></textarea></div>
+								<div><img src="img/defaultIcon.png" />默认选择公共模板</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<div class="review_bg"></div>
+		</div>
+	</body>
+
+</html>

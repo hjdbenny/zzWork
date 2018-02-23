@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		<meta charset="utf-8">
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta content="telephone=no" name="format-detection">
+		<!--uc浏览器强制竖屏-->
+		<meta name="screen-orientation" content="portrait">
+		<!--QQ浏览器强制竖屏-->
+		<meta name="x5-orientation" content="portrait">
+		<title>VIP高级查询</title>
+		<link rel="stylesheet" type="text/css" href="http://www.decaihui.com/wxweb/css/mobileMain.css" />
+		<link rel="stylesheet" type="text/css" href="http://www.decaihui.com/wxweb/css/mescroll.min.css" />
+		<link rel="stylesheet" type="text/css" href="http://www.decaihui.com/wxweb/css/vipSearch.css" />
+		<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://www.decaihui.com/wxweb/js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://www.decaihui.com/wxweb/js/commonJS.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://www.decaihui.com/wxweb/js/mescroll.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://www.decaihui.com/wxjs/js/share.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://www.decaihui.com/wxweb/js/datePicker.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://www.decaihui.com/wxweb/js/vipSearch.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+
+		<header>
+			<form target="frameFile" class="search">
+				<span class="iconfont">&#xe605;</span><input id="search" type="search" placeholder="手机号/用户名/资金账户" />
+				<iframe name='frameFile' style="display: none;"></iframe>
+			</form>
+		</header>
+		<nav>
+			<div class="totalRatio">累计收益率</div>
+			<div class="todayRatio">当日收益率<span class="up_arrow"></span><span class="down_arrow"></span></div>
+			<div class="filter">筛选 <span class="iconfont">&#xe606;</span></div>
+		</nav>
+		<section id="mescroll">
+			<ul id="dataList"></ul>
+		</section>
+		<section class="container">
+			<div class="top">
+				<div class="top_box">
+					<div class="title">营业部 (共<span class="totalPeople"></span>人)</div>
+					<div id="allSelect">全选</div>
+				</div>
+			</div>
+			<div class="middle">
+				<ul class="department"></ul>
+			</div>
+
+			<div class="bottom">
+				<div class="cancel">取消</div>
+				<div class="confirm">确认</div>
+			</div>
+		</section>
+		<section class="selectTotalRatio">
+			<ul>
+				<li><span id="selectMonth">请先选择月份：</span></li>
+				<li data-pdtype="6">由多到少排列<img src="http://www.decaihui.com/wxweb/img/correct.png" /></li>
+				<li data-pdtype="7">由少到多排列<img src="http://www.decaihui.com/wxweb/img/correct.png" /></li>
+			</ul>
+		</section>
+		<section class="error">
+			<div class="error_content">
+				<img src="http://www.decaihui.com/wxweb/img/vipIcon.png" />
+				<p>未查询到</p>
+				<p>请试试其他方式查询结果</p>
+			</div>
+		</section>
+
+	</body>
+
+</html>

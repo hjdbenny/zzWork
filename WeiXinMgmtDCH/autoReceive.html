@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0,user-scale=0,user-scalable=no">
+		<!--uc浏览器强制竖屏-->
+		<meta name="screen-orientation" content="portrait">
+		<!--QQ浏览器强制竖屏-->
+		<meta name="x5-orientation" content="portrait">
+		<title>自动回复</title>
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<link rel="stylesheet" type="text/css" href="css/autoReceive.css" />
+		<script src="js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/xml2json.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/commonJS.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/autoReceive.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<div class="mangePanel">
+			<div class="top">
+				<img src="img/logo3.png" />
+				<span id="userName"></span>
+				<ul>
+					<li id="logout">退出</li>
+					<!--<li class="share" ng-click="share()">分享</li>-->
+				</ul>
+			</div>
+			<div class="footer">
+				<div class="left">
+					<ul></ul>
+				</div>
+
+				<!--自动回复界面-->
+				<div class="right right2">
+					<div class="review_content">
+						<div class="top_notice"><img src="img/laba.png" />通过编辑内容或关键词规则，快速进行自动回复设置。</div>
+						<div class="newAdd">+ 添加规则/标题</div>
+						<ul class="pl">
+							<li class="pl_on">消息自动回复</li>
+							<li>关键词自动回复</li>
+						</ul>
+						<table class="keywordTable">
+							<tr style="height: 48px;">
+								<th style="height: 48px;">序号</th>
+								<th>规则名/标题</th>
+								<th style="width: 800px;">关键词回复</th>
+								<th>操作</th>
+							</tr>
+						</table>
+						<div class="messageAuto">
+							<div class="messageAuto_container">
+								<div class="messageAuto_top">
+									<ul>
+										<li class="type_text brightness"><img src="img/text.png"></li>
+										<li class="type_pic"><img src="img/pic.png"></li>
+									</ul>
+								</div>
+								<div class="auto_bottom auto_text">
+									<textarea class="auto_text_content" placeholder="可以输入296字,回车换行..."></textarea>
+								</div>
+								<div class="auto_bottom auto_pic">
+									<img src="img/addPic.png" />
+									<form id="uploadAutoPic" enctype="multipart/form-data" method="post">
+										<input name="type" value="image" style="opacity: 0;">
+										<input name="file" class="message_pic" type="file">
+									</form>
+								</div>
+							</div>
+							<button class="save_auto">保存</button>
+							<button class="clear_auto" disabled="disabled">清空</button>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<div class="newReceive_bg">
+			<!--添加规则/标题-->
+			<div class="newReceive">
+				<div class="newReceive_top">
+					<span>新增自动回复设置</span>
+					<div id="newAddClose"><img src="img/moduel_close.png" /></div>
+				</div>
+				<ul class="newReceive_title">
+					<li class="title_on">规则/标题名称</li>
+					<li>关键字</li>
+					<li>回复</li>
+				</ul>
+				<div class="newReceive_content">
+					<div class="edit_ruleName" data-step="0">
+						<!--规则名-->
+						<input type="text" class="ruleName" maxlength="60" placeholder="名称最多60个字..." />
+					</div>
+					<div class="edit_keyword" data-step="1">
+						<!--关键字-->
+						<textarea class="keyword_top" placeholder="输入回车可添加多个关键字，每个关键字少于30个字符..."></textarea>
+						<div class="keyword_bottom"></div>
+					</div>
+					<div class="edit_reply" data-step="2">
+						<!--回复-->
+						<div class="reply_container">
+							<div class="reply_top">
+								<ul>
+									<li class="style_text brightness"><img src="img/text.png"></li>
+									<li class="style_pic"><img src="img/pic.png"></li>
+									<!--<li class="style_news"><img src="img/news.png"></li>-->
+									<li class="iconfont addNews">&#xe601;</li>
+								</ul>
+							</div>
+							<div class="reply_bottom reply_text" data-order='1'>
+								<textarea class="text_content" placeholder="可以输入296字,回车换行..."></textarea>
+							</div>
+							<div class="reply_bottom reply_pic" data-order='2'>
+								<img src="img/addPic.png" />
+								<form id="uploadForm" enctype="multipart/form-data" method="post">
+									<input name="type" value="image" style="opacity: 0;">
+									<input name="file" class="post_pic" type="file">
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<button class="prev">上一步</button>
+				<button class="next">下一步</button>
+				<button class="save">确定</button>
+			</div>
+		</div>
+	</body>
+
+</html>

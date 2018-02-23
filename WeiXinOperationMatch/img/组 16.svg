@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="60" viewBox="0 0 40 60">
+  <defs>
+    <style>
+      .cls-1 {
+        filter: url(#filter);
+      }
+
+      .cls-2 {
+        font-size: 20px;
+        fill: #333;
+        font-family: "PingFang SC";
+        font-weight: 500;
+      }
+
+      .cls-3 {
+        fill: #b79769;
+        fill-rule: evenodd;
+      }
+    </style>
+    <filter id="filter" filterUnits="userSpaceOnUse">
+      <feFlood result="flood" flood-color="#666"/>
+      <feComposite result="composite" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="组_16" data-name="组 16" class="cls-1">
+    <text id="首页" class="cls-2" x="0.373" y="58.087">首页</text>
+    <path id="形状_804" data-name="形状 804" class="cls-3" d="M171.7,36.27L152,18,132.3,36.222a0.936,0.936,0,0,0-.049,1.332,0.965,0.965,0,0,0,1.351.048L152,20.589l18.394,17.068a0.967,0.967,0,0,0,1.351-.048,0.944,0.944,0,0,0-.049-1.339h0Zm-6.008.376a0.956,0.956,0,0,0-.958.949V52.108H157.1V42.014H146.908V52.108h-7.642V37.6a0.954,0.954,0,0,0-1.908,0V54h11.458V43.906h6.368V54h11.461V37.6a0.955,0.955,0,0,0-.957-0.949h0ZM159,23.082h5.726v5.047a0.958,0.958,0,0,0,1.916,0V21.19H159a0.946,0.946,0,1,0,0,1.892h0Zm0,0" transform="translate(-132 -18)"/>
+  </g>
+</svg>

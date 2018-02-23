@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html ng-app="personalData">
+
+	<head>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		<meta charset="utf-8">
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta content="telephone=no" name="format-detection">
+		<!--uc浏览器强制竖屏-->
+		<meta name="screen-orientation" content="portrait">
+		<!--QQ浏览器强制竖屏-->
+		<meta name="x5-orientation" content="portrait">
+		<title>我的久赢</title>
+		<link rel="stylesheet" type="text/css" href="http://wx.zzfco.com/wxweb/css/mobileMain.css" />
+		<link rel="stylesheet" type="text/css" href="http://wx.zzfco.com/wxweb/css/myJY.css" />
+		<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://wx.zzfco.com/wxweb/js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://wx.zzfco.com/wxweb/js/angular.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://wx.zzfco.com/wxweb/js/commonJS.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://wx.zzfco.com/wxweb/js/highcharts.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://wx.zzfco.com/wxweb/js/exporting.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://wx.zzfco.com/wxjs/js/share.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://wx.zzfco.com/wxweb/js/myJY.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body ng-controller="totalController">
+		<div class="container">
+			<div class="top">
+				<img src="http://wx.zzfco.com/wxweb/img/logo3.png" class="logo" />
+				<div>
+					<div ng-bind="khName"></div>
+					<div>编号：<span ng-bind="number"></span></div>
+					<div>资金账户：<span ng-bind="account"></span></div>
+					<div>开户时间：<span ng-bind="openTime"></span></div>
+				</div>
+				<div>
+					<div>
+						<img src="http://wx.zzfco.com/wxweb/img/common.png" class="icon" />
+						<img src="http://wx.zzfco.com/wxweb/img/rotate.png" class="icon_bg" />
+					</div>
+					<div>已交易<span ng-bind="sumDays"></span>天</div>
+					<div>更新时间:<span ng-bind="currentTime"></span></div>
+				</div>
+			</div>
+			<ul class="content">
+				<li>
+					<table>
+						<tr>
+							<td class="select_on" data-type="1">日</td>
+							<td data-type="2">周</td>
+							<td data-type="3">月</td>
+						</tr>
+					</table>
+				</li>
+				<li>
+					<ul class="charts">
+						<li>
+							<p>当前排名</p>
+							<p style="position: relative;"><span class="rank" ng-bind="rank"></span>名</p>
+						</li>
+						<li>
+							<p>排名变化</p>
+							<p><img class="change_icon" /><span class="rank" ng-bind="rank_change"></span>名</p>
+						</li>
+					</ul>
+				</li>
+				<li class="financialSituation">
+					<div ng-bind="monthStart_balance"></div>
+					<div ng-bind="monthEnd_balance"></div>
+				</li>
+				<li class="financialSituation">
+					<div>期初权益</div>
+					<div>期末权益</div>
+				</li>
+				<li class="financialSituation">
+					<div ng-bind="netValue"></div>
+					<div ng-bind="riskDegree"></div>
+				</li>
+				<li class="financialSituation">
+					<div>净值</div>
+					<div>风险度</div>
+				</li>
+				<li>
+					<span>累计收益率</span><span id="info">每日资金信息以监控中心数据为准</span>
+					<div class="box">
+						<div class="bubbles" ng-bind="totalProfit"></div>
+						<div class="arrow"></div>
+						<img src="http://wx.zzfco.com/wxweb/img/center.png" class="centerCircle" />
+						<div class="down">
+							<div class="left_box">
+								<div class="left_line"></div>
+								<div class="left_arrow"></div>
+								<div class="left_profitRatio" ng-bind="totalProfit"></div>
+							</div>
+						</div>
+						<div class="up">
+							<div class="right_box">
+								<div class="right_line"></div>
+								<div class="right_arrow"></div>
+								<div class="right_profitRatio" ng-bind="totalProfit"></div>
+							</div>
+						</div>
+						<div class="zero"></div>
+					</div>
+					<div class="qxt"></div>
+				</li>
+			</ul>
+		</div>
+		<footer>
+			<ul>
+				<li class="toHome">
+					<div class="iconfont item_on">&#xe602;</div>
+					<div class="item_on">首页</div>
+				</li>
+				<li class="toContract">
+					<div class="iconfont">&#xe603;</div>
+					<div>合约</div>
+				</li>
+				<li class="toHistory">
+					<div class="iconfont">&#xe604;</div>
+					<div>历史</div>
+				</li>
+			</ul>
+		</footer>
+	</body>
+
+</html>

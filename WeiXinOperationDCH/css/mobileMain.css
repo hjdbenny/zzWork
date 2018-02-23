@@ -1,0 +1,122 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: "PF_medium", arial, sans-serif;
+}
+
+@font-face {
+	font-family: 'FZZYJT';
+	src: url(../font/方正综艺简体.TTF);
+}
+
+@font-face {
+	font-family: 'FZCYJT';
+	src: url(../font/方正粗圆简体.TTF);
+}
+
+@font-face {
+	font-family: 'PF_bold';
+	src: url(../font/PingFang_Bold.ttf);
+}
+
+@font-face {
+	font-family: 'PF_medium';
+	src: url(../font/PingFang_Medium.ttf);
+}
+
+@font-face {
+	font-family: 'PF_regular';
+	src: url(../font/PingFang_Regular.ttf);
+}
+
+@font-face {
+	font-family: 'PF_ExtraLight';
+	src: url(../font/PingFang_ExtraLight.ttf);
+}
+
+@font-face {
+	font-family: 'PF_Heavy';
+	src: url(../font/PingFang_Heavy.ttf);
+}
+
+@font-face {
+	font-family: 'PF_Light';
+	src: url(../font/PingFang_Light.ttf);
+}
+
+@font-face {
+	font-family: 'Bariol_Regular';
+	src: url(../font/Bariol_Regular.otf);
+}
+
+html,
+body {
+	height: 100%;
+}
+
+.container {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+ul {
+	list-style: none;
+}
+
+p {
+	margin: 0;
+}
+
+
+/*虚化*/
+
+.blur {
+	filter: url(blur.svg#blur);
+	/* FireFox, Chrome, Opera */
+	-webkit-filter: blur(5px);
+	/* Chrome, Opera */
+	-moz-filter: blur(5px);
+	-ms-filter: blur(5px);
+	filter: blur(5px);
+	filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=10, MakeShadow=false);
+	/* IE6~IE9 */
+}
+
+@font-face {
+	font-family: 'iconfont';
+	/* project id 419260 */
+	src: url('//at.alicdn.com/t/font_419260_ex3qr6r8ryffxbt9.eot');
+	src: url('//at.alicdn.com/t/font_419260_ex3qr6r8ryffxbt9.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_419260_ex3qr6r8ryffxbt9.woff') format('woff'), url('//at.alicdn.com/t/font_419260_ex3qr6r8ryffxbt9.ttf') format('truetype'), url('//at.alicdn.com/t/font_419260_ex3qr6r8ryffxbt9.svg#iconfont') format('svg');
+}
+
+.iconfont {
+	font-family: "iconfont";
+}
+
+
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+
+ ::-webkit-scrollbar {
+	width: 0px;
+	height: 0px;
+	background-color: #F5F5F5;
+}
+
+
+/*定义滚动条轨道 内阴影+圆角*/
+
+ ::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+
+/*定义滑块 内阴影+圆角*/
+
+ ::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+	background-color: #555;
+}

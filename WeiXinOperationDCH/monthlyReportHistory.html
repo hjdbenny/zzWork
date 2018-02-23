@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		<meta charset="utf-8">
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta content="telephone=no" name="format-detection">
+		<!--uc浏览器强制竖屏-->
+		<meta name="screen-orientation" content="portrait">
+		<!--QQ浏览器强制竖屏-->
+		<meta name="x5-orientation" content="portrait">
+		<title>历史月报</title>
+		<link rel="stylesheet" type="text/css" href="http://www.decaihui.com/wxweb/css/mobileMain.css" />
+		<link rel="stylesheet" type="text/css" href="http://www.decaihui.com/wxweb/css/monthlyReportHistory.css" />
+		<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://www.decaihui.com/wxweb/js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://www.decaihui.com/wxweb/js/commonJS.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://www.decaihui.com/wxjs/js/share.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://www.decaihui.com/wxweb/js/iscroll.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://www.decaihui.com/wxweb/js/monthlyReportHistory.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			var myscroll;
+            function loaded(){
+                myscroll1=new IScroll("#wrapper1",{click:true})
+                myscroll2=new IScroll("#wrapper2",{click:true})
+			}
+		</script>
+	</head>
+
+	<body onload="loaded()">
+		<div class="container">
+			<ul class="nav">	
+				<li class="on">年</li>
+				<li>月</li>		
+			</ul>
+			<div id="wrapper1">
+				<ul class="list month">
+					
+				</ul>
+			</div>
+			<div id="wrapper2">
+				<ul class="list year">
+				</ul>
+			</div>
+			<div class="info">暂无月报记录</div>
+		</div>
+
+	</body>
+
+</html>

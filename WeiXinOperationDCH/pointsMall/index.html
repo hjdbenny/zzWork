@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>积分商城</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0,user-scale=0,user-scalable=no">
+		<!--uc浏览器强制竖屏-->
+		<meta name="screen-orientation" content="portrait">
+		<!--QQ浏览器强制竖屏-->
+		<meta name="x5-orientation" content="portrait">
+		<link rel="stylesheet" type="text/css" href="http://www.decaihui.com/wxweb/pointsMall/css/mobileMain.css" />
+		<link rel="stylesheet" type="text/css" href="http://www.decaihui.com/wxweb/pointsMall/css/mescroll.min.css" />
+		<link rel="stylesheet" type="text/css" href="http://www.decaihui.com/wxweb/pointsMall/css/pointsMain.css" />
+		<link rel="stylesheet" type="text/css" href="http://www.decaihui.com/wxweb/pointsMall/css/index.css" />
+		<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://www.decaihui.com/wxweb/pointsMall/js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://www.decaihui.com/wxjs/js/share.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://www.decaihui.com/wxweb/pointsMall/js/commonJS.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://www.decaihui.com/wxweb/pointsMall/js/mescroll.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://www.decaihui.com/wxweb/pointsMall/js/tzAuthorize.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://www.decaihui.com/wxweb/pointsMall/js/index.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<div class="container">
+			<header>
+				<a href="###" class="rule">积分规则 <span class="iconfont">&#xe72d;</span></a>
+				<div class="top_box">
+					<div class="icon_bg">
+						<img src="http://www.decaihui.com/wxweb/pointsMall/img/expert.png" />
+						<img src="http://www.decaihui.com/wxweb/pointsMall/img/rotate.png" />
+					</div>
+					<div class="points_box">
+						<span>当前积分</span>
+						<span id="points"></span>
+					</div>
+				</div>
+			</header>
+			<nav>
+				<ul>
+					<li>
+						<a href="###" class="toMall"><span class="iconfont">&#xe60e;</span>积分商城</a>
+					</li>
+					<li>
+						<a href="###" class="toOrder"><span class="iconfont">&#xe60c;</span>积分订单</a>
+					</li>
+					<li>
+						<a href="###" class="toInvitation"><span class="iconfont">&#xe60d;</span>累计邀请</a>
+					</li>
+				</ul>
+			</nav>
+			<section>
+				<div id="mescroll" class="mescroll">
+					<ul id="dataList"></ul>
+				</div>
+			</section>
+		</div>
+		
+	</body>
+
+</html>

@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>个人月报编辑</title>
+		<link rel="stylesheet" type="text/css" href="css/wysiwyg-editor.css" />
+		<link rel="stylesheet" href="http://www.jq22.com/jquery/font-awesome.4.6.0.css">
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<link rel="stylesheet" type="text/css" href="css/modify_personal_module.css" />
+		<script src="js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.roundabout.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/wysiwyg.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/wysiwyg-editor.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/toggle.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/circle-progress.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/html2canvas.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/modify_personal_module.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<div class="mangePanel">
+			<div class="top">
+				<img src="img/logo3.png" />
+				<span id="userName"></span>
+				<ul>
+					<li id="logout">退出</li>
+					<li class="publish">发布</li>
+				</ul>
+			</div>
+			<div class="footer">
+				<div class="left">
+					<ul>
+						<li data-level="0">
+							<a href="modify.html">公众月报</a>
+						</li>
+						<li data-level="1">
+							<a href="modify_personal_module.html" class="select_on">个人月报</a>
+						</li>
+						<li data-level="2">
+							<a href="autoReceive.html">自动回复</a>
+						</li>
+						<li data-level="3">
+							<a href="accountMange.html">用户管理</a>
+						</li>
+						<li data-level="4">
+							<a href="adminPermissions.html">管理员权限</a>
+						</li>
+						<li data-level="5">
+							<a href="messageMange.html">模板消息管理</a>
+						</li>
+					</ul>
+				</div>
+				<!--编辑界面-->
+				<div class="right right1">
+					<div class="container-wrappr">
+						<div class="top_notice"><img src="img/laba.png" />选择可用模版</div>
+						<div class="pl">
+							<a href="modify_personal_module.html" class="currentOn">公共模板</a>
+							<a href="modify_personal_list.html">当月月报</a>
+							<div class="btns">
+								<!--<button id="del">删除</button>-->
+								<button id="saveModule">保存</button>
+								<button id="newAdd">新建</button>
+							</div>
+						</div>
+						<div class="title">模板列表</div>
+						<div class="content">
+							<div class="loading">
+								<div class="spinner">
+									<div class="spinner-container container1">
+										<div class="circle1"></div>
+										<div class="circle2"></div>
+										<div class="circle3"></div>
+										<div class="circle4"></div>
+									</div>
+									<div class="spinner-container container2">
+										<div class="circle1"></div>
+										<div class="circle2"></div>
+										<div class="circle3"></div>
+										<div class="circle4"></div>
+									</div>
+									<div class="spinner-container container3">
+										<div class="circle1"></div>
+										<div class="circle2"></div>
+										<div class="circle3"></div>
+										<div class="circle4"></div>
+									</div>
+								</div>
+							</div>
+							<ul></ul>
+						</div>
+						<div class="modifyBox">
+							<div class="modify">
+								<textarea id="test" placeholder="请输入"></textarea>
+							</div>
+							<div class="orderBtns">
+								<div>1</div>
+								<div>2</div>
+							</div>
+							<div class="info">
+								<div class="info_title">编辑模板信息</div>
+								<div class="setDate">
+									<div id="year">
+										<div class="showYear"></div>
+										<div class="dropdown"><img src="img/downIcon.png"></div>
+										<ul id="selectYear">
+
+										</ul>
+									</div>
+									<div id="month">
+										<div class="showMonth"></div>
+										<div class="dropdown"><img src="img/downIcon.png"></div>
+										<ul id="selectMonth">
+											<li>1月</li>
+											<li>2月</li>
+											<li>3月</li>
+											<li>4月</li>
+											<li>5月</li>
+											<li>6月</li>
+											<li>7月</li>
+											<li>8月</li>
+											<li>9月</li>
+											<li>10月</li>
+											<li>11月</li>
+											<li>12月</li>
+										</ul>
+									</div>
+								</div>
+								<div>
+									<div class="description"><span class="showYear"></span><span class="showMonth"></span>公共月报模板</div>
+								</div>
+							</div>
+
+							<div class="card swiper-container">
+								<ul class="swiper-wrapper">
+									<li class="swiper-slide bg3">
+										<div class="thirdTitle">久赢分析师模拟交易情况</div>
+										<div class="roundabout_box">
+											<ul>
+												<li data-order="1" class="analyst1">
+													<div class='box_top'>
+														<div class='wave -one'></div>
+														<div class='wave -two'></div>
+														<div class="analystTitle">
+															<p>模拟分析师</p>
+															<p><span class="analyst1_name canEdit">请输入</span></p>
+															<img src="img/rotate.png" class="analyst_level_bg" />
+															<img src="img/expert.png" class="analyst_level" />
+														</div>
+													</div>
+													<table class="analyst_details">
+														<tr>
+															<td>月初权益:</td>
+															<td class="analyst1_startBalance canEdit">请输入</td>
+															<td>交易品种:</td>
+															<td class="analyst1_tradeType canEdit">请输入</td>
+														</tr>
+														<tr>
+															<td>月末权益:</td>
+															<td class="analyst1_endBalance canEdit">请输入</td>
+															<td>交易次数:</td>
+															<td class="analyst1_tradeNum canEdit">请输入</td>
+														</tr>
+													</table>
+													<ul class="percent">
+														<li class="analyst1_yearProfitRatio canEdit">请输入</li>
+														<li>年化收益率</li>
+														<li class="analyst1_winningRatio canEdit">请输入</li>
+														<li>胜算率</li>
+													</ul>
+													<div class="chart_container">
+														<div class="analystMonthProfitRatio1">
+															<div class="chart_box">
+																<div class="chart_top canEdit analyst1_monthProfitRatio">请输入</div>
+																<div class="chart_bottom">月收益率</div>
+															</div>
+														</div>
+														<div class="analystTotalProfitRatio1">
+															<div class="chart_box">
+																<div class="chart_top canEdit analyst1_totalProfitRatio">请输入</div>
+																<div class="chart_bottom">总收益率</div>
+															</div>
+														</div>
+													</div>
+												</li>
+												<li data-order="2" class="analyst2">
+													<div class='box_top'>
+														<div class='wave -one'></div>
+														<div class='wave -two'></div>
+														<div class="analystTitle">
+															<p>模拟分析师</p>
+															<p><span class="analyst2_name canEdit">请输入</span></p>
+															<img src="img/rotate.png" class="analyst_level_bg" />
+															<img src="img/expert.png" class="analyst_level" />
+														</div>
+													</div>
+													<table class="analyst_details">
+														<tr>
+															<td>月初权益:</td>
+															<td class="analyst2_startBalance canEdit">请输入</td>
+															<td>交易品种:</td>
+															<td class="analyst2_tradeType canEdit">请输入</td>
+														</tr>
+														<tr>
+															<td>月末权益:</td>
+															<td class="analyst2_endBalance canEdit">请输入</td>
+															<td>交易次数:</td>
+															<td class="analyst2_tradeNum canEdit">请输入</td>
+														</tr>
+													</table>
+													<ul class="percent">
+														<li class="analyst2_yearProfitRatio canEdit">请输入</li>
+														<li>年化收益率</li>
+														<li class="analyst2_winningRatio canEdit">请输入</li>
+														<li>胜算率</li>
+													</ul>
+													<div class="chart_container">
+														<div class="analystMonthProfitRatio2">
+															<div class="chart_box">
+																<div class="chart_top canEdit analyst2_monthProfitRatio">请输入</div>
+																<div class="chart_bottom">月收益率</div>
+															</div>
+														</div>
+														<div class="analystTotalProfitRatio2">
+															<div class="chart_box">
+																<div class="chart_top canEdit analyst2_totalProfitRatio">请输入</div>
+																<div class="chart_bottom">总收益率</div>
+															</div>
+														</div>
+													</div>
+												</li>
+												<li data-order="3" class="analyst3">
+													<div class='box_top'>
+														<div class='wave -one'></div>
+														<div class='wave -two'></div>
+														<div class="analystTitle">
+															<p>模拟分析师</p>
+															<p><span class="analyst3_name canEdit">请输入</span></p>
+															<img src="img/rotate.png" class="analyst_level_bg" />
+															<img src="img/expert.png" class="analyst_level" />
+														</div>
+													</div>
+													<table class="analyst_details">
+														<tr>
+															<td>月初权益:</td>
+															<td class="analyst3_startBalance canEdit">请输入</td>
+															<td>交易品种:</td>
+															<td class="analyst3_tradeType canEdit">请输入</td>
+														</tr>
+														<tr>
+															<td>月末权益:</td>
+															<td class="analyst3_endBalance canEdit">请输入</td>
+															<td>交易次数:</td>
+															<td class="analyst3_tradeNum canEdit">请输入</td>
+														</tr>
+													</table>
+													<ul class="percent">
+														<li class="analyst3_yearProfitRatio canEdit">请输入</li>
+														<li>年化收益率</li>
+														<li class="analyst3_winningRatio canEdit">请输入</li>
+														<li>胜算率</li>
+													</ul>
+													<div class="chart_container">
+														<div class="analystMonthProfitRatio3">
+															<div class="chart_box">
+																<div class="chart_top canEdit analyst3_monthProfitRatio">请输入</div>
+																<div class="chart_bottom">月收益率</div>
+															</div>
+														</div>
+														<div class="analystTotalProfitRatio3">
+															<div class="chart_box">
+																<div class="chart_top canEdit analyst3_totalProfitRatio">请输入</div>
+																<div class="chart_bottom">总收益率</div>
+															</div>
+														</div>
+													</div>
+												</li>
+											</ul>
+										</div>
+										<ul class="showPage">
+											<li class="showPage_on"></li>
+											<li></li>
+											<li></li>
+										</ul>
+									</li>
+									<li class="swiper-slide bg4">
+										<div class="fourthTitle">久赢客户综合收益情况</div>
+										<div class="totalInfo">
+											<ul>
+												<li>
+													<div class="topLeft totoal_data total_tradeType canEdit">请输入</div>
+													<div class="bottomRight totoal_title">交易品种</div>
+												</li>
+												<li>
+													<div class="bottomLeft totoal_title">交易次数</div>
+													<div class="topRight totoal_data total_tradeNum canEdit">请输入</div>
+												</li>
+												<li>
+													<div class="bottomLeft totoal_data total_startBalance canEdit">请输入</div>
+													<div class="topRight totoal_title">月初权益</div>
+												</li>
+												<li>
+													<div class="topLeft totoal_title">月末权益</div>
+													<div class="bottomRight totoal_data total_endBalance canEdit">请输入</div>
+												</li>
+											</ul>
+										</div>
+										<ul class="total_percent">
+											<li class="canEdit total_monthProfitRatio">请输入</li>
+											<li>月收益率</li>
+											<li class="canEdit total_totalProfitRatio">请输入</li>
+											<li>总收益率</li>
+										</ul>
+										<div class="total_chart_container">
+											<div class="totalYearProfitRatio">
+												<div class="chart_box">
+													<div class="chart_top canEdit total_YearProfitRatio">请输入</div>
+													<div class="chart_bottom">年化收益率</div>
+												</div>
+											</div>
+											<div class="totalWinningRatio">
+												<div class="chart_box">
+													<div class="chart_top canEdit total_WinningRatio">请输入</div>
+													<div class="chart_bottom">胜算率</div>
+												</div>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<div class="review_bg">
+				<ul></ul>
+			</div>
+		</div>
+		<script>
+			$(function() {
+				var mName = sessionStorage.getItem("account")
+				if(mName == "" || mName == null || mName == undefined) {
+					window.location.href = "login.html"
+				}
+				$("#userName").html("欢迎你 " + sessionStorage.getItem("name") + " !")
+				$("#logout").click(function() {
+					$.ajax({
+						type: "POST",
+						url: "http://wx.zzfco.com/wxmgmt/api/mgmtUser/loginOut.do",
+						async: true,
+						contentType: "application/json",
+						xhrFields: {
+							withCredentials: true
+						},
+						success: function(data) {
+							sessionStorage.clear()
+							window.location.href = "login.html"
+						}
+					})
+				})
+			})
+		</script>
+	</body>
+
+</html>

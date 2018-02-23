@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>个人月报编辑</title>
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<link rel="stylesheet" type="text/css" href="css/modify_personal_list.css" />
+		<script src="js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.pagination.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/commonJS.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/modify_personal_list.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<div class="mangePanel">
+			<div class="top">
+				<img src="img/logo3.png" />
+				<span id="userName"></span>
+				<ul>
+					<li id="logout">退出</li>
+					<li class="publish">发布</li>
+				</ul>
+			</div>
+			<div class="footer">
+				<div class="left">
+					<ul></ul>
+				</div>
+
+				<!--审核界面-->
+				<div class="right right2">
+					<div class="container">
+						<div class="top_notice"><img src="img/laba.png" />首先选择用户，再进行填写综合点评等操作。</div>
+						<div class="pl">
+							<a href="modify_personal_module.html">公共模板</a>
+							<a href="modify_personal_list.html" class="currentOn">当月月报</a>
+						</div>
+						<div class="searchGroups">
+							<div id="keywords">
+								<span>关键字</span>
+								<input type="text" placeholder="账户/姓名/手机号..." />
+							</div>
+							<div id="status">
+								<div class="showStuts" data-status="2">待编辑</div>
+								<div class="dropdown"><img src="img/downIcon.png"></div>
+								<ul id="statusType">
+									<li>待发布</li>
+									<li>已发布</li>
+									<li>待编辑</li>
+								</ul>
+							</div>
+							<div id="selectDepart">
+								<span>营业部</span>
+								<div class="currentDepart">请选择营业部</div>
+							</div>
+							<div id="year">
+								<div class="showYear"></div>
+								<div class="dropdown"><img src="img/downIcon.png"></div>
+								<ul id="selectYear">
+									<li>2017年</li>
+								</ul>
+							</div>
+							<div id="month">
+								<div class="showMonth"></div>
+								<div class="dropdown"><img src="img/downIcon.png"></div>
+								<ul id="selectMonth">
+									<li>1月</li>
+									<li>2月</li>
+									<li>3月</li>
+									<li>4月</li>
+									<li>5月</li>
+									<li>6月</li>
+									<li>7月</li>
+									<li>8月</li>
+									<li>9月</li>
+									<li>10月</li>
+									<li>11月</li>
+									<li>12月</li>
+								</ul>
+							</div>
+						</div>
+						<div id="search">搜索</div>
+						<div class="totalInfo">
+							<div>总人数： <span id="allcount"></span>人</div>
+							<div style="color: #dc5236;">待编辑人数： <span id="statusCount2"></span>人</div>
+							<div style="color: #3a4a8d;">已发布人数： <span id="statusCount1"></span>人</div>
+						</div>
+						<table>
+							<tr style="height: 48px;">
+								<th style="height: 48px;" id="allAgree">
+									<div class='circle1'>
+										<div class='circle2'></div>
+									</div>
+									<label>全选</label>
+								</th>
+								<th>账号</th>
+								<th>姓名</th>
+								<th>营业部</th>
+								<th>手机</th>
+								<th>状态</th>
+								<th>更新时间</th>
+								<th>操作</th>
+							</tr>
+						</table>
+						<div class="loading">
+							<div class="spinner">
+								<div class="spinner-container container1">
+									<div class="circle1"></div>
+									<div class="circle2"></div>
+									<div class="circle3"></div>
+									<div class="circle4"></div>
+								</div>
+								<div class="spinner-container container2">
+									<div class="circle1"></div>
+									<div class="circle2"></div>
+									<div class="circle3"></div>
+									<div class="circle4"></div>
+								</div>
+								<div class="spinner-container container3">
+									<div class="circle1"></div>
+									<div class="circle2"></div>
+									<div class="circle3"></div>
+									<div class="circle4"></div>
+								</div>
+							</div>
+						</div>
+						<div class="pagefoot">
+							<div class="pagefoot-right">总共<span id="count"></span>条数据</div>
+							<div class="M-box1"></div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<div class="department_bg">
+			<div class="department">
+				<div class="depart_top">
+					<div class="depart_title">选择营业部</div>
+					<div class="depart_close"><img src="img/edit_close.png" /></div>
+				</div>
+				<div class="depart_middle">
+					<div id="allAgreeDepart">
+						<div class="circle1">
+							<div class="circle2"></div>
+						</div> 全选 (<span id="allDepartToatal"></span>人)
+					</div>
+					<ul class="allDepartment"></ul>
+				</div>
+				<div class="depart_bottom">
+					<div class="depart_confirm">确认</div>
+					<div class="depart_cancel">取消</div>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>

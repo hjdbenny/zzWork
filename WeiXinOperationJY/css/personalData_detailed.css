@@ -1,0 +1,208 @@
+body{
+	background: #f7f7f7;
+}
+.top{
+	width: 100%;
+	height: 24rem;
+	background: url(../img/d_bg.png) center center no-repeat;
+	background-size: 100%;
+	float: left;
+	position: relative;
+}
+section{
+	width: 20rem;
+	height: 20rem;
+	margin: 2rem auto;
+	position: relative;
+	overflow: hidden;
+}
+.outer,.middle{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+.outer{
+	background: url(../img/circleLine.png) 2.85rem center no-repeat;
+	background-size: 85%;
+}
+.middle{
+	background: url(../img/circle.png) center center no-repeat;
+	background-size:88%;
+	z-index: 10;
+}
+.inner{
+	background: url(../img/innerCircle_bg.png) center center no-repeat;
+	background-size: 70%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	border-radius: 50%;
+	width: 19.8rem;
+	height: 19.8rem;
+}
+.winningRatio{
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	width: 15rem;
+	height: 8rem;
+	text-align: center;
+	font-size: 1.6rem;
+	color: #fffefe;
+}
+.win{
+	font-family: "PF_bold";
+	font-size: 3rem;
+	text-shadow:0 0 8px red,
+				-0 -0 8px red;
+}
+.win_title{
+	text-shadow:0 0 8px red,
+				-0 -0 8px red;
+}
+.progress{
+	position: absolute;
+	left: 0.1rem;
+	top: 0.1rem;
+	bottom: 0;
+	right: 0;
+	margin: auto;
+	width:16rem;
+	height: 16rem;
+}
+#direction{
+	width: 2.5rem;
+	height: 20rem;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 5rem;
+	margin: auto;
+}
+.text{
+	color: #FFFFFF;
+	background: #866128;
+	width: auto;
+	padding:0.5rem 1rem;
+	position: absolute;
+	font-size: 1.2rem;
+	border-radius: 5px;
+	left: 1rem;
+}
+.text img{
+	width: 2rem;
+	height: 2rem;
+	vertical-align: middle;
+}
+.info1{
+	top: 2rem;
+}
+.info2{
+	bottom: 2rem;
+}
+.count{
+	font-size: 1.5rem;
+}
+/*中间导航部分*/
+.nav_container{
+	float: left;
+	margin-left: 1rem;
+	width: 35.5rem;
+	height: 3.7rem;
+	border-bottom: 1px solid #dbdbdb;
+}
+.nav li{
+	float: left;
+	color: #808080;	
+	font-size: 1.8rem;
+	line-height: 3.8rem;
+	text-align: center;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.nav li:nth-child(2n+1){
+	font-family: "PF_bold";
+	font-weight: bold;
+}
+.select_on{
+	color: #000000 !important;
+}
+.details{
+	width: 100%;
+	height: 12.25rem;
+	float: left;
+}
+.details li{
+	float: left;
+	height: 100%;
+	width: 12.5rem;
+	text-align: center;
+	font-size: 1.4rem;
+	color: #808080;
+	position: relative;
+}
+.details img{
+	width: 2.25rem;
+	height: 2.25rem;
+}
+.details li p:last-of-type{
+	color: #000000;
+	font-size: 1.7rem;
+}
+.details li>div{
+	margin:2.5rem auto;
+}
+.bottom{
+	width: 100%;
+	height: 15rem;
+	background: #FFFFFF;
+	float: left;
+}
+.bottom_title{
+	font-size: 1.6rem;
+	color: #666666;
+	border-left: 0.5rem solid #ceb385;
+	margin-left: 1rem;
+	margin-top: 1rem;
+	padding-left: 1rem;
+}
+.bottom table{
+	width: 100%;
+	text-align: center;
+	margin-top: 2rem;
+}
+.bottom table tr:first-child{
+	color: #808080;
+	font-size: 1.5rem;
+}
+.bottom table tr{
+	color: #000000;
+	font-size: 1.8rem;
+}
+.bottom table img{
+	width: 2rem;
+	height: 2rem;
+	margin-left: 0.5rem;
+	vertical-align: middle;
+}
+.info{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 2rem;
+	color: #c7c7c7;
+	background: #2e3132;
+	text-align: center;
+	line-height: 2rem;
+	font-size: 1.1rem;
+}

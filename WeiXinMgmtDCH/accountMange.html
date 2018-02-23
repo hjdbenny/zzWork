@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>用户权限编辑</title>
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<link rel="stylesheet" type="text/css" href="css/jquery-ui.css" />
+		<link rel="stylesheet" type="text/css" href="css/accountMange.css" />
+		<script src="js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.pagination.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/commonJS.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/accountMange.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<div class="mangePanel">
+			<div class="top">
+				<img src="img/logo3.png" />
+				<span id="userName"></span>
+				<ul>
+					<li id="logout">退出</li>
+				</ul>
+			</div>
+			<div class="footer">
+				<div class="left">
+					<ul></ul>
+				</div>
+				<div class="right right2">
+					<!--用户列表-->
+					<div class="container">
+						<div class="top_notice"><img src="img/laba.png" />久赢账户管理：已关联久赢账户的人；微信粉丝管理：显示微信已订阅的人。</div>
+						<ul class="listNav">
+							<li class="listNav-active">久赢账户管理</li>
+							<li>微信粉丝管理</li>
+						</ul>
+						<div class="userBindCount">
+							<ul>
+								<li>
+									<div>今日已绑定</div>
+									<div id="todayBindNum"></div>
+								</li>
+								<li>
+									<div>共绑定</div>
+									<div id="totalBindNum"></div>
+								</li>
+								<li>
+									<div>总人数</div>
+									<div id="totalPeople"></div>
+								</li>
+								<li>
+									<div>绑定率</div>
+									<div id="bindRatio"></div>
+								</li>
+							</ul>
+						</div>
+						<div class="searchGroups">
+							<div id="keywords">
+								<label>搜索</label>
+								<input type="text" placeholder="姓名/资金帐户/手机号/编号" />
+							</div>
+							<div id="selectDepart">
+								<span>营业部</span>
+								<div class="currentDepart">请选择营业部</div>
+							</div>
+							<div class="search">搜索</div>
+						</div>
+						<div class="black-box" style="display: none;">
+							<ul>
+								<li>
+									<div id="showBlackList" style="cursor: pointer;">黑名单 ></div>
+									<div id="black-list"></div>
+								</li>
+								<li>
+									<div>共关注</div>
+									<div id="totalLookOn"></div>
+								</li>
+							</ul>
+						</div>
+						<div class="searchGroups2" style="display: none;">
+							<div>
+								<div class="setVip">设置VIP</div>
+								<div class="setCommon">设置普通</div>
+								<div class="synchronization">同步用户</div>
+							</div>
+							<div>
+								<div id="keywords2">
+									<label>搜索</label>
+									<input type="text" placeholder="昵称/备注" />
+								</div>
+								<div class="search2">搜索</div>
+							</div>
+						</div>
+						<div class="loading">
+							<div class="spinner">
+								<div class="spinner-container container1">
+									<div class="circle1"></div>
+									<div class="circle2"></div>
+									<div class="circle3"></div>
+									<div class="circle4"></div>
+								</div>
+								<div class="spinner-container container2">
+									<div class="circle1"></div>
+									<div class="circle2"></div>
+									<div class="circle3"></div>
+									<div class="circle4"></div>
+								</div>
+								<div class="spinner-container container3">
+									<div class="circle1"></div>
+									<div class="circle2"></div>
+									<div class="circle3"></div>
+									<div class="circle4"></div>
+								</div>
+							</div>
+						</div>
+						<table class="accountTable">
+							<tr style="height: 48px;">
+								<th>头像</th>
+								<th>资金账户</th>
+								<th>编号</th>
+								<th>姓名</th>
+								<th>营业部</th>
+								<th>手机号</th>
+								<th>
+									<div>总积分</div>
+									<div class="arrow"><span class="iconfont up" style="margin-bottom: -5px;">&#xe600;</span><span class="iconfont down">&#xe611;</span></div>
+								</th>
+								<th>关联时间</th>
+								<th>操作</th>
+							</tr>
+						</table>
+						<table class="wxTable">
+							<tr style="height: 48px;">
+								<th style="height: 48px;" id="allAgree">
+									<div class="circle1">
+										<div class="circle2"></div>
+									</div>
+									<label>全选</label>
+								</th>
+								<th>头像</th>
+								<th>昵称</th>
+								<th>备注</th>
+								<th>地区</th>
+								<th>级别<img src="img/levelTip.png" class="levelTip" /><img src="img/levelInfo.png" class="levelInfo" /></th>
+								<th>操作</th>
+							</tr>
+						</table>
+						<div class="pagefoot">
+							<div class="pagefoot-right">总共<span class="countNum"></span>条数据</div>
+							<div class="M-box1"></div>
+						</div>
+					</div>
+					<!--更多操作-->
+					<div class="container-more">
+						<div class="wrapper-more">
+							<div class="more-top">
+								<div>全部</div>
+								<div class="iconfont">&#xe612;</div>
+								<div>修改编辑</div>
+								<div class="iconfont recordTitle">&#xe612;</div>
+								<div class="recordTitle">积分历史</div>
+								<div class="iconfont invitationTitle">&#xe612;</div>
+								<div class="invitationTitle">成功邀请</div>
+								<div class="iconfont attachedUserTitle">&#xe612;</div>
+								<div class="attachedUserTitle">附属人列表</div>
+							</div>
+							<!--修改编辑-->
+							<section class="more-edit">
+								<div class="edit-wrapper">
+									<div class="edit-info1">
+										<div>
+											<img id="headImg" src="" />
+										</div>
+										<div>
+											<div><span>昵称</span><br/><span id="nickName"></span></div>
+											<div><span>姓名</span><br/><span id="accountName"></span></div>
+										</div>
+										<div>
+											<div class="line"></div>
+										</div>
+										<div>
+											<div><span>资金账户</span><br/><span id="clientCode"></span></div>
+											<div><span>编号</span><br/><span id="jyUserId"></span></div>
+										</div>
+										<div>
+											<div class="line"></div>
+										</div>
+										<div>
+											<div><span>地区</span><br/><span id="city"></span></div>
+											<div><span>手机</span><br/><span id="tel"></span></div>
+										</div>
+									</div>
+									<div class="edit-info2">
+										<div>
+											<img src="img/modifyPointTips.png" id="modifyPointTips" />
+											<div><img src="img/totalPoint.png" /></div>
+											<div class="totalPoint">
+												<div style="cursor: pointer;">总积分 <span class="iconfont">&#xe612;</span></div>
+												<div><span>2000</span><input type="text" autofocus="autofocus" id="modifyPoint" /></div>
+											</div>
+										</div>
+										<div>
+											<div><img src="img/tobind.png" /></div>
+											<div class="bindOpreation">
+												<div>微信绑定</div>
+												<div>
+													<div>已绑定</div>
+													<div class="bindBtn">
+														<div id="slider"></div>
+													</div>
+												</div>
+											</div>
+											<div class="toAttach">附属绑定<span id="attachTitle" style="color: #4759a3;"></span> <span class="iconfont">&#xe612;</span></div>
+										</div>
+										<div>
+											<div><img src="img/toInvite.png" /></div>
+											<div class="invitation">
+												<div style="cursor: pointer;">已成功邀请 <span class="iconfont">&#xe612;</span></div>
+												<div><span id="inviteNum"></span>人</div>
+											</div>
+										</div>
+									</div>
+									<div class="lookNav">
+										<ul>
+											<li class="lookNav-active">我的久赢历史</li>
+											<li class="lookNav-line"></li>
+											<li>我的月报历史</li>
+											<li class="lookNav-line"></li>
+											<li>久赢早讯历史</li>
+										</ul>
+									</div>
+									<div class="historySearchGroup">
+										<div class="historyTime">
+											<label for="lookFrom" style="margin-left: 10px;">查找日期</label>
+											<input type="text" id="lookFrom" value="">
+											<span>-</span>
+											<input type="text" id="lookTo" value="" />
+											<label for="lookFrom" class="dropdown"><img src="img/downIcon.png"></label>
+										</div>
+										<div class="historySearch">搜索</div>
+									</div>
+									<table class="historyTable" cellspacing="0">
+										<tr>
+											<td>时间</td>
+											<td>状态</td>
+											<td>操作</td>
+										</tr>
+									</table>
+									<div class="pagefoot">
+										<div class="pagefoot-right">总共<span class="countNum"></span>条数据</div>
+										<div class="M-box1"></div>
+									</div>
+								</div>
+							</section>
+							<!--兑换记录-->
+							<section class="more-record">
+								<div class="record-wrapper">
+									<div class="record-top">
+										<div>历史兑换支出</div>
+										<div>历史兑换收入</div>
+									</div>
+									<div class="pl">
+										<div class="keywords-order">
+											<span>关键字</span>
+											<input type="text" id="keywords-order" placeholder="商品名称" />
+										</div>
+										<div class="orderNum">
+											<span>订单号</span>
+											<input type="text" id="orderNum" />
+										</div>
+										<div class="startDate">
+											<label for="recordFrom">开始日期</label>
+											<input type="text" id="recordFrom" name="recordFrom" style="text-indent: 100px;">
+											<label for="recordFrom" class="dropdown"><img src="img/downIcon.png"></label>
+										</div>
+										<div class="endDate">
+											<label for="recordTo">结束日期</label>
+											<input type="text" id="recordTo" name="recordTo" style="text-indent: 100px;">
+											<label for="recordTo" class="dropdown"><img src="img/downIcon.png"></label>
+										</div>
+										<div class="record-search">搜索</div>
+									</div>
+									<table class="recordTable-out">
+										<tr>
+											<th>兑换时间</th>
+											<th>订单号</th>
+											<th>商品名称</th>
+											<th>积分</th>
+										</tr>
+									</table>
+									<table class="recordTable-in">
+										<tr>
+											<th>兑换时间</th>
+											<th>商品名称</th>
+											<th>积分</th>
+										</tr>
+									</table>
+									<div class="noData">
+										<div>无交易记录</div>
+									</div>
+									<div class="loading">
+										<div class="spinner">
+											<div class="spinner-container container1">
+												<div class="circle1"></div>
+												<div class="circle2"></div>
+												<div class="circle3"></div>
+												<div class="circle4"></div>
+											</div>
+											<div class="spinner-container container2">
+												<div class="circle1"></div>
+												<div class="circle2"></div>
+												<div class="circle3"></div>
+												<div class="circle4"></div>
+											</div>
+											<div class="spinner-container container3">
+												<div class="circle1"></div>
+												<div class="circle2"></div>
+												<div class="circle3"></div>
+												<div class="circle4"></div>
+											</div>
+										</div>
+									</div>
+									<div class="pagefoot">
+										<div class="pagefoot-right">总共<span class="countNum"></span>条数据</div>
+										<div class="M-box1"></div>
+									</div>
+								</div>
+							</section>
+							<!--邀请记录-->
+							<section class="more-invitation">
+								<div class="invitation-wrapper">
+									<div class="pl">
+										<div class="startDate">
+											<label for="inviteFrom">开始日期</label>
+											<input type="text" id="inviteFrom" name="inviteFrom" style="text-indent: 100px;">
+											<label for="inviteFrom" class="dropdown"><img src="img/downIcon.png"></label>
+										</div>
+										<div class="endDate">
+											<label for="inviteTo">结束日期</label>
+											<input type="text" id="inviteTo" name="inviteTo" style="text-indent: 100px;">
+											<label for="inviteTo" class="dropdown"><img src="img/downIcon.png"></label>
+										</div>
+										<div class="invite-search">搜索</div>
+									</div>
+									<table class="invitationTable">
+										<tr>
+											<th>日期</th>
+											<th>姓名</th>
+										</tr>
+									</table>
+									<div class="noData">
+										<div>暂无邀请记录</div>
+									</div>
+									<div class="loading">
+										<div class="spinner">
+											<div class="spinner-container container1">
+												<div class="circle1"></div>
+												<div class="circle2"></div>
+												<div class="circle3"></div>
+												<div class="circle4"></div>
+											</div>
+											<div class="spinner-container container2">
+												<div class="circle1"></div>
+												<div class="circle2"></div>
+												<div class="circle3"></div>
+												<div class="circle4"></div>
+											</div>
+											<div class="spinner-container container3">
+												<div class="circle1"></div>
+												<div class="circle2"></div>
+												<div class="circle3"></div>
+												<div class="circle4"></div>
+											</div>
+										</div>
+									</div>
+									<div class="pagefoot">
+										<div class="pagefoot-right">总共<span class="countNum"></span>条数据</div>
+										<div class="M-box1"></div>
+									</div>
+								</div>
+							</section>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--微信备注弹框-->
+			<div class="wxSet_bg">
+				<div class="wxSet_wrapper">
+					<div class="wxSet">
+						<div class="wxSet-title">
+							<span></span>
+							<div class="wxSet-close"><img src="img/edit_close.png" /></div>
+						</div>
+						<section id="blackList">
+							<div>
+								<div class="blackTip">
+									<img src="img/laba.png" />删除此处用户，则表示解除黑名单，并移入订阅用户列表中。
+								</div>
+								<ul class="nameList"></ul>
+							</div>
+						</section>
+						<section id="remarks">
+							<div>
+								<div>备注</div>
+								<input type="text" id="remarksContent" />
+							</div>
+						</section>
+						<div class="wxSetBtns">
+							<div class="wx_cancel">取消</div>
+							<div class="wx_save">确认</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--绑定弹框-->
+			<div class="popup_bg">
+				<div class="popup">
+					<div class="popup-top">
+						<div class="pop-title">新建</div>
+						<div class="pop-close">
+							<img src="img/edit_close.png" />
+						</div>
+					</div>
+					<div class="popup-bottom">
+						<!--分组列表弹出框-->
+						<section class="groupPop">
+							<div class="step-wrapper">
+								<div class="optionSelect">
+									<div class="g-left">
+										<div class="wxList">
+											<div class="search-box">
+												<input type="text" placeholder="搜索昵称" />
+												<div class="pSearch2 iconfont">&#xe605;</div>
+											</div>
+											<ul class="list"></ul>
+											<div class="pop-pagefoot">
+												<div class="M-box2"></div>
+											</div>
+										</div>
+									</div>
+									<div class="g-right">
+										<ul class="preWxPeople"></ul>
+										<div class="preShow">已选择<span>0</span>人</div>
+									</div>
+								</div>
+								<div class="btnGroups">
+									<div class="cancel">取消</div>
+									<div class="gSave">提交</div>
+								</div>
+							</div>
+						</section>
+					</div>
+				</div>
+			</div>
+			<!--选择营业部弹框-->
+			<div class="department_bg">
+				<div class="department">
+					<div class="depart_top">
+						<div class="depart_title">选择营业部</div>
+						<div class="depart_close"><img src="img/edit_close.png" /></div>
+					</div>
+					<div class="depart_middle">
+						<div id="allAgreeDepart">
+							<div class="circle1">
+								<div class="circle2"></div>
+							</div> 全选 (<span id="allDepartToatal"></span>人)
+						</div>
+						<ul class="allDepartment"></ul>
+					</div>
+					<div class="depart_bottom">
+						<div class="depart_confirm">确认</div>
+						<div class="depart_cancel">取消</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>

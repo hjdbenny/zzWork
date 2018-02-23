@@ -1,0 +1,127 @@
+.container-wrapper{
+	width: 100%;
+	float: left;
+}
+.container-wrapper>div{
+	width: 100%;
+	float: left;
+}
+.top{
+	height:26rem;
+	background: url(../img/wx_top_bg.png);
+	background-size: 100% 100%;
+}
+.middle{
+	height: calc(100% - 32.8rem);
+	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
+	display: flex;
+	display: -webkit-flex;
+	flex-direction: column;
+	align-items: center;
+}
+.bottom{
+	height: 6.8rem;
+	background: url(../img/wxshare_bottom.png);
+	background-size: 100% 100%;
+}
+.middle>section{
+	width: 100%;
+	float: left;
+}
+.wrapper{
+	display: flex;
+	display: -webkit-flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	float: left;
+	font-size: 1.8rem;
+}
+/*绑定*/
+.toBind .wrapper>div,.toBind .wrapper>img{
+	width: 29.5rem
+}
+.toBind .wrapper>div:first-of-type{
+	margin-top: 1.5rem;
+}
+.toBind .wrapper>div{
+	height: 5rem;
+	margin-bottom: 1.5rem;
+	background: #efefef;
+	border-radius: 15px;
+	box-shadow: 0px -6px 0px 0px #dfdfdf;
+	font-size: 1.8rem;
+}
+.mobile_box,.code_box{
+	display: flex;
+	display: -webkit-flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+.sendMessage{
+	color: #ba0f0e;
+	height: 3rem;
+	line-height: 3rem;
+	background: transparent;
+	outline: none;
+	border: none;
+	font-size: 1.8rem;
+	
+}
+.mobile_box input,.code_box input{
+	height: 3rem;
+	line-height: 3rem;
+	width: 50%;
+	margin-left: 1rem;
+	margin-right: 1rem;
+	outline: none;
+	border: 0;
+	background: transparent;
+	font-size: 1.8rem;
+}
+.btn{
+	border-radius: 50px !important;
+	background: #ba0f0e !important;
+	color: #FFFFFF !important;
+	text-align: center;
+	line-height: 5rem;
+	box-shadow: 0px 6px 0px 0px #eee7e7 !important;
+}
+/*成功*/
+.toSuccess .wrapper>img{
+	width: 29.5rem
+}
+.toSuccess,.toError{
+	display: none;
+}
+/*失败*/
+.toError .wrapper>img{
+	width: 29.5rem
+}
+/*分享引导*/
+.shareGuide{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	z-index: 3;
+	background: rgba(0,0,0,.8);
+	display: none;
+}
+.shareBox{
+	width: 80%;
+	position: absolute;
+	top: 1rem;
+	right: 3rem;
+	float: left;
+	color: #FFFFFF;
+	font-size: 1.8rem;
+}
+.shareBox img{
+	width: 2rem;
+}
+.shareBox p{
+	text-align: right;
+}

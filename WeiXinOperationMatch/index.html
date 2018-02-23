@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html ng-app="monthReport">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0,user-scale=0,user-scalable=no">
+		<!--uc浏览器强制竖屏-->
+		<meta name="screen-orientation" content="portrait">
+		<!--QQ浏览器强制竖屏-->
+		<meta name="x5-orientation" content="portrait">
+		<title>久赢月报</title>
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/animate.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/mobileMain.css"/>
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+	</head>
+
+	<body>
+		<div class="container row swiper-container" ng-controller="reportController">
+			<img class="music" ng-click="musicToggle()" src="img/music.png" />
+			<audio id="bg-music" src="audio/加藤達也 - お父さんターッチ.mp3" preload="auto" loop="loop"></audio>
+			<ul class="swiper-wrapper">
+				<li class="swiper-slide bg1">
+					<div class="first_middle" ng-bind-html="first_middle|to_trusted"></div>
+					<div class="first_bottom" ng-bind-html="first_bottom|to_trusted"></div>
+				</li>
+				<li class="swiper-slide bg2">
+					<div class="page2_title" ng-bind-html="page2_title|to_trusted"></div>
+					<div class="jh" ng-bind-html="jh|to_trusted"></div>
+				</li>
+				<li class="swiper-slide bg3">
+					<div class="page3_title" ng-bind-html="page3_title|to_trusted"></div>
+					<div class="jl_title" ng-bind-html="jl_title|to_trusted"></div>
+					<img class="jl_img1" src="img/jl1.png" />
+					<div class="jl1" ng-bind-html="jl1|to_trusted"></div>
+					<img class="jl_img2" src="img/jl2.png" />
+					<div class="jl2" ng-bind-html="jl2|to_trusted"></div>
+					<img class="jl_img3" src="img/jl3.png" />
+					<div class="jl3" ng-bind-html="jl3|to_trusted"></div>
+				</li>
+				<li class="swiper-slide bg4">
+					<div class="analyst1" ng-bind-html="analyst1|to_trusted"></div>
+					<div class="fourth_name">
+						<img class="avater" src="img/jp.png">
+						<p ng-bind-html="tg_name1|to_trusted"></p>
+						<p ng-bind-html="tg_depart1|to_trusted"></p>
+					</div>
+					<img class="star star-float" src="img/star.png" />
+					<ul class="trade_data trade_data_left">
+						<li>
+							<p ng-bind-html="records_left1[0].name|to_trusted"></p>
+							<p ng-bind-html="records_left1[0].count|to_trusted"></p>
+						</li>
+						<li>
+							<p ng-bind-html="records_left1[1].name|to_trusted"></p>
+							<p class="records_left1_count1 canEdit" ng-click="showEdit('records_left1_count1',$event)" ng-bind-html="records_left1[1].count|to_trusted"></p>
+						</li>
+						<li>
+							<p ng-bind-html="records_left1[2].name|to_trusted"></p>
+							<p class="records_left1_count2 canEdit" ng-click="showEdit('records_left1_count2',$event)" ng-bind-html="records_left1[2].count|to_trusted"></p>
+						</li>
+					</ul>
+					<ul class="trade_data trade_data_right">
+						<li>
+							<p ng-bind-html="records_right1[0].name|to_trusted"></p>
+							<p class="records_right1_count0 canEdit" ng-click="showEdit('records_right1_count0',$event)" ng-bind-html="records_right1[0].count|to_trusted"></p>
+						</li>
+						<li>
+							<p ng-bind-html="records_right1[1].name|to_trusted"></p>
+							<p class="records_right1_count1 canEdit" ng-click="showEdit('records_right1_count1',$event)" ng-bind-html="records_right1[1].count|to_trusted"></p>
+						</li>
+						<li>
+							<p ng-bind-html="records_right1[2].name|to_trusted"></p>
+							<p class="records_right1_count2 canEdit" ng-click="showEdit('records_right1_count2',$event)" ng-bind-html="records_right1[2].count|to_trusted"></p>
+						</li>
+						<li>
+							<p ng-bind-html="records_right1[3].name|to_trusted"></p>
+							<p class="records_right1_count3 canEdit" ng-click="showEdit('records_right1_count3',$event)" ng-bind-html="records_right1[3].count|to_trusted"></p>
+						</li>
+					</ul>
+				</li>
+				<li class="swiper-slide bg5">
+					<div class="analyst2" ng-bind-html="analyst2|to_trusted"></div>
+					<div class="fourth_name">
+						<img class="avater" src="img/jp.png">
+						<p ng-bind-html="tg_name2|to_trusted"></p>
+						<p ng-bind-html="tg_depart2|to_trusted"></p>
+					</div>
+					<img class="star star-float" src="img/star.png" />
+					<ul class="trade_data trade_data_left">
+						<li>
+							<p ng-bind-html="records_left2[0].name|to_trusted"></p>
+							<p class="records_left2_count0 canEdit" ng-click="showEdit('records_left2_count0',$event)" ng-bind-html="records_left2[0].count|to_trusted"></p>
+						</li>
+						<li>
+							<p ng-bind-html="records_left2[1].name|to_trusted"></p>
+							<p class="records_left2_count1 canEdit" ng-click="showEdit('records_left2_count1',$event)" ng-bind-html="records_left2[1].count|to_trusted"></p>
+						</li>
+						<li>
+							<p ng-bind-html="records_left2[2].name|to_trusted"></p>
+							<p class="records_left2_count2 canEdit" ng-click="showEdit('records_left2_count2',$event)" ng-bind-html="records_left2[2].count|to_trusted"></p>
+						</li>
+					</ul>
+					<ul class="trade_data trade_data_right">
+						<li>
+							<p ng-bind-html="records_right2[0].name|to_trusted"></p>
+							<p class="records_right2_count0 canEdit" ng-click="showEdit('records_right2_count0',$event)" ng-bind-html="records_right2[0].count|to_trusted"></p>
+						</li>
+						<li>
+							<p ng-bind-html="records_right2[1].name|to_trusted"></p>
+							<p class="records_right2_count1 canEdit" ng-click="showEdit('records_right2_count1',$event)" ng-bind-html="records_right2[1].count|to_trusted"></p>
+						</li>
+						<li>
+							<p ng-bind-html="records_right1[2].name|to_trusted"></p>
+							<p class="records_right2_count2 canEdit" ng-click="showEdit('records_right2_count2',$event)" ng-bind-html="records_right2[2].count|to_trusted"></p>
+						</li>
+						<li>
+							<p ng-bind-html="records_right1[3].name|to_trusted"></p>
+							<p class="records_right2_count3 canEdit" ng-click="showEdit('records_right2_count3',$event)" ng-bind-html="records_right2[3].count|to_trusted"></p>
+						</li>
+					</ul>
+				</li>
+				<li class="swiper-slide bg6">
+					<div class="analyst3" ng-bind-html="analyst3|to_trusted"></div>
+					<div class="fourth_name">
+						<img class="avater" src="img/jp.png">
+						<p ng-bind-html="tg_name3|to_trusted"></p>
+						<p ng-bind-html="tg_depart3|to_trusted"></p>
+					</div>
+					<img class="star star-float" src="img/star.png" />
+					<ul class="trade_data trade_data_left">
+						<li>
+							<p ng-bind-html="records_left3[0].name|to_trusted"></p>
+							<p class="records_left3_count0 canEdit" ng-click="showEdit('records_left3_count0',$event)" ng-bind-html="records_left3[0].count|to_trusted"></p>
+						</li>
+						<li>
+							<p ng-bind-html="records_left3[1].name|to_trusted"></p>
+							<p class="records_left3_count1 canEdit" ng-click="showEdit('records_left3_count1',$event)" ng-bind-html="records_left3[1].count|to_trusted"></p>
+						</li>
+						<li>
+							<p ng-bind-html="records_left3[2].name|to_trusted"></p>
+							<p class="records_left3_count2 canEdit" ng-click="showEdit('records_left3_count2',$event)" ng-bind-html="records_left3[2].count|to_trusted"></p>
+						</li>
+					</ul>
+					<ul class="trade_data trade_data_right">
+						<li>
+							<p ng-bind-html="records_right3[0].name|to_trusted"></p>
+							<p class="records_right3_count0 canEdit" ng-click="showEdit('records_right3_count0',$event)" ng-bind-html="records_right3[0].count|to_trusted"></p>
+						</li>
+						<li>
+							<p ng-bind-html="records_right3[1].name|to_trusted"></p>
+							<p class="records_right3_count1 canEdit" ng-click="showEdit('records_right3_count1',$event)" ng-bind-html="records_right3[1].count|to_trusted"></p>
+						</li>
+						<li>
+							<p ng-bind-html="records_right3[2].name|to_trusted"></p>
+							<p class="records_right3_count2 canEdit" ng-click="showEdit('records_right3_count2',$event)" ng-bind-html="records_right3[2].count|to_trusted"></p>
+						</li>
+						<li>
+							<p ng-bind-html="records_right3[3].name|to_trusted"></p>
+							<p class="records_right3_count3 canEdit" ng-click="showEdit('records_right3_count3',$event)" ng-bind-html="records_right3[3].count|to_trusted"></p>
+						</li>
+					</ul>
+				</li>
+				<li class="swiper-slide bg7">
+					<div class="page7_title" ng-bind-html="page7_title|to_trusted"></div>
+					<ul class="kh_totalInfo">
+						<li>
+							<p ng-bind-html="totalInfo[0].name|to_trusted"></p>
+							<p class="totalInfo0 canEdit" ng-click="showEdit('totalInfo0',$event)" ng-bind-html="totalInfo[0].count|to_trusted"></p>
+						</li>
+						<li>
+							<p ng-bind-html="totalInfo[1].name|to_trusted"></p>
+							<p class="totalInfo1 canEdit" ng-click="showEdit('totalInfo1',$event)" ng-bind-html="totalInfo[1].count|to_trusted"></p>
+						</li>
+						<li>
+							<p ng-bind-html="totalInfo[2].name|to_trusted"></p>
+							<p class="totalInfo2 canEdit" ng-click="showEdit('totalInfo2',$event)" ng-bind-html="totalInfo[2].count|to_trusted"></p>
+						</li>
+						<li>
+							<p ng-bind-html="totalInfo[3].name|to_trusted"></p>
+							<p class="totalInfo3 canEdit" ng-click="showEdit('totalInfo3',$event)" ng-bind-html="totalInfo[3].count|to_trusted"></p>
+						</li>
+					</ul>
+					<div class="condition yingli">
+						<div class="con_title">盈利客户情况</div>
+						<div class="hxt leftCircle">
+							<div class="inner_circle"></div>
+							<div class="outer_circle"></div>
+						</div>
+						<ul>
+							<li>
+								<div class="data_left" ng-bind-html="yingliData[0].name|to_trusted"></div>
+								<div class="data_right canEdit yingliData0" ng-click="showEdit('yingliData0',$event)" ng-bind-html="yingliData[0].count|to_trusted"></div>
+							</li>
+							<li>
+								<div class="data_left" ng-bind-html="yingliData[1].name|to_trusted"></div>
+								<div class="data_right canEdit yingliData1" ng-click="showEdit('yingliData1',$event)" ng-bind-html="yingliData[1].count|to_trusted"></div>
+							</li>
+							<li>
+								<div class="data_left" ng-bind-html="yingliData[2].name|to_trusted"></div>
+								<div class="data_right canEdit yingliData2" ng-click="showEdit('yingliData2',$event)" ng-bind-html="yingliData[2].count|to_trusted"></div>
+							</li>
+							<li>
+								<div class="data_left" ng-bind-html="yingliData[3].name|to_trusted"></div>
+								<div class="data_right canEdit yingliData3" ng-click="showEdit('yingliData3',$event)" ng-bind-html="yingliData[3].count|to_trusted"></div>
+							</li>
+							<li>
+								<div class="data_left" ng-bind-html="yingliData[4].name|to_trusted"></div>
+								<div class="data_right canEdit yingliData4" ng-click="showEdit('yingliData4',$event)" ng-bind-html="yingliData[4].count|to_trusted"></div>
+							</li>
+							<li>
+								<div class="data_left" ng-bind-html="yingliData[5].name|to_trusted"></div>
+								<div class="data_right canEdit yingliData5" ng-click="showEdit('yingliData5',$event)" ng-bind-html="yingliData[5].count|to_trusted"></div>
+							</li>
+							<li>
+								<div class="data_left" ng-bind-html="yingliData[6].name|to_trusted"></div>
+								<div class="data_right canEdit yingliData6" ng-click="showEdit('yingliData6',$event)" ng-bind-html="yingliData[6].count|to_trusted"></div>
+							</li>
+							<li>
+								<div class="data_left" ng-bind-html="yingliData[7].name|to_trusted"></div>
+								<div class="data_right canEdit yingliData7" ng-click="showEdit('yingliData7',$event)" ng-bind-html="yingliData[7].count|to_trusted"></div>
+							</li>
+						</ul>
+					</div>
+					<div class="condition kuisun">
+						<div class="con_title">亏损客户情况</div>
+						<div class="hxt rightCircle">
+							<div class="inner_circle"></div>
+							<div class="outer_circle"></div>
+						</div>
+						<ul>
+							<li>
+								<div class="data_left" ng-bind-html="kuisunData[0].name|to_trusted"></div>
+								<div class="data_right canEdit kuisunData0" ng-click="showEdit('kuisunData0',$event)" ng-bind-html="kuisunData[0].count|to_trusted"></div>
+							</li>
+							<li>
+								<div class="data_left" ng-bind-html="kuisunData[1].name|to_trusted"></div>
+								<div class="data_right canEdit kuisunData1" ng-click="showEdit('kuisunData1',$event)" ng-bind-html="kuisunData[1].count|to_trusted"></div>
+							</li>
+							<li>
+								<div class="data_left" ng-bind-html="kuisunData[2].name|to_trusted"></div>
+								<div class="data_right canEdit kuisunData2" ng-click="showEdit('kuisunData2',$event)" ng-bind-html="kuisunData[2].count|to_trusted"></div>
+							</li>
+							<li>
+								<div class="data_left" ng-bind-html="kuisunData[3].name|to_trusted"></div>
+								<div class="data_right canEdit kuisunData3" ng-click="showEdit('kuisunData3',$event)" ng-bind-html="kuisunData[3].count|to_trusted"></div>
+							</li>
+							<li>
+								<div class="data_left" ng-bind-html="kuisunData[4].name|to_trusted"></div>
+								<div class="data_right canEdit kuisunData4" ng-click="showEdit('kuisunData4',$event)" ng-bind-html="kuisunData[4].count|to_trusted"></div>
+							</li>
+							<li>
+								<div class="data_left" ng-bind-html="kuisunData[5].name|to_trusted"></div>
+								<div class="data_right canEdit kuisunData5" ng-click="showEdit('kuisunData5',$event)" ng-bind-html="kuisunData[5].count|to_trusted"></div>
+							</li>
+							<li>
+								<div class="data_left" ng-bind-html="kuisunData[6].name|to_trusted"></div>
+								<div class="data_right canEdit kuisunData6" ng-click="showEdit('kuisunData6',$event)" ng-bind-html="kuisunData[6].count|to_trusted"></div>
+							</li>
+							<li>
+								<div class="data_left" ng-bind-html="kuisunData[7].name|to_trusted"></div>
+								<div class="data_right canEdit kuisunData7" ng-click="showEdit('kuisunData7',$event)" ng-bind-html="kuisunData[7].count|to_trusted"></div>
+							</li>
+						</ul>
+					</div>
+				</li>
+				<li class="swiper-slide bg8">
+					<div class="page8_title" ng-bind-html="page8_title|to_trusted"></div>
+					<table class="sy_rank">
+						<tr>
+							<td colspan="5"><img src="img/sy_rank.png"><span>收益排行</span></td>
+						</tr>
+						<tr>
+							<th>名次</th>
+							<th>姓名</th>
+							<th>账户</th>
+							<th>收益金额</th>
+							<th>收益率</th>
+						</tr>
+						<tr>
+							<td ng-bind="sy_records[0].rank"></td>
+							<td class="canEdit sy_records_name0" ng-click="showEdit('sy_records_name0',$event)" ng-bind-html="sy_records[0].name|to_trusted"></td>
+							<td class="canEdit sy_records_account0" ng-click="showEdit('sy_records_account0',$event)" ng-bind-html="sy_records[0].account|to_trusted"></td>
+							<td class="canEdit sy_records_profit0" ng-click="showEdit('sy_records_profit0',$event)" ng-bind-html="sy_records[0].profit|to_trusted"></td>
+							<td class="canEdit sy_records_profitRatio0" ng-click="showEdit('sy_records_profitRatio0',$event)" ng-bind-html="sy_records[0].profitRatio|to_trusted"></td>
+						</tr>
+						<tr>
+							<td ng-bind="sy_records[1].rank"></td>
+							<td class="canEdit sy_records_name1" ng-click="showEdit('sy_records_name1',$event)" ng-bind-html="sy_records[1].name|to_trusted"></td>
+							<td class="canEdit sy_records_account1" ng-click="showEdit('sy_records_account1',$event)" ng-bind-html="sy_records[1].account|to_trusted"></td>
+							<td class="canEdit sy_records_profit1" ng-click="showEdit('sy_records_profit1',$event)" ng-bind-html="sy_records[1].profit|to_trusted"></td>
+							<td class="canEdit sy_records_profitRatio1" ng-click="showEdit('sy_records_profitRatio1',$event)" ng-bind-html="sy_records[1].profitRatio|to_trusted"></td>
+						</tr>
+						<tr>
+							<td ng-bind="sy_records[2].rank"></td>
+							<td class="canEdit sy_records_name2" ng-click="showEdit('sy_records_name2',$event)" ng-bind-html="sy_records[2].name|to_trusted"></td>
+							<td class="canEdit sy_records_account2" ng-click="showEdit('sy_records_account2',$event)" ng-bind-html="sy_records[2].account|to_trusted"></td>
+							<td class="canEdit sy_records_profit2" ng-click="showEdit('sy_records_profit2',$event)" ng-bind-html="sy_records[2].profit|to_trusted"></td>
+							<td class="canEdit sy_records_profitRatio2" ng-click="showEdit('sy_records_profitRatio2',$event)" ng-bind-html="sy_records[2].profitRatio|to_trusted"></td>
+						</tr>
+						<tr>
+							<td ng-bind="sy_records[3].rank"></td>
+							<td class="canEdit sy_records_name3" ng-click="showEdit('sy_records_name3',$event)" ng-bind-html="sy_records[3].name|to_trusted"></td>
+							<td class="canEdit sy_records_account3" ng-click="showEdit('sy_records_account3',$event)" ng-bind-html="sy_records[3].account|to_trusted"></td>
+							<td class="canEdit sy_records_profit3" ng-click="showEdit('sy_records_profit3',$event)" ng-bind-html="sy_records[3].profit|to_trusted"></td>
+							<td class="canEdit sy_records_profitRatio3" ng-click="showEdit('sy_records_profitRatio3',$event)" ng-bind-html="sy_records[3].profitRatio|to_trusted"></td>
+						</tr>
+						<tr>
+							<td ng-bind="sy_records[4].rank"></td>
+							<td class="canEdit sy_records_name4" ng-click="showEdit('sy_records_name4',$event)" ng-bind-html="sy_records[4].name|to_trusted"></td>
+							<td class="canEdit sy_records_account4" ng-click="showEdit('sy_records_account4',$event)" ng-bind-html="sy_records[4].account|to_trusted"></td>
+							<td class="canEdit sy_records_profit4" ng-click="showEdit('sy_records_profit4',$event)" ng-bind-html="sy_records[4].profit|to_trusted"></td>
+							<td class="canEdit sy_records_profitRatio4" ng-click="showEdit('sy_records_profitRatio4',$event)" ng-bind-html="sy_records[4].profitRatio|to_trusted"></td>
+						</tr>
+					</table>
+					<table class="ks_rank">
+						<tr>
+							<td colspan="5"><img src="img/ks_rank.png"><span>亏损排行</span></td>
+						</tr>
+						<tr>
+							<th>名次</th>
+							<th>姓名</th>
+							<th>账户</th>
+							<th>收益金额</th>
+							<th>收益率</th>
+						</tr>
+						<tr>
+							<td ng-bind="ks_records[0].rank"></td>
+							<td class="canEdit ks_records_name0" ng-click="showEdit('ks_records_name0',$event)" ng-bind-html="ks_records[0].name|to_trusted"></td>
+							<td class="canEdit ks_records_account0" ng-click="showEdit('ks_records_account0',$event)" ng-bind-html="ks_records[0].account|to_trusted"></td>
+							<td class="canEdit ks_records_profit0" ng-click="showEdit('ks_records_profit0',$event)" ng-bind-html="ks_records[0].profit|to_trusted"></td>
+							<td class="canEdit ks_records_profitRatio0" ng-click="showEdit('ks_records_profitRatio0',$event)" ng-bind-html="ks_records[0].profitRatio|to_trusted"></td>
+						</tr>
+						<tr>
+							<td ng-bind="ks_records[1].rank"></td>
+							<td class="canEdit ks_records_name1" ng-click="showEdit('ks_records_name1',$event)" ng-bind-html="ks_records[1].name|to_trusted"></td>
+							<td class="canEdit ks_records_account1" ng-click="showEdit('ks_records_account1',$event)" ng-bind-html="ks_records[1].account|to_trusted"></td>
+							<td class="canEdit ks_records_profit1" ng-click="showEdit('ks_records_profit1',$event)" ng-bind-html="ks_records[1].profit|to_trusted"></td>
+							<td class="canEdit ks_records_profitRatio1" ng-click="showEdit('ks_records_profitRatio1',$event)" ng-bind-html="ks_records[1].profitRatio|to_trusted"></td>
+						</tr>
+						<tr>
+							<td ng-bind="ks_records[2].rank"></td>
+							<td class="canEdit ks_records_name2" ng-click="showEdit('ks_records_name2',$event)" ng-bind-html="ks_records[2].name|to_trusted"></td>
+							<td class="canEdit ks_records_account2" ng-click="showEdit('ks_records_account2',$event)" ng-bind-html="ks_records[2].account|to_trusted"></td>
+							<td class="canEdit ks_records_profit2" ng-click="showEdit('ks_records_profit2',$event)" ng-bind-html="ks_records[2].profit|to_trusted"></td>
+							<td class="canEdit ks_records_profitRatio2" ng-click="showEdit('ks_records_profitRatio2',$event)" ng-bind-html="ks_records[2].profitRatio|to_trusted"></td>
+						</tr>
+						<tr>
+							<td ng-bind="ks_records[3].rank"></td>
+							<td class="canEdit ks_records_name3" ng-click="showEdit('ks_records_name3',$event)" ng-bind-html="ks_records[3].name|to_trusted"></td>
+							<td class="canEdit ks_records_account3" ng-click="showEdit('ks_records_account3',$event)" ng-bind-html="ks_records[3].account|to_trusted"></td>
+							<td class="canEdit ks_records_profit3" ng-click="showEdit('ks_records_profit3',$event)" ng-bind-html="ks_records[3].profit|to_trusted"></td>
+							<td class="canEdit ks_records_profitRatio3" ng-click="showEdit('ks_records_profitRatio3',$event)" ng-bind-html="ks_records[3].profitRatio|to_trusted"></td>
+						</tr>
+						<tr>
+							<td ng-bind="ks_records[4].rank"></td>
+							<td class="canEdit ks_records_name4" ng-click="showEdit('ks_records_name4',$event)" ng-bind-html="ks_records[4].name|to_trusted"></td>
+							<td class="canEdit ks_records_account4" ng-click="showEdit('ks_records_account4',$event)" ng-bind-html="ks_records[4].account|to_trusted"></td>
+							<td class="canEdit ks_records_profit4" ng-click="showEdit('ks_records_profit4',$event)" ng-bind-html="ks_records[4].profit|to_trusted"></td>
+							<td class="canEdit ks_records_profitRatio4" ng-click="showEdit('ks_records_profitRatio4',$event)" ng-bind-html="ks_records[4].profitRatio|to_trusted"></td>
+						</tr>
+					</table>
+				</li>
+				<li class="swiper-slide bg9">
+					<div class="page9_title" ng-bind-html="page9_title|to_trusted"></div>
+					<div class="comments" ng-bind-html="comments|to_trusted"></div>
+				</li>
+				<li class="swiper-slide bg10">
+					<div class="page10_title" ng-bind-html="page10_title|to_trusted"></div>
+					<div class="reasons" ng-bind-html="reasons|to_trusted"></div>
+				</li>
+				<li class="swiper-slide bg11">
+					<div class="page11_title" ng-bind-html="page11_title|to_trusted"></div>
+					<div class="suggests" ng-bind-html="suggests|to_trusted"></div>
+				</li>
+				<li class="swiper-slide bg12">
+					<div class="page12_title" ng-bind-html="page12_title|to_trusted"></div>
+					<div class="basicPanel" ng-bind-html="basicPanel|to_trusted"></div>
+					<div class="trangle"></div>
+					<div class="trangle1"></div>
+					<div class="sl leftPanel" ng-bind-html="leftPanel|to_trusted"></div>
+					<div class="sl rightPanel" ng-bind-html="rightPanel|to_trusted"></div>
+				</li>
+			</ul>
+		</div>
+		<script src="js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/angular.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/circle-progress.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.lettering.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.textillate.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+
+	</body>
+
+</html>
